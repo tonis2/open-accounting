@@ -305,3 +305,66 @@ func TestEndToEndFlow(t *testing.T) {
 		t.Fatalf("discoverable login options: %v", err)
 	}
 }
+
+// choosyProvider behaves like the manual provider but needs a profile picked first.
+type choosyProvider struct{ banks.Provider }
+
+func (choosyProvider) ID() string { return "choosy" }
+
+func (c choosyProvider) ConfigFields() []banks.ConfigField {
+	return append(c.Provider.ConfigFields(), banks.ConfigField{Key: "profile_id", Label: "Profile ID", Kind: banks.FieldText})
+}
+
+func (c choosyProvider) Connect(ctx context.Context, cfg banks.Config, cb string) (banks.ConnectResult, error) {
+	if cfg["profile_id"] != "1" && cfg["profile_id"] != "2" {
+		return banks.ConnectResult{}, &banks.ChoiceRequired{Field: "profile_id", Label: "Profile", Options: []banks.Option{{Value: "1", Label: "One"}, {Value: "2", Label: "Two"}}}
+	}
+	return c.Provider.Connect(ctx, cfg, cb)
+}
+
+func TestCreateConnectionChoice(t *testing.T) {
+	s, ctx := newTestServer(t)
+	s.Banks.Register(choosyProvider{manual.New()})
+	authResp, err := s.Register(ctx, &pb.RegisterRequest{Email: "choice@example.com", Name: "C", Password: "supersecret"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	uid, _ := s.Tokens.Parse(authResp.Token)
+	ctx = auth.WithUserID(ctx, uid)
+	co, err := s.CreateCompany(ctx, &pb.Company{Name: "Choice OÜ"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	req := &pb.CreateBankConnectionRequest{CompanyId: co.Id, Provider: "choosy", Config: map[string]string{"account_name": "Main"}}
+	res, err := s.CreateBankConnection(ctx, req)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Connection != nil || res.Choice == nil || res.Choice.Key != "profile_id" || len(res.Choice.Options) != 2 || res.Choice.Options[1].Label != "Two" {
+		t.Fatalf("expected a choice, got %+v", res)
+	}
+	conns, _ := s.ListBankConnections(ctx, &pb.CompanyRequest{CompanyId: co.Id})
+	if len(conns.Items) != 0 {
+		t.Fatalf("no connection should exist yet, got %d", len(conns.Items))
+	}
+	req.Config["profile_id"] = "2"
+	res, err = s.CreateBankConnection(ctx, req)
+	if err != nil || res.Connection == nil || res.Choice != nil {
+		t.Fatalf("connect with choice: %+v %v", res, err)
+	}
+	if res.Connection.Config["profile_id"] != "2" {
+		t.Fatalf("chosen value must be stored, got %q", res.Connection.Config["profile_id"])
+	}
+
+	// Editing with a stale profile asks again; nothing is saved until it is answered.
+	upd := &pb.UpdateBankConnectionRequest{CompanyId: co.Id, Id: res.Connection.Id, Config: map[string]string{"profile_id": "stale"}}
+	ures, err := s.UpdateBankConnection(ctx, upd)
+	if err != nil || ures.Connection != nil || ures.Choice == nil || ures.Choice.Key != "profile_id" {
+		t.Fatalf("update should return a choice, got %+v %v", ures, err)
+	}
+	upd.Config["profile_id"] = "1"
+	ures, err = s.UpdateBankConnection(ctx, upd)
+	if err != nil || ures.Connection == nil || ures.Connection.Config["profile_id"] != "1" {
+		t.Fatalf("update with choice: %+v %v", ures, err)
+	}
+}

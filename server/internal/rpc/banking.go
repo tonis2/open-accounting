@@ -147,7 +147,7 @@ func isSecretField(f banks.ConfigField) bool {
 // UpdateBankConnection changes the name and settings of an existing connection. Empty values
 // keep the stored value, so the form never has to re-send secrets. A successful update clears
 // the error state and syncs immediately.
-func (s *Server) UpdateBankConnection(ctx context.Context, req *pb.UpdateBankConnectionRequest) (*pb.BankConnection, error) {
+func (s *Server) UpdateBankConnection(ctx context.Context, req *pb.UpdateBankConnectionRequest) (*pb.UpdateBankConnectionResponse, error) {
 	if _, _, err := s.requireMember(ctx, req.CompanyId); err != nil {
 		return nil, err
 	}
@@ -183,6 +183,10 @@ func (s *Server) UpdateBankConnection(ctx context.Context, req *pb.UpdateBankCon
 	var state json.RawMessage
 	if !p.NeedsRedirect() {
 		res, err := p.Connect(ctx, cfg, "")
+		var choice *banks.ChoiceRequired
+		if errors.As(err, &choice) {
+			return &pb.UpdateBankConnectionResponse{Choice: choiceToPB(choice)}, nil
+		}
 		if err != nil {
 			return nil, status.Error(codes.FailedPrecondition, "could not connect: "+err.Error())
 		}
@@ -196,7 +200,11 @@ func (s *Server) UpdateBankConnection(ctx context.Context, req *pb.UpdateBankCon
 	if _, err := s.Sync.SyncConnection(ctx, int64(req.Id)); err != nil {
 		slog.Warn("[BANK] sync after update failed", "connection", req.Id, "err", err)
 	}
-	return s.getConnection(ctx, req.CompanyId, req.Id)
+	conn, err := s.getConnection(ctx, req.CompanyId, req.Id)
+	if err != nil {
+		return nil, err
+	}
+	return &pb.UpdateBankConnectionResponse{Connection: conn}, nil
 }
 
 func (s *Server) getConnection(ctx context.Context, companyID, id uint64) (*pb.BankConnection, error) {
@@ -236,6 +244,10 @@ func (s *Server) CreateBankConnection(ctx context.Context, req *pb.CreateBankCon
 	}
 	reference := auth.RandomToken(18)
 	res, err := p.Connect(ctx, cfg, s.callbackURL(reference))
+	var choice *banks.ChoiceRequired
+	if errors.As(err, &choice) {
+		return &pb.CreateBankConnectionResponse{Choice: choiceToPB(choice)}, nil
+	}
 	if err != nil {
 		return nil, status.Error(codes.FailedPrecondition, "could not connect: "+err.Error())
 	}
@@ -264,6 +276,14 @@ func (s *Server) CreateBankConnection(ctx context.Context, req *pb.CreateBankCon
 		return nil, err
 	}
 	return &pb.CreateBankConnectionResponse{Connection: conn, RedirectUrl: res.RedirectURL}, nil
+}
+
+func choiceToPB(c *banks.ChoiceRequired) *pb.ChoiceRequired {
+	out := &pb.ChoiceRequired{Key: c.Field, Label: c.Label}
+	for _, o := range c.Options {
+		out.Options = append(out.Options, &pb.ChoiceOption{Value: o.Value, Label: o.Label})
+	}
+	return out
 }
 
 func stateOrEmpty(st json.RawMessage) json.RawMessage {

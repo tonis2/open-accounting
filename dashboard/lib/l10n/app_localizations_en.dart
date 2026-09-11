@@ -1128,6 +1128,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String selectOne(String label) {
+    return 'Select $label';
+  }
+
+  @override
   String get editConnection => 'Edit connection';
 
   @override

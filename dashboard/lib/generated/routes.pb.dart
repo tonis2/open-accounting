@@ -14,7 +14,8 @@ import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
-import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart' as $1;
+import 'package:protobuf/well_known_types/google/protobuf/timestamp.pb.dart'
+    as $1;
 
 import 'routes.pbenum.dart';
 
@@ -27,18 +28,24 @@ class Empty extends $pb.GeneratedMessage {
 
   Empty._();
 
-  factory Empty.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Empty.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Empty.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Empty.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Empty', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Empty',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Empty clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Empty copyWith(void Function(Empty) updates) => super.copyWith((message) => updates(message as Empty)) as Empty;
+  Empty copyWith(void Function(Empty) updates) =>
+      super.copyWith((message) => updates(message as Empty)) as Empty;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -48,7 +55,8 @@ class Empty extends $pb.GeneratedMessage {
   @$core.override
   Empty createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Empty getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Empty>(create);
+  static Empty getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Empty>(create);
   static Empty? _defaultInstance;
 }
 
@@ -63,19 +71,26 @@ class IdRequest extends $pb.GeneratedMessage {
 
   IdRequest._();
 
-  factory IdRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory IdRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory IdRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory IdRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'IdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'IdRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   IdRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IdRequest copyWith(void Function(IdRequest) updates) => super.copyWith((message) => updates(message as IdRequest)) as IdRequest;
+  IdRequest copyWith(void Function(IdRequest) updates) =>
+      super.copyWith((message) => updates(message as IdRequest)) as IdRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -85,7 +100,8 @@ class IdRequest extends $pb.GeneratedMessage {
   @$core.override
   IdRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static IdRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IdRequest>(create);
+  static IdRequest getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IdRequest>(create);
   static IdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -109,19 +125,28 @@ class CompanyRequest extends $pb.GeneratedMessage {
 
   CompanyRequest._();
 
-  factory CompanyRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CompanyRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory CompanyRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory CompanyRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompanyRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompanyRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CompanyRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CompanyRequest copyWith(void Function(CompanyRequest) updates) => super.copyWith((message) => updates(message as CompanyRequest)) as CompanyRequest;
+  CompanyRequest copyWith(void Function(CompanyRequest) updates) =>
+      super.copyWith((message) => updates(message as CompanyRequest))
+          as CompanyRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -131,7 +156,8 @@ class CompanyRequest extends $pb.GeneratedMessage {
   @$core.override
   CompanyRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static CompanyRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompanyRequest>(create);
+  static CompanyRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CompanyRequest>(create);
   static CompanyRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -157,21 +183,30 @@ class CompanyIdRequest extends $pb.GeneratedMessage {
 
   CompanyIdRequest._();
 
-  factory CompanyIdRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CompanyIdRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory CompanyIdRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CompanyIdRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompanyIdRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompanyIdRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CompanyIdRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CompanyIdRequest copyWith(void Function(CompanyIdRequest) updates) => super.copyWith((message) => updates(message as CompanyIdRequest)) as CompanyIdRequest;
+  CompanyIdRequest copyWith(void Function(CompanyIdRequest) updates) =>
+      super.copyWith((message) => updates(message as CompanyIdRequest))
+          as CompanyIdRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -181,7 +216,8 @@ class CompanyIdRequest extends $pb.GeneratedMessage {
   @$core.override
   CompanyIdRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static CompanyIdRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompanyIdRequest>(create);
+  static CompanyIdRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CompanyIdRequest>(create);
   static CompanyIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -218,13 +254,19 @@ class FileResponse extends $pb.GeneratedMessage {
 
   FileResponse._();
 
-  factory FileResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory FileResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory FileResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory FileResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FileResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FileResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..aOS(2, _omitFieldNames ? '' : 'filename')
     ..aOS(3, _omitFieldNames ? '' : 'mime')
     ..hasRequiredFields = false;
@@ -232,7 +274,9 @@ class FileResponse extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FileResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FileResponse copyWith(void Function(FileResponse) updates) => super.copyWith((message) => updates(message as FileResponse)) as FileResponse;
+  FileResponse copyWith(void Function(FileResponse) updates) =>
+      super.copyWith((message) => updates(message as FileResponse))
+          as FileResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -242,7 +286,8 @@ class FileResponse extends $pb.GeneratedMessage {
   @$core.override
   FileResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static FileResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FileResponse>(create);
+  static FileResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FileResponse>(create);
   static FileResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -292,23 +337,31 @@ class User extends $pb.GeneratedMessage {
 
   User._();
 
-  factory User.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory User.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory User.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory User.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'User', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(2, _omitFieldNames ? '' : 'email')
-        ..aOS(3, _omitFieldNames ? '' : 'name')
-        ..aOB(4, _omitFieldNames ? '' : 'hasPassword')
-        ..aOM<$1.Timestamp>(5, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'User',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'email')
+    ..aOS(3, _omitFieldNames ? '' : 'name')
+    ..aOB(4, _omitFieldNames ? '' : 'hasPassword')
+    ..aOM<$1.Timestamp>(5, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   User clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  User copyWith(void Function(User) updates) => super.copyWith((message) => updates(message as User)) as User;
+  User copyWith(void Function(User) updates) =>
+      super.copyWith((message) => updates(message as User)) as User;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -318,7 +371,8 @@ class User extends $pb.GeneratedMessage {
   @$core.override
   User createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static User getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<User>(create);
+  static User getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<User>(create);
   static User? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -384,13 +438,17 @@ class RegisterRequest extends $pb.GeneratedMessage {
 
   RegisterRequest._();
 
-  factory RegisterRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RegisterRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RegisterRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RegisterRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RegisterRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RegisterRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'email')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'password')
@@ -399,7 +457,9 @@ class RegisterRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RegisterRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RegisterRequest copyWith(void Function(RegisterRequest) updates) => super.copyWith((message) => updates(message as RegisterRequest)) as RegisterRequest;
+  RegisterRequest copyWith(void Function(RegisterRequest) updates) =>
+      super.copyWith((message) => updates(message as RegisterRequest))
+          as RegisterRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -409,7 +469,8 @@ class RegisterRequest extends $pb.GeneratedMessage {
   @$core.override
   RegisterRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RegisterRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RegisterRequest>(create);
+  static RegisterRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RegisterRequest>(create);
   static RegisterRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -453,12 +514,17 @@ class LoginRequest extends $pb.GeneratedMessage {
 
   LoginRequest._();
 
-  factory LoginRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory LoginRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory LoginRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory LoginRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LoginRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'email')
     ..aOS(2, _omitFieldNames ? '' : 'password')
     ..hasRequiredFields = false;
@@ -466,7 +532,9 @@ class LoginRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   LoginRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LoginRequest copyWith(void Function(LoginRequest) updates) => super.copyWith((message) => updates(message as LoginRequest)) as LoginRequest;
+  LoginRequest copyWith(void Function(LoginRequest) updates) =>
+      super.copyWith((message) => updates(message as LoginRequest))
+          as LoginRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -476,7 +544,8 @@ class LoginRequest extends $pb.GeneratedMessage {
   @$core.override
   LoginRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static LoginRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LoginRequest>(create);
+  static LoginRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<LoginRequest>(create);
   static LoginRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -511,12 +580,17 @@ class AuthResponse extends $pb.GeneratedMessage {
 
   AuthResponse._();
 
-  factory AuthResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory AuthResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory AuthResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory AuthResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AuthResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'token')
     ..aOM<User>(2, _omitFieldNames ? '' : 'user', subBuilder: User.create)
     ..hasRequiredFields = false;
@@ -524,7 +598,9 @@ class AuthResponse extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthResponse copyWith(void Function(AuthResponse) updates) => super.copyWith((message) => updates(message as AuthResponse)) as AuthResponse;
+  AuthResponse copyWith(void Function(AuthResponse) updates) =>
+      super.copyWith((message) => updates(message as AuthResponse))
+          as AuthResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -534,7 +610,8 @@ class AuthResponse extends $pb.GeneratedMessage {
   @$core.override
   AuthResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static AuthResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AuthResponse>(create);
+  static AuthResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthResponse>(create);
   static AuthResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -569,21 +646,27 @@ class RequestRecoveryRequest extends $pb.GeneratedMessage {
 
   RequestRecoveryRequest._();
 
-  factory RequestRecoveryRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RequestRecoveryRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RequestRecoveryRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RequestRecoveryRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RequestRecoveryRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RequestRecoveryRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'email')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RequestRecoveryRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RequestRecoveryRequest copyWith(void Function(RequestRecoveryRequest) updates) =>
-      super.copyWith((message) => updates(message as RequestRecoveryRequest)) as RequestRecoveryRequest;
+  RequestRecoveryRequest copyWith(
+          void Function(RequestRecoveryRequest) updates) =>
+      super.copyWith((message) => updates(message as RequestRecoveryRequest))
+          as RequestRecoveryRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -593,7 +676,8 @@ class RequestRecoveryRequest extends $pb.GeneratedMessage {
   @$core.override
   RequestRecoveryRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RequestRecoveryRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RequestRecoveryRequest>(create);
+  static RequestRecoveryRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RequestRecoveryRequest>(create);
   static RequestRecoveryRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -617,13 +701,17 @@ class RecoveryTokenRequest extends $pb.GeneratedMessage {
 
   RecoveryTokenRequest._();
 
-  factory RecoveryTokenRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RecoveryTokenRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RecoveryTokenRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RecoveryTokenRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RecoveryTokenRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RecoveryTokenRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'token')
     ..hasRequiredFields = false;
 
@@ -631,7 +719,8 @@ class RecoveryTokenRequest extends $pb.GeneratedMessage {
   RecoveryTokenRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RecoveryTokenRequest copyWith(void Function(RecoveryTokenRequest) updates) =>
-      super.copyWith((message) => updates(message as RecoveryTokenRequest)) as RecoveryTokenRequest;
+      super.copyWith((message) => updates(message as RecoveryTokenRequest))
+          as RecoveryTokenRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -641,7 +730,8 @@ class RecoveryTokenRequest extends $pb.GeneratedMessage {
   @$core.override
   RecoveryTokenRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RecoveryTokenRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RecoveryTokenRequest>(create);
+  static RecoveryTokenRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RecoveryTokenRequest>(create);
   static RecoveryTokenRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -667,13 +757,17 @@ class RecoveryTokenResponse extends $pb.GeneratedMessage {
 
   RecoveryTokenResponse._();
 
-  factory RecoveryTokenResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RecoveryTokenResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RecoveryTokenResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RecoveryTokenResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RecoveryTokenResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RecoveryTokenResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'valid')
     ..aOS(2, _omitFieldNames ? '' : 'email')
     ..hasRequiredFields = false;
@@ -681,8 +775,10 @@ class RecoveryTokenResponse extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RecoveryTokenResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RecoveryTokenResponse copyWith(void Function(RecoveryTokenResponse) updates) =>
-      super.copyWith((message) => updates(message as RecoveryTokenResponse)) as RecoveryTokenResponse;
+  RecoveryTokenResponse copyWith(
+          void Function(RecoveryTokenResponse) updates) =>
+      super.copyWith((message) => updates(message as RecoveryTokenResponse))
+          as RecoveryTokenResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -692,7 +788,8 @@ class RecoveryTokenResponse extends $pb.GeneratedMessage {
   @$core.override
   RecoveryTokenResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RecoveryTokenResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RecoveryTokenResponse>(create);
+  static RecoveryTokenResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RecoveryTokenResponse>(create);
   static RecoveryTokenResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -727,13 +824,17 @@ class RecoverAccountRequest extends $pb.GeneratedMessage {
 
   RecoverAccountRequest._();
 
-  factory RecoverAccountRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RecoverAccountRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory RecoverAccountRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RecoverAccountRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RecoverAccountRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RecoverAccountRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'token')
     ..aOS(2, _omitFieldNames ? '' : 'newPassword')
     ..hasRequiredFields = false;
@@ -741,8 +842,10 @@ class RecoverAccountRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RecoverAccountRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RecoverAccountRequest copyWith(void Function(RecoverAccountRequest) updates) =>
-      super.copyWith((message) => updates(message as RecoverAccountRequest)) as RecoverAccountRequest;
+  RecoverAccountRequest copyWith(
+          void Function(RecoverAccountRequest) updates) =>
+      super.copyWith((message) => updates(message as RecoverAccountRequest))
+          as RecoverAccountRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -752,7 +855,8 @@ class RecoverAccountRequest extends $pb.GeneratedMessage {
   @$core.override
   RecoverAccountRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static RecoverAccountRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RecoverAccountRequest>(create);
+  static RecoverAccountRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RecoverAccountRequest>(create);
   static RecoverAccountRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -787,13 +891,17 @@ class ChangePasswordRequest extends $pb.GeneratedMessage {
 
   ChangePasswordRequest._();
 
-  factory ChangePasswordRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ChangePasswordRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ChangePasswordRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ChangePasswordRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ChangePasswordRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChangePasswordRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'currentPassword')
     ..aOS(2, _omitFieldNames ? '' : 'newPassword')
     ..hasRequiredFields = false;
@@ -801,8 +909,10 @@ class ChangePasswordRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ChangePasswordRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ChangePasswordRequest copyWith(void Function(ChangePasswordRequest) updates) =>
-      super.copyWith((message) => updates(message as ChangePasswordRequest)) as ChangePasswordRequest;
+  ChangePasswordRequest copyWith(
+          void Function(ChangePasswordRequest) updates) =>
+      super.copyWith((message) => updates(message as ChangePasswordRequest))
+          as ChangePasswordRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -812,7 +922,8 @@ class ChangePasswordRequest extends $pb.GeneratedMessage {
   @$core.override
   ChangePasswordRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ChangePasswordRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ChangePasswordRequest>(create);
+  static ChangePasswordRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChangePasswordRequest>(create);
   static ChangePasswordRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -845,21 +956,27 @@ class BeginPasskeyLoginRequest extends $pb.GeneratedMessage {
 
   BeginPasskeyLoginRequest._();
 
-  factory BeginPasskeyLoginRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BeginPasskeyLoginRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BeginPasskeyLoginRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BeginPasskeyLoginRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BeginPasskeyLoginRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BeginPasskeyLoginRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'email')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BeginPasskeyLoginRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BeginPasskeyLoginRequest copyWith(void Function(BeginPasskeyLoginRequest) updates) =>
-      super.copyWith((message) => updates(message as BeginPasskeyLoginRequest)) as BeginPasskeyLoginRequest;
+  BeginPasskeyLoginRequest copyWith(
+          void Function(BeginPasskeyLoginRequest) updates) =>
+      super.copyWith((message) => updates(message as BeginPasskeyLoginRequest))
+          as BeginPasskeyLoginRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -869,7 +986,8 @@ class BeginPasskeyLoginRequest extends $pb.GeneratedMessage {
   @$core.override
   BeginPasskeyLoginRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BeginPasskeyLoginRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BeginPasskeyLoginRequest>(create);
+  static BeginPasskeyLoginRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BeginPasskeyLoginRequest>(create);
   static BeginPasskeyLoginRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -896,13 +1014,17 @@ class PasskeyOptionsResponse extends $pb.GeneratedMessage {
 
   PasskeyOptionsResponse._();
 
-  factory PasskeyOptionsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory PasskeyOptionsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory PasskeyOptionsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory PasskeyOptionsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PasskeyOptionsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PasskeyOptionsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'sessionId')
     ..aOS(2, _omitFieldNames ? '' : 'optionsJson')
     ..hasRequiredFields = false;
@@ -910,8 +1032,10 @@ class PasskeyOptionsResponse extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PasskeyOptionsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PasskeyOptionsResponse copyWith(void Function(PasskeyOptionsResponse) updates) =>
-      super.copyWith((message) => updates(message as PasskeyOptionsResponse)) as PasskeyOptionsResponse;
+  PasskeyOptionsResponse copyWith(
+          void Function(PasskeyOptionsResponse) updates) =>
+      super.copyWith((message) => updates(message as PasskeyOptionsResponse))
+          as PasskeyOptionsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -921,7 +1045,8 @@ class PasskeyOptionsResponse extends $pb.GeneratedMessage {
   @$core.override
   PasskeyOptionsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static PasskeyOptionsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PasskeyOptionsResponse>(create);
+  static PasskeyOptionsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PasskeyOptionsResponse>(create);
   static PasskeyOptionsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -959,13 +1084,17 @@ class FinishPasskeyRequest extends $pb.GeneratedMessage {
 
   FinishPasskeyRequest._();
 
-  factory FinishPasskeyRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory FinishPasskeyRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory FinishPasskeyRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory FinishPasskeyRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FinishPasskeyRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FinishPasskeyRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'sessionId')
     ..aOS(2, _omitFieldNames ? '' : 'credentialJson')
     ..aOS(3, _omitFieldNames ? '' : 'name')
@@ -975,7 +1104,8 @@ class FinishPasskeyRequest extends $pb.GeneratedMessage {
   FinishPasskeyRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FinishPasskeyRequest copyWith(void Function(FinishPasskeyRequest) updates) =>
-      super.copyWith((message) => updates(message as FinishPasskeyRequest)) as FinishPasskeyRequest;
+      super.copyWith((message) => updates(message as FinishPasskeyRequest))
+          as FinishPasskeyRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -985,7 +1115,8 @@ class FinishPasskeyRequest extends $pb.GeneratedMessage {
   @$core.override
   FinishPasskeyRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static FinishPasskeyRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FinishPasskeyRequest>(create);
+  static FinishPasskeyRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FinishPasskeyRequest>(create);
   static FinishPasskeyRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1033,22 +1164,31 @@ class Passkey extends $pb.GeneratedMessage {
 
   Passkey._();
 
-  factory Passkey.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Passkey.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Passkey.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Passkey.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Passkey', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(2, _omitFieldNames ? '' : 'name')
-        ..aOM<$1.Timestamp>(3, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-        ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'lastUsedAt', subBuilder: $1.Timestamp.create)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Passkey',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOM<$1.Timestamp>(3, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'lastUsedAt',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Passkey clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Passkey copyWith(void Function(Passkey) updates) => super.copyWith((message) => updates(message as Passkey)) as Passkey;
+  Passkey copyWith(void Function(Passkey) updates) =>
+      super.copyWith((message) => updates(message as Passkey)) as Passkey;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1058,7 +1198,8 @@ class Passkey extends $pb.GeneratedMessage {
   @$core.override
   Passkey createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Passkey getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Passkey>(create);
+  static Passkey getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Passkey>(create);
   static Passkey? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1113,21 +1254,27 @@ class ListPasskeysResponse extends $pb.GeneratedMessage {
 
   ListPasskeysResponse._();
 
-  factory ListPasskeysResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListPasskeysResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListPasskeysResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListPasskeysResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListPasskeysResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Passkey>(1, _omitFieldNames ? '' : 'items', subBuilder: Passkey.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListPasskeysResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Passkey>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Passkey.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListPasskeysResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListPasskeysResponse copyWith(void Function(ListPasskeysResponse) updates) =>
-      super.copyWith((message) => updates(message as ListPasskeysResponse)) as ListPasskeysResponse;
+      super.copyWith((message) => updates(message as ListPasskeysResponse))
+          as ListPasskeysResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1137,7 +1284,8 @@ class ListPasskeysResponse extends $pb.GeneratedMessage {
   @$core.override
   ListPasskeysResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListPasskeysResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListPasskeysResponse>(create);
+  static ListPasskeysResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListPasskeysResponse>(create);
   static ListPasskeysResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1185,34 +1333,44 @@ class Company extends $pb.GeneratedMessage {
 
   Company._();
 
-  factory Company.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Company.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Company.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Company.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Company', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(2, _omitFieldNames ? '' : 'name')
-        ..aOS(3, _omitFieldNames ? '' : 'regNumber')
-        ..aOS(4, _omitFieldNames ? '' : 'vatNumber')
-        ..aOS(5, _omitFieldNames ? '' : 'address')
-        ..aOS(6, _omitFieldNames ? '' : 'email')
-        ..aOS(7, _omitFieldNames ? '' : 'phone')
-        ..aOS(8, _omitFieldNames ? '' : 'iban')
-        ..aOS(9, _omitFieldNames ? '' : 'bankName')
-        ..aOS(10, _omitFieldNames ? '' : 'currency')
-        ..aOS(11, _omitFieldNames ? '' : 'invoicePrefix')
-        ..aI(12, _omitFieldNames ? '' : 'nextInvoiceNumber', fieldType: $pb.PbFieldType.OU3)
-        ..aOS(13, _omitFieldNames ? '' : 'defaultVatRate')
-        ..aI(14, _omitFieldNames ? '' : 'defaultDueDays', fieldType: $pb.PbFieldType.OU3)
-        ..aOS(15, _omitFieldNames ? '' : 'role')
-        ..aOM<$1.Timestamp>(16, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Company',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOS(3, _omitFieldNames ? '' : 'regNumber')
+    ..aOS(4, _omitFieldNames ? '' : 'vatNumber')
+    ..aOS(5, _omitFieldNames ? '' : 'address')
+    ..aOS(6, _omitFieldNames ? '' : 'email')
+    ..aOS(7, _omitFieldNames ? '' : 'phone')
+    ..aOS(8, _omitFieldNames ? '' : 'iban')
+    ..aOS(9, _omitFieldNames ? '' : 'bankName')
+    ..aOS(10, _omitFieldNames ? '' : 'currency')
+    ..aOS(11, _omitFieldNames ? '' : 'invoicePrefix')
+    ..aI(12, _omitFieldNames ? '' : 'nextInvoiceNumber',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aOS(13, _omitFieldNames ? '' : 'defaultVatRate')
+    ..aI(14, _omitFieldNames ? '' : 'defaultDueDays',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aOS(15, _omitFieldNames ? '' : 'role')
+    ..aOM<$1.Timestamp>(16, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Company clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Company copyWith(void Function(Company) updates) => super.copyWith((message) => updates(message as Company)) as Company;
+  Company copyWith(void Function(Company) updates) =>
+      super.copyWith((message) => updates(message as Company)) as Company;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1222,7 +1380,8 @@ class Company extends $pb.GeneratedMessage {
   @$core.override
   Company createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Company getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Company>(create);
+  static Company getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Company>(create);
   static Company? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1383,21 +1542,28 @@ class ListCompaniesResponse extends $pb.GeneratedMessage {
 
   ListCompaniesResponse._();
 
-  factory ListCompaniesResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListCompaniesResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListCompaniesResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListCompaniesResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListCompaniesResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Company>(1, _omitFieldNames ? '' : 'items', subBuilder: Company.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListCompaniesResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Company>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Company.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListCompaniesResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListCompaniesResponse copyWith(void Function(ListCompaniesResponse) updates) =>
-      super.copyWith((message) => updates(message as ListCompaniesResponse)) as ListCompaniesResponse;
+  ListCompaniesResponse copyWith(
+          void Function(ListCompaniesResponse) updates) =>
+      super.copyWith((message) => updates(message as ListCompaniesResponse))
+          as ListCompaniesResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1407,7 +1573,8 @@ class ListCompaniesResponse extends $pb.GeneratedMessage {
   @$core.override
   ListCompaniesResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListCompaniesResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListCompaniesResponse>(create);
+  static ListCompaniesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListCompaniesResponse>(create);
   static ListCompaniesResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1451,32 +1618,43 @@ class Project extends $pb.GeneratedMessage {
 
   Project._();
 
-  factory Project.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Project.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Project.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Project.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Project', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(3, _omitFieldNames ? '' : 'name')
-        ..aOS(4, _omitFieldNames ? '' : 'email')
-        ..aOS(5, _omitFieldNames ? '' : 'description')
-        ..aOS(6, _omitFieldNames ? '' : 'contactName')
-        ..aOS(7, _omitFieldNames ? '' : 'address')
-        ..aOS(8, _omitFieldNames ? '' : 'regNumber')
-        ..aOS(9, _omitFieldNames ? '' : 'vatNumber')
-        ..aOB(10, _omitFieldNames ? '' : 'isActive')
-        ..aOM<$1.Timestamp>(11, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-        ..aInt64(12, _omitFieldNames ? '' : 'invoicedCents')
-        ..aInt64(13, _omitFieldNames ? '' : 'outstandingCents')
-        ..aI(14, _omitFieldNames ? '' : 'invoiceCount', fieldType: $pb.PbFieldType.OU3)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Project',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'name')
+    ..aOS(4, _omitFieldNames ? '' : 'email')
+    ..aOS(5, _omitFieldNames ? '' : 'description')
+    ..aOS(6, _omitFieldNames ? '' : 'contactName')
+    ..aOS(7, _omitFieldNames ? '' : 'address')
+    ..aOS(8, _omitFieldNames ? '' : 'regNumber')
+    ..aOS(9, _omitFieldNames ? '' : 'vatNumber')
+    ..aOB(10, _omitFieldNames ? '' : 'isActive')
+    ..aOM<$1.Timestamp>(11, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..aInt64(12, _omitFieldNames ? '' : 'invoicedCents')
+    ..aInt64(13, _omitFieldNames ? '' : 'outstandingCents')
+    ..aI(14, _omitFieldNames ? '' : 'invoiceCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Project clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Project copyWith(void Function(Project) updates) => super.copyWith((message) => updates(message as Project)) as Project;
+  Project copyWith(void Function(Project) updates) =>
+      super.copyWith((message) => updates(message as Project)) as Project;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1486,7 +1664,8 @@ class Project extends $pb.GeneratedMessage {
   @$core.override
   Project createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Project getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Project>(create);
+  static Project getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Project>(create);
   static Project? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1632,14 +1811,20 @@ class ListProjectsRequest extends $pb.GeneratedMessage {
 
   ListProjectsRequest._();
 
-  factory ListProjectsRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListProjectsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListProjectsRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListProjectsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListProjectsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListProjectsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOB(2, _omitFieldNames ? '' : 'includeInactive')
     ..hasRequiredFields = false;
 
@@ -1647,7 +1832,8 @@ class ListProjectsRequest extends $pb.GeneratedMessage {
   ListProjectsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListProjectsRequest copyWith(void Function(ListProjectsRequest) updates) =>
-      super.copyWith((message) => updates(message as ListProjectsRequest)) as ListProjectsRequest;
+      super.copyWith((message) => updates(message as ListProjectsRequest))
+          as ListProjectsRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1657,7 +1843,8 @@ class ListProjectsRequest extends $pb.GeneratedMessage {
   @$core.override
   ListProjectsRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListProjectsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListProjectsRequest>(create);
+  static ListProjectsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListProjectsRequest>(create);
   static ListProjectsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1690,21 +1877,27 @@ class ListProjectsResponse extends $pb.GeneratedMessage {
 
   ListProjectsResponse._();
 
-  factory ListProjectsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListProjectsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListProjectsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListProjectsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListProjectsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Project>(1, _omitFieldNames ? '' : 'items', subBuilder: Project.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListProjectsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Project>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Project.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListProjectsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListProjectsResponse copyWith(void Function(ListProjectsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListProjectsResponse)) as ListProjectsResponse;
+      super.copyWith((message) => updates(message as ListProjectsResponse))
+          as ListProjectsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1714,7 +1907,8 @@ class ListProjectsResponse extends $pb.GeneratedMessage {
   @$core.override
   ListProjectsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListProjectsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListProjectsResponse>(create);
+  static ListProjectsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListProjectsResponse>(create);
   static ListProjectsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1740,23 +1934,33 @@ class Category extends $pb.GeneratedMessage {
 
   Category._();
 
-  factory Category.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Category.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Category.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Category.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Category', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(3, _omitFieldNames ? '' : 'name')
-        ..aE<CategoryKind>(4, _omitFieldNames ? '' : 'kind', enumValues: CategoryKind.values)
-        ..aI(5, _omitFieldNames ? '' : 'sortOrder', fieldType: $pb.PbFieldType.OU3)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Category',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'name')
+    ..aE<CategoryKind>(4, _omitFieldNames ? '' : 'kind',
+        enumValues: CategoryKind.values)
+    ..aI(5, _omitFieldNames ? '' : 'sortOrder', fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Category clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Category copyWith(void Function(Category) updates) => super.copyWith((message) => updates(message as Category)) as Category;
+  Category copyWith(void Function(Category) updates) =>
+      super.copyWith((message) => updates(message as Category)) as Category;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1766,7 +1970,8 @@ class Category extends $pb.GeneratedMessage {
   @$core.override
   Category createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Category getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Category>(create);
+  static Category getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Category>(create);
   static Category? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1826,21 +2031,28 @@ class ListCategoriesResponse extends $pb.GeneratedMessage {
 
   ListCategoriesResponse._();
 
-  factory ListCategoriesResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListCategoriesResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListCategoriesResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListCategoriesResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListCategoriesResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Category>(1, _omitFieldNames ? '' : 'items', subBuilder: Category.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListCategoriesResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Category>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Category.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListCategoriesResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListCategoriesResponse copyWith(void Function(ListCategoriesResponse) updates) =>
-      super.copyWith((message) => updates(message as ListCategoriesResponse)) as ListCategoriesResponse;
+  ListCategoriesResponse copyWith(
+          void Function(ListCategoriesResponse) updates) =>
+      super.copyWith((message) => updates(message as ListCategoriesResponse))
+          as ListCategoriesResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1850,7 +2062,8 @@ class ListCategoriesResponse extends $pb.GeneratedMessage {
   @$core.override
   ListCategoriesResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListCategoriesResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListCategoriesResponse>(create);
+  static ListCategoriesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListCategoriesResponse>(create);
   static ListCategoriesResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1882,13 +2095,19 @@ class InvoiceItem extends $pb.GeneratedMessage {
 
   InvoiceItem._();
 
-  factory InvoiceItem.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory InvoiceItem.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory InvoiceItem.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory InvoiceItem.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InvoiceItem',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InvoiceItem',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aI(2, _omitFieldNames ? '' : 'position', fieldType: $pb.PbFieldType.OU3)
     ..aOS(3, _omitFieldNames ? '' : 'description')
     ..aOS(4, _omitFieldNames ? '' : 'quantity')
@@ -1901,7 +2120,9 @@ class InvoiceItem extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   InvoiceItem clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InvoiceItem copyWith(void Function(InvoiceItem) updates) => super.copyWith((message) => updates(message as InvoiceItem)) as InvoiceItem;
+  InvoiceItem copyWith(void Function(InvoiceItem) updates) =>
+      super.copyWith((message) => updates(message as InvoiceItem))
+          as InvoiceItem;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1911,7 +2132,8 @@ class InvoiceItem extends $pb.GeneratedMessage {
   @$core.override
   InvoiceItem createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static InvoiceItem getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InvoiceItem>(create);
+  static InvoiceItem getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InvoiceItem>(create);
   static InvoiceItem? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2036,38 +2258,56 @@ class Invoice extends $pb.GeneratedMessage {
 
   Invoice._();
 
-  factory Invoice.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Invoice.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Invoice.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Invoice.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Invoice', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'projectId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(4, _omitFieldNames ? '' : 'projectName')
-        ..aOS(5, _omitFieldNames ? '' : 'number')
-        ..aE<InvoiceStatus>(6, _omitFieldNames ? '' : 'status', enumValues: InvoiceStatus.values)
-        ..aOS(7, _omitFieldNames ? '' : 'issueDate')
-        ..aOS(8, _omitFieldNames ? '' : 'dueDate')
-        ..aOS(9, _omitFieldNames ? '' : 'currency')
-        ..aInt64(10, _omitFieldNames ? '' : 'subtotalCents')
-        ..aInt64(11, _omitFieldNames ? '' : 'vatCents')
-        ..aInt64(12, _omitFieldNames ? '' : 'totalCents')
-        ..aOS(13, _omitFieldNames ? '' : 'notes')
-        ..aOS(14, _omitFieldNames ? '' : 'reference')
-        ..aOM<$1.Timestamp>(15, _omitFieldNames ? '' : 'paidAt', subBuilder: $1.Timestamp.create)
-        ..a<$fixnum.Int64>(16, _omitFieldNames ? '' : 'paidTransactionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOM<$1.Timestamp>(17, _omitFieldNames ? '' : 'sentAt', subBuilder: $1.Timestamp.create)
-        ..aOM<$1.Timestamp>(18, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-        ..pPM<InvoiceItem>(19, _omitFieldNames ? '' : 'items', subBuilder: InvoiceItem.create)
-        ..aOB(20, _omitFieldNames ? '' : 'isOverdue')
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Invoice',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'projectId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(4, _omitFieldNames ? '' : 'projectName')
+    ..aOS(5, _omitFieldNames ? '' : 'number')
+    ..aE<InvoiceStatus>(6, _omitFieldNames ? '' : 'status',
+        enumValues: InvoiceStatus.values)
+    ..aOS(7, _omitFieldNames ? '' : 'issueDate')
+    ..aOS(8, _omitFieldNames ? '' : 'dueDate')
+    ..aOS(9, _omitFieldNames ? '' : 'currency')
+    ..aInt64(10, _omitFieldNames ? '' : 'subtotalCents')
+    ..aInt64(11, _omitFieldNames ? '' : 'vatCents')
+    ..aInt64(12, _omitFieldNames ? '' : 'totalCents')
+    ..aOS(13, _omitFieldNames ? '' : 'notes')
+    ..aOS(14, _omitFieldNames ? '' : 'reference')
+    ..aOM<$1.Timestamp>(15, _omitFieldNames ? '' : 'paidAt',
+        subBuilder: $1.Timestamp.create)
+    ..a<$fixnum.Int64>(
+        16, _omitFieldNames ? '' : 'paidTransactionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.Timestamp>(17, _omitFieldNames ? '' : 'sentAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(18, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..pPM<InvoiceItem>(19, _omitFieldNames ? '' : 'items',
+        subBuilder: InvoiceItem.create)
+    ..aOB(20, _omitFieldNames ? '' : 'isOverdue')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Invoice clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Invoice copyWith(void Function(Invoice) updates) => super.copyWith((message) => updates(message as Invoice)) as Invoice;
+  Invoice copyWith(void Function(Invoice) updates) =>
+      super.copyWith((message) => updates(message as Invoice)) as Invoice;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2077,7 +2317,8 @@ class Invoice extends $pb.GeneratedMessage {
   @$core.override
   Invoice createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Invoice getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Invoice>(create);
+  static Invoice getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Invoice>(create);
   static Invoice? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2282,16 +2523,25 @@ class ListInvoicesRequest extends $pb.GeneratedMessage {
 
   ListInvoicesRequest._();
 
-  factory ListInvoicesRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInvoicesRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListInvoicesRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInvoicesRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListInvoicesRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aE<InvoiceStatus>(2, _omitFieldNames ? '' : 'status', enumValues: InvoiceStatus.values)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'projectId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListInvoicesRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aE<InvoiceStatus>(2, _omitFieldNames ? '' : 'status',
+        enumValues: InvoiceStatus.values)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'projectId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOB(4, _omitFieldNames ? '' : 'onlyOverdue')
     ..aI(5, _omitFieldNames ? '' : 'page', fieldType: $pb.PbFieldType.OU3)
     ..aI(6, _omitFieldNames ? '' : 'pageSize', fieldType: $pb.PbFieldType.OU3)
@@ -2301,7 +2551,8 @@ class ListInvoicesRequest extends $pb.GeneratedMessage {
   ListInvoicesRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListInvoicesRequest copyWith(void Function(ListInvoicesRequest) updates) =>
-      super.copyWith((message) => updates(message as ListInvoicesRequest)) as ListInvoicesRequest;
+      super.copyWith((message) => updates(message as ListInvoicesRequest))
+          as ListInvoicesRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2311,7 +2562,8 @@ class ListInvoicesRequest extends $pb.GeneratedMessage {
   @$core.override
   ListInvoicesRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListInvoicesRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListInvoicesRequest>(create);
+  static ListInvoicesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListInvoicesRequest>(create);
   static ListInvoicesRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2382,14 +2634,19 @@ class ListInvoicesResponse extends $pb.GeneratedMessage {
 
   ListInvoicesResponse._();
 
-  factory ListInvoicesResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInvoicesResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListInvoicesResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInvoicesResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListInvoicesResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Invoice>(1, _omitFieldNames ? '' : 'items', subBuilder: Invoice.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListInvoicesResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Invoice>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Invoice.create)
     ..aI(2, _omitFieldNames ? '' : 'total', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
@@ -2397,7 +2654,8 @@ class ListInvoicesResponse extends $pb.GeneratedMessage {
   ListInvoicesResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListInvoicesResponse copyWith(void Function(ListInvoicesResponse) updates) =>
-      super.copyWith((message) => updates(message as ListInvoicesResponse)) as ListInvoicesResponse;
+      super.copyWith((message) => updates(message as ListInvoicesResponse))
+          as ListInvoicesResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2407,7 +2665,8 @@ class ListInvoicesResponse extends $pb.GeneratedMessage {
   @$core.override
   ListInvoicesResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListInvoicesResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListInvoicesResponse>(create);
+  static ListInvoicesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListInvoicesResponse>(create);
   static ListInvoicesResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2440,24 +2699,35 @@ class MarkInvoicePaidRequest extends $pb.GeneratedMessage {
 
   MarkInvoicePaidRequest._();
 
-  factory MarkInvoicePaidRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory MarkInvoicePaidRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory MarkInvoicePaidRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory MarkInvoicePaidRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MarkInvoicePaidRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MarkInvoicePaidRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(4, _omitFieldNames ? '' : 'paidDate')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   MarkInvoicePaidRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  MarkInvoicePaidRequest copyWith(void Function(MarkInvoicePaidRequest) updates) =>
-      super.copyWith((message) => updates(message as MarkInvoicePaidRequest)) as MarkInvoicePaidRequest;
+  MarkInvoicePaidRequest copyWith(
+          void Function(MarkInvoicePaidRequest) updates) =>
+      super.copyWith((message) => updates(message as MarkInvoicePaidRequest))
+          as MarkInvoicePaidRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2467,7 +2737,8 @@ class MarkInvoicePaidRequest extends $pb.GeneratedMessage {
   @$core.override
   MarkInvoicePaidRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static MarkInvoicePaidRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MarkInvoicePaidRequest>(create);
+  static MarkInvoicePaidRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MarkInvoicePaidRequest>(create);
   static MarkInvoicePaidRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2530,16 +2801,22 @@ class ConfigField extends $pb.GeneratedMessage {
 
   ConfigField._();
 
-  factory ConfigField.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ConfigField.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ConfigField.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ConfigField.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConfigField',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConfigField',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..aOS(2, _omitFieldNames ? '' : 'label')
     ..aOS(3, _omitFieldNames ? '' : 'hint')
-    ..aE<FieldKind>(4, _omitFieldNames ? '' : 'kind', enumValues: FieldKind.values)
+    ..aE<FieldKind>(4, _omitFieldNames ? '' : 'kind',
+        enumValues: FieldKind.values)
     ..pPS(5, _omitFieldNames ? '' : 'options')
     ..aOB(6, _omitFieldNames ? '' : 'required')
     ..aOS(7, _omitFieldNames ? '' : 'defaultValue')
@@ -2548,7 +2825,9 @@ class ConfigField extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ConfigField clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ConfigField copyWith(void Function(ConfigField) updates) => super.copyWith((message) => updates(message as ConfigField)) as ConfigField;
+  ConfigField copyWith(void Function(ConfigField) updates) =>
+      super.copyWith((message) => updates(message as ConfigField))
+          as ConfigField;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2558,7 +2837,8 @@ class ConfigField extends $pb.GeneratedMessage {
   @$core.override
   ConfigField createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ConfigField getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConfigField>(create);
+  static ConfigField getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ConfigField>(create);
   static ConfigField? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2640,16 +2920,22 @@ class BankProvider extends $pb.GeneratedMessage {
 
   BankProvider._();
 
-  factory BankProvider.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BankProvider.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BankProvider.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BankProvider.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankProvider',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BankProvider',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'description')
-    ..pPM<ConfigField>(4, _omitFieldNames ? '' : 'configFields', subBuilder: ConfigField.create)
+    ..pPM<ConfigField>(4, _omitFieldNames ? '' : 'configFields',
+        subBuilder: ConfigField.create)
     ..aOB(5, _omitFieldNames ? '' : 'needsRedirect')
     ..aOB(6, _omitFieldNames ? '' : 'hasInstitutions')
     ..hasRequiredFields = false;
@@ -2657,7 +2943,9 @@ class BankProvider extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BankProvider clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BankProvider copyWith(void Function(BankProvider) updates) => super.copyWith((message) => updates(message as BankProvider)) as BankProvider;
+  BankProvider copyWith(void Function(BankProvider) updates) =>
+      super.copyWith((message) => updates(message as BankProvider))
+          as BankProvider;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2667,7 +2955,8 @@ class BankProvider extends $pb.GeneratedMessage {
   @$core.override
   BankProvider createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BankProvider getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BankProvider>(create);
+  static BankProvider getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BankProvider>(create);
   static BankProvider? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2730,21 +3019,28 @@ class ListBankProvidersResponse extends $pb.GeneratedMessage {
 
   ListBankProvidersResponse._();
 
-  factory ListBankProvidersResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListBankProvidersResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListBankProvidersResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListBankProvidersResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListBankProvidersResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<BankProvider>(1, _omitFieldNames ? '' : 'items', subBuilder: BankProvider.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListBankProvidersResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<BankProvider>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: BankProvider.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListBankProvidersResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListBankProvidersResponse copyWith(void Function(ListBankProvidersResponse) updates) =>
-      super.copyWith((message) => updates(message as ListBankProvidersResponse)) as ListBankProvidersResponse;
+  ListBankProvidersResponse copyWith(
+          void Function(ListBankProvidersResponse) updates) =>
+      super.copyWith((message) => updates(message as ListBankProvidersResponse))
+          as ListBankProvidersResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2754,7 +3050,8 @@ class ListBankProvidersResponse extends $pb.GeneratedMessage {
   @$core.override
   ListBankProvidersResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListBankProvidersResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListBankProvidersResponse>(create);
+  static ListBankProvidersResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListBankProvidersResponse>(create);
   static ListBankProvidersResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2778,14 +3075,20 @@ class ListInstitutionsRequest extends $pb.GeneratedMessage {
 
   ListInstitutionsRequest._();
 
-  factory ListInstitutionsRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInstitutionsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListInstitutionsRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInstitutionsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListInstitutionsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListInstitutionsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'provider')
     ..aOS(3, _omitFieldNames ? '' : 'country')
     ..m<$core.String, $core.String>(4, _omitFieldNames ? '' : 'config',
@@ -2798,8 +3101,10 @@ class ListInstitutionsRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListInstitutionsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListInstitutionsRequest copyWith(void Function(ListInstitutionsRequest) updates) =>
-      super.copyWith((message) => updates(message as ListInstitutionsRequest)) as ListInstitutionsRequest;
+  ListInstitutionsRequest copyWith(
+          void Function(ListInstitutionsRequest) updates) =>
+      super.copyWith((message) => updates(message as ListInstitutionsRequest))
+          as ListInstitutionsRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2809,7 +3114,8 @@ class ListInstitutionsRequest extends $pb.GeneratedMessage {
   @$core.override
   ListInstitutionsRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListInstitutionsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListInstitutionsRequest>(create);
+  static ListInstitutionsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListInstitutionsRequest>(create);
   static ListInstitutionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2856,29 +3162,38 @@ class Institution extends $pb.GeneratedMessage {
     if (name != null) result.name = name;
     if (bic != null) result.bic = bic;
     if (logoUrl != null) result.logoUrl = logoUrl;
-    if (transactionTotalDays != null) result.transactionTotalDays = transactionTotalDays;
+    if (transactionTotalDays != null)
+      result.transactionTotalDays = transactionTotalDays;
     return result;
   }
 
   Institution._();
 
-  factory Institution.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Institution.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Institution.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Institution.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Institution',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Institution',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'bic')
     ..aOS(4, _omitFieldNames ? '' : 'logoUrl')
-    ..aI(5, _omitFieldNames ? '' : 'transactionTotalDays', fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'transactionTotalDays',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Institution clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Institution copyWith(void Function(Institution) updates) => super.copyWith((message) => updates(message as Institution)) as Institution;
+  Institution copyWith(void Function(Institution) updates) =>
+      super.copyWith((message) => updates(message as Institution))
+          as Institution;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2888,7 +3203,8 @@ class Institution extends $pb.GeneratedMessage {
   @$core.override
   Institution createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Institution getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Institution>(create);
+  static Institution getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Institution>(create);
   static Institution? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2948,21 +3264,28 @@ class ListInstitutionsResponse extends $pb.GeneratedMessage {
 
   ListInstitutionsResponse._();
 
-  factory ListInstitutionsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInstitutionsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListInstitutionsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListInstitutionsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListInstitutionsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Institution>(1, _omitFieldNames ? '' : 'items', subBuilder: Institution.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListInstitutionsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Institution>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Institution.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListInstitutionsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListInstitutionsResponse copyWith(void Function(ListInstitutionsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListInstitutionsResponse)) as ListInstitutionsResponse;
+  ListInstitutionsResponse copyWith(
+          void Function(ListInstitutionsResponse) updates) =>
+      super.copyWith((message) => updates(message as ListInstitutionsResponse))
+          as ListInstitutionsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2972,7 +3295,8 @@ class ListInstitutionsResponse extends $pb.GeneratedMessage {
   @$core.override
   ListInstitutionsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListInstitutionsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListInstitutionsResponse>(create);
+  static ListInstitutionsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListInstitutionsResponse>(create);
   static ListInstitutionsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3014,23 +3338,36 @@ class BankConnection extends $pb.GeneratedMessage {
 
   BankConnection._();
 
-  factory BankConnection.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BankConnection.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BankConnection.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BankConnection.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankConnection',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BankConnection',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(3, _omitFieldNames ? '' : 'provider')
     ..aOS(4, _omitFieldNames ? '' : 'providerName')
     ..aOS(5, _omitFieldNames ? '' : 'name')
-    ..aE<ConnectionStatus>(6, _omitFieldNames ? '' : 'status', enumValues: ConnectionStatus.values)
+    ..aE<ConnectionStatus>(6, _omitFieldNames ? '' : 'status',
+        enumValues: ConnectionStatus.values)
     ..aOS(7, _omitFieldNames ? '' : 'statusMessage')
-    ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'consentExpiresAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(9, _omitFieldNames ? '' : 'lastSyncAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(10, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-    ..aI(11, _omitFieldNames ? '' : 'accountCount', fieldType: $pb.PbFieldType.OU3)
+    ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'consentExpiresAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(9, _omitFieldNames ? '' : 'lastSyncAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(10, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..aI(11, _omitFieldNames ? '' : 'accountCount',
+        fieldType: $pb.PbFieldType.OU3)
     ..m<$core.String, $core.String>(12, _omitFieldNames ? '' : 'config',
         entryClassName: 'BankConnection.ConfigEntry',
         keyFieldType: $pb.PbFieldType.OS,
@@ -3042,7 +3379,9 @@ class BankConnection extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BankConnection clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BankConnection copyWith(void Function(BankConnection) updates) => super.copyWith((message) => updates(message as BankConnection)) as BankConnection;
+  BankConnection copyWith(void Function(BankConnection) updates) =>
+      super.copyWith((message) => updates(message as BankConnection))
+          as BankConnection;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3052,7 +3391,8 @@ class BankConnection extends $pb.GeneratedMessage {
   @$core.override
   BankConnection createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BankConnection getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BankConnection>(create);
+  static BankConnection getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BankConnection>(create);
   static BankConnection? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3190,14 +3530,20 @@ class CreateBankConnectionRequest extends $pb.GeneratedMessage {
 
   CreateBankConnectionRequest._();
 
-  factory CreateBankConnectionRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CreateBankConnectionRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory CreateBankConnectionRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CreateBankConnectionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateBankConnectionRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CreateBankConnectionRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, _omitFieldNames ? '' : 'provider')
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..m<$core.String, $core.String>(4, _omitFieldNames ? '' : 'config',
@@ -3210,18 +3556,23 @@ class CreateBankConnectionRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CreateBankConnectionRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CreateBankConnectionRequest copyWith(void Function(CreateBankConnectionRequest) updates) =>
-      super.copyWith((message) => updates(message as CreateBankConnectionRequest)) as CreateBankConnectionRequest;
+  CreateBankConnectionRequest copyWith(
+          void Function(CreateBankConnectionRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as CreateBankConnectionRequest))
+          as CreateBankConnectionRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static CreateBankConnectionRequest create() => CreateBankConnectionRequest._();
+  static CreateBankConnectionRequest create() =>
+      CreateBankConnectionRequest._();
   @$core.override
   CreateBankConnectionRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static CreateBankConnectionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateBankConnectionRequest>(create);
+  static CreateBankConnectionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateBankConnectionRequest>(create);
   static CreateBankConnectionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3259,41 +3610,55 @@ class CreateBankConnectionResponse extends $pb.GeneratedMessage {
   factory CreateBankConnectionResponse({
     BankConnection? connection,
     $core.String? redirectUrl,
+    ChoiceRequired? choice,
   }) {
     final result = create();
     if (connection != null) result.connection = connection;
     if (redirectUrl != null) result.redirectUrl = redirectUrl;
+    if (choice != null) result.choice = choice;
     return result;
   }
 
   CreateBankConnectionResponse._();
 
-  factory CreateBankConnectionResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CreateBankConnectionResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory CreateBankConnectionResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CreateBankConnectionResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateBankConnectionResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..aOM<BankConnection>(1, _omitFieldNames ? '' : 'connection', subBuilder: BankConnection.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CreateBankConnectionResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..aOM<BankConnection>(1, _omitFieldNames ? '' : 'connection',
+        subBuilder: BankConnection.create)
     ..aOS(2, _omitFieldNames ? '' : 'redirectUrl')
+    ..aOM<ChoiceRequired>(3, _omitFieldNames ? '' : 'choice',
+        subBuilder: ChoiceRequired.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CreateBankConnectionResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CreateBankConnectionResponse copyWith(void Function(CreateBankConnectionResponse) updates) =>
-      super.copyWith((message) => updates(message as CreateBankConnectionResponse)) as CreateBankConnectionResponse;
+  CreateBankConnectionResponse copyWith(
+          void Function(CreateBankConnectionResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as CreateBankConnectionResponse))
+          as CreateBankConnectionResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static CreateBankConnectionResponse create() => CreateBankConnectionResponse._();
+  static CreateBankConnectionResponse create() =>
+      CreateBankConnectionResponse._();
   @$core.override
   CreateBankConnectionResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static CreateBankConnectionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateBankConnectionResponse>(create);
+  static CreateBankConnectionResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateBankConnectionResponse>(create);
   static CreateBankConnectionResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3315,6 +3680,158 @@ class CreateBankConnectionResponse extends $pb.GeneratedMessage {
   $core.bool hasRedirectUrl() => $_has(1);
   @$pb.TagNumber(2)
   void clearRedirectUrl() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  ChoiceRequired get choice => $_getN(2);
+  @$pb.TagNumber(3)
+  set choice(ChoiceRequired value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasChoice() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearChoice() => $_clearField(3);
+  @$pb.TagNumber(3)
+  ChoiceRequired ensureChoice() => $_ensure(2);
+}
+
+/// A config field the provider can only resolve from account-specific options, e.g. which
+/// Wise profile to use. The client re-submits with that config key set to one of the option values.
+class ChoiceRequired extends $pb.GeneratedMessage {
+  factory ChoiceRequired({
+    $core.String? key,
+    $core.String? label,
+    $core.Iterable<ChoiceOption>? options,
+  }) {
+    final result = create();
+    if (key != null) result.key = key;
+    if (label != null) result.label = label;
+    if (options != null) result.options.addAll(options);
+    return result;
+  }
+
+  ChoiceRequired._();
+
+  factory ChoiceRequired.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ChoiceRequired.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChoiceRequired',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'key')
+    ..aOS(2, _omitFieldNames ? '' : 'label')
+    ..pPM<ChoiceOption>(3, _omitFieldNames ? '' : 'options',
+        subBuilder: ChoiceOption.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChoiceRequired clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChoiceRequired copyWith(void Function(ChoiceRequired) updates) =>
+      super.copyWith((message) => updates(message as ChoiceRequired))
+          as ChoiceRequired;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ChoiceRequired create() => ChoiceRequired._();
+  @$core.override
+  ChoiceRequired createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ChoiceRequired getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChoiceRequired>(create);
+  static ChoiceRequired? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get key => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set key($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKey() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get label => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set label($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLabel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLabel() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $pb.PbList<ChoiceOption> get options => $_getList(2);
+}
+
+class ChoiceOption extends $pb.GeneratedMessage {
+  factory ChoiceOption({
+    $core.String? value,
+    $core.String? label,
+  }) {
+    final result = create();
+    if (value != null) result.value = value;
+    if (label != null) result.label = label;
+    return result;
+  }
+
+  ChoiceOption._();
+
+  factory ChoiceOption.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ChoiceOption.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChoiceOption',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'value')
+    ..aOS(2, _omitFieldNames ? '' : 'label')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChoiceOption clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChoiceOption copyWith(void Function(ChoiceOption) updates) =>
+      super.copyWith((message) => updates(message as ChoiceOption))
+          as ChoiceOption;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ChoiceOption create() => ChoiceOption._();
+  @$core.override
+  ChoiceOption createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ChoiceOption getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChoiceOption>(create);
+  static ChoiceOption? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get value => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set value($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasValue() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearValue() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get label => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set label($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLabel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLabel() => $_clearField(2);
 }
 
 /// Empty values keep the stored setting, so secrets never need to be re-entered.
@@ -3335,15 +3852,22 @@ class UpdateBankConnectionRequest extends $pb.GeneratedMessage {
 
   UpdateBankConnectionRequest._();
 
-  factory UpdateBankConnectionRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UpdateBankConnectionRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UpdateBankConnectionRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UpdateBankConnectionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateBankConnectionRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateBankConnectionRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..m<$core.String, $core.String>(4, _omitFieldNames ? '' : 'config',
         entryClassName: 'UpdateBankConnectionRequest.ConfigEntry',
@@ -3355,18 +3879,23 @@ class UpdateBankConnectionRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UpdateBankConnectionRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateBankConnectionRequest copyWith(void Function(UpdateBankConnectionRequest) updates) =>
-      super.copyWith((message) => updates(message as UpdateBankConnectionRequest)) as UpdateBankConnectionRequest;
+  UpdateBankConnectionRequest copyWith(
+          void Function(UpdateBankConnectionRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as UpdateBankConnectionRequest))
+          as UpdateBankConnectionRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static UpdateBankConnectionRequest create() => UpdateBankConnectionRequest._();
+  static UpdateBankConnectionRequest create() =>
+      UpdateBankConnectionRequest._();
   @$core.override
   UpdateBankConnectionRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static UpdateBankConnectionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateBankConnectionRequest>(create);
+  static UpdateBankConnectionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateBankConnectionRequest>(create);
   static UpdateBankConnectionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3400,6 +3929,81 @@ class UpdateBankConnectionRequest extends $pb.GeneratedMessage {
   $pb.PbMap<$core.String, $core.String> get config => $_getMap(3);
 }
 
+class UpdateBankConnectionResponse extends $pb.GeneratedMessage {
+  factory UpdateBankConnectionResponse({
+    BankConnection? connection,
+    ChoiceRequired? choice,
+  }) {
+    final result = create();
+    if (connection != null) result.connection = connection;
+    if (choice != null) result.choice = choice;
+    return result;
+  }
+
+  UpdateBankConnectionResponse._();
+
+  factory UpdateBankConnectionResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UpdateBankConnectionResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateBankConnectionResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..aOM<BankConnection>(1, _omitFieldNames ? '' : 'connection',
+        subBuilder: BankConnection.create)
+    ..aOM<ChoiceRequired>(2, _omitFieldNames ? '' : 'choice',
+        subBuilder: ChoiceRequired.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateBankConnectionResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateBankConnectionResponse copyWith(
+          void Function(UpdateBankConnectionResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as UpdateBankConnectionResponse))
+          as UpdateBankConnectionResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateBankConnectionResponse create() =>
+      UpdateBankConnectionResponse._();
+  @$core.override
+  UpdateBankConnectionResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UpdateBankConnectionResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateBankConnectionResponse>(create);
+  static UpdateBankConnectionResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  BankConnection get connection => $_getN(0);
+  @$pb.TagNumber(1)
+  set connection(BankConnection value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasConnection() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearConnection() => $_clearField(1);
+  @$pb.TagNumber(1)
+  BankConnection ensureConnection() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ChoiceRequired get choice => $_getN(1);
+  @$pb.TagNumber(2)
+  set choice(ChoiceRequired value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasChoice() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChoice() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ChoiceRequired ensureChoice() => $_ensure(1);
+}
+
 class CompleteBankConnectionRequest extends $pb.GeneratedMessage {
   factory CompleteBankConnectionRequest({
     $core.String? reference,
@@ -3413,13 +4017,17 @@ class CompleteBankConnectionRequest extends $pb.GeneratedMessage {
 
   CompleteBankConnectionRequest._();
 
-  factory CompleteBankConnectionRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CompleteBankConnectionRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory CompleteBankConnectionRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CompleteBankConnectionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompleteBankConnectionRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CompleteBankConnectionRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'reference')
     ..m<$core.String, $core.String>(2, _omitFieldNames ? '' : 'params',
         entryClassName: 'CompleteBankConnectionRequest.ParamsEntry',
@@ -3431,18 +4039,23 @@ class CompleteBankConnectionRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CompleteBankConnectionRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CompleteBankConnectionRequest copyWith(void Function(CompleteBankConnectionRequest) updates) =>
-      super.copyWith((message) => updates(message as CompleteBankConnectionRequest)) as CompleteBankConnectionRequest;
+  CompleteBankConnectionRequest copyWith(
+          void Function(CompleteBankConnectionRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as CompleteBankConnectionRequest))
+          as CompleteBankConnectionRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static CompleteBankConnectionRequest create() => CompleteBankConnectionRequest._();
+  static CompleteBankConnectionRequest create() =>
+      CompleteBankConnectionRequest._();
   @$core.override
   CompleteBankConnectionRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static CompleteBankConnectionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompleteBankConnectionRequest>(create);
+  static CompleteBankConnectionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CompleteBankConnectionRequest>(create);
   static CompleteBankConnectionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3469,31 +4082,41 @@ class ListBankConnectionsResponse extends $pb.GeneratedMessage {
 
   ListBankConnectionsResponse._();
 
-  factory ListBankConnectionsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListBankConnectionsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListBankConnectionsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListBankConnectionsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListBankConnectionsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<BankConnection>(1, _omitFieldNames ? '' : 'items', subBuilder: BankConnection.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListBankConnectionsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<BankConnection>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: BankConnection.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListBankConnectionsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListBankConnectionsResponse copyWith(void Function(ListBankConnectionsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListBankConnectionsResponse)) as ListBankConnectionsResponse;
+  ListBankConnectionsResponse copyWith(
+          void Function(ListBankConnectionsResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as ListBankConnectionsResponse))
+          as ListBankConnectionsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ListBankConnectionsResponse create() => ListBankConnectionsResponse._();
+  static ListBankConnectionsResponse create() =>
+      ListBankConnectionsResponse._();
   @$core.override
   ListBankConnectionsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListBankConnectionsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListBankConnectionsResponse>(create);
+  static ListBankConnectionsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListBankConnectionsResponse>(create);
   static ListBankConnectionsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3541,34 +4164,52 @@ class BankAccount extends $pb.GeneratedMessage {
 
   BankAccount._();
 
-  factory BankAccount.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BankAccount.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BankAccount.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BankAccount.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BankAccount',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'connectionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BankAccount',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'connectionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(4, _omitFieldNames ? '' : 'name')
     ..aOS(5, _omitFieldNames ? '' : 'iban')
     ..aOS(6, _omitFieldNames ? '' : 'currency')
     ..aInt64(7, _omitFieldNames ? '' : 'balanceCents')
-    ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'balanceAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'balanceAt',
+        subBuilder: $1.Timestamp.create)
     ..aOB(9, _omitFieldNames ? '' : 'isPrimary')
     ..aOS(10, _omitFieldNames ? '' : 'provider')
     ..aOS(11, _omitFieldNames ? '' : 'connectionName')
-    ..aE<ConnectionStatus>(12, _omitFieldNames ? '' : 'connectionStatus', enumValues: ConnectionStatus.values)
-    ..aOM<$1.Timestamp>(13, _omitFieldNames ? '' : 'consentExpiresAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(14, _omitFieldNames ? '' : 'lastSyncAt', subBuilder: $1.Timestamp.create)
-    ..aI(15, _omitFieldNames ? '' : 'unexplainedCount', fieldType: $pb.PbFieldType.OU3)
-    ..aI(16, _omitFieldNames ? '' : 'forApprovalCount', fieldType: $pb.PbFieldType.OU3)
+    ..aE<ConnectionStatus>(12, _omitFieldNames ? '' : 'connectionStatus',
+        enumValues: ConnectionStatus.values)
+    ..aOM<$1.Timestamp>(13, _omitFieldNames ? '' : 'consentExpiresAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(14, _omitFieldNames ? '' : 'lastSyncAt',
+        subBuilder: $1.Timestamp.create)
+    ..aI(15, _omitFieldNames ? '' : 'unexplainedCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(16, _omitFieldNames ? '' : 'forApprovalCount',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BankAccount clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BankAccount copyWith(void Function(BankAccount) updates) => super.copyWith((message) => updates(message as BankAccount)) as BankAccount;
+  BankAccount copyWith(void Function(BankAccount) updates) =>
+      super.copyWith((message) => updates(message as BankAccount))
+          as BankAccount;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3578,7 +4219,8 @@ class BankAccount extends $pb.GeneratedMessage {
   @$core.override
   BankAccount createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BankAccount getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BankAccount>(create);
+  static BankAccount getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BankAccount>(create);
   static BankAccount? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3743,21 +4385,28 @@ class ListBankAccountsResponse extends $pb.GeneratedMessage {
 
   ListBankAccountsResponse._();
 
-  factory ListBankAccountsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListBankAccountsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListBankAccountsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListBankAccountsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListBankAccountsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<BankAccount>(1, _omitFieldNames ? '' : 'items', subBuilder: BankAccount.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListBankAccountsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<BankAccount>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: BankAccount.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListBankAccountsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListBankAccountsResponse copyWith(void Function(ListBankAccountsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListBankAccountsResponse)) as ListBankAccountsResponse;
+  ListBankAccountsResponse copyWith(
+          void Function(ListBankAccountsResponse) updates) =>
+      super.copyWith((message) => updates(message as ListBankAccountsResponse))
+          as ListBankAccountsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3767,7 +4416,8 @@ class ListBankAccountsResponse extends $pb.GeneratedMessage {
   @$core.override
   ListBankAccountsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListBankAccountsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListBankAccountsResponse>(create);
+  static ListBankAccountsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListBankAccountsResponse>(create);
   static ListBankAccountsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3791,23 +4441,32 @@ class SyncNowResponse extends $pb.GeneratedMessage {
 
   SyncNowResponse._();
 
-  factory SyncNowResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory SyncNowResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SyncNowResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory SyncNowResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SyncNowResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..aI(1, _omitFieldNames ? '' : 'connectionsSynced', fieldType: $pb.PbFieldType.OU3)
-    ..aI(2, _omitFieldNames ? '' : 'transactionsAdded', fieldType: $pb.PbFieldType.OU3)
-    ..aI(3, _omitFieldNames ? '' : 'invoicesMatched', fieldType: $pb.PbFieldType.OU3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SyncNowResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..aI(1, _omitFieldNames ? '' : 'connectionsSynced',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'transactionsAdded',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'invoicesMatched',
+        fieldType: $pb.PbFieldType.OU3)
     ..pPS(4, _omitFieldNames ? '' : 'errors')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SyncNowResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SyncNowResponse copyWith(void Function(SyncNowResponse) updates) => super.copyWith((message) => updates(message as SyncNowResponse)) as SyncNowResponse;
+  SyncNowResponse copyWith(void Function(SyncNowResponse) updates) =>
+      super.copyWith((message) => updates(message as SyncNowResponse))
+          as SyncNowResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3817,7 +4476,8 @@ class SyncNowResponse extends $pb.GeneratedMessage {
   @$core.override
   SyncNowResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static SyncNowResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SyncNowResponse>(create);
+  static SyncNowResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SyncNowResponse>(create);
   static SyncNowResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3869,24 +4529,35 @@ class UploadStatementRequest extends $pb.GeneratedMessage {
 
   UploadStatementRequest._();
 
-  factory UploadStatementRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UploadStatementRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UploadStatementRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UploadStatementRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UploadStatementRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UploadStatementRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(3, _omitFieldNames ? '' : 'filename')
-    ..a<$core.List<$core.int>>(4, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UploadStatementRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadStatementRequest copyWith(void Function(UploadStatementRequest) updates) =>
-      super.copyWith((message) => updates(message as UploadStatementRequest)) as UploadStatementRequest;
+  UploadStatementRequest copyWith(
+          void Function(UploadStatementRequest) updates) =>
+      super.copyWith((message) => updates(message as UploadStatementRequest))
+          as UploadStatementRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3896,7 +4567,8 @@ class UploadStatementRequest extends $pb.GeneratedMessage {
   @$core.override
   UploadStatementRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static UploadStatementRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UploadStatementRequest>(create);
+  static UploadStatementRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UploadStatementRequest>(create);
   static UploadStatementRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3955,25 +4627,32 @@ class UploadStatementResponse extends $pb.GeneratedMessage {
 
   UploadStatementResponse._();
 
-  factory UploadStatementResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UploadStatementResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UploadStatementResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UploadStatementResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UploadStatementResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UploadStatementResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aI(1, _omitFieldNames ? '' : 'imported', fieldType: $pb.PbFieldType.OU3)
     ..aI(2, _omitFieldNames ? '' : 'duplicates', fieldType: $pb.PbFieldType.OU3)
     ..aI(3, _omitFieldNames ? '' : 'skipped', fieldType: $pb.PbFieldType.OU3)
-    ..aI(4, _omitFieldNames ? '' : 'invoicesMatched', fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'invoicesMatched',
+        fieldType: $pb.PbFieldType.OU3)
     ..pPS(5, _omitFieldNames ? '' : 'warnings')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UploadStatementResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadStatementResponse copyWith(void Function(UploadStatementResponse) updates) =>
-      super.copyWith((message) => updates(message as UploadStatementResponse)) as UploadStatementResponse;
+  UploadStatementResponse copyWith(
+          void Function(UploadStatementResponse) updates) =>
+      super.copyWith((message) => updates(message as UploadStatementResponse))
+          as UploadStatementResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3983,7 +4662,8 @@ class UploadStatementResponse extends $pb.GeneratedMessage {
   @$core.override
   UploadStatementResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static UploadStatementResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UploadStatementResponse>(create);
+  static UploadStatementResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UploadStatementResponse>(create);
   static UploadStatementResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4041,23 +4721,33 @@ class BalanceHistoryRequest extends $pb.GeneratedMessage {
 
   BalanceHistoryRequest._();
 
-  factory BalanceHistoryRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BalanceHistoryRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BalanceHistoryRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BalanceHistoryRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BalanceHistoryRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BalanceHistoryRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aI(3, _omitFieldNames ? '' : 'months', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BalanceHistoryRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BalanceHistoryRequest copyWith(void Function(BalanceHistoryRequest) updates) =>
-      super.copyWith((message) => updates(message as BalanceHistoryRequest)) as BalanceHistoryRequest;
+  BalanceHistoryRequest copyWith(
+          void Function(BalanceHistoryRequest) updates) =>
+      super.copyWith((message) => updates(message as BalanceHistoryRequest))
+          as BalanceHistoryRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4067,7 +4757,8 @@ class BalanceHistoryRequest extends $pb.GeneratedMessage {
   @$core.override
   BalanceHistoryRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BalanceHistoryRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BalanceHistoryRequest>(create);
+  static BalanceHistoryRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BalanceHistoryRequest>(create);
   static BalanceHistoryRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4111,12 +4802,17 @@ class BalancePoint extends $pb.GeneratedMessage {
 
   BalancePoint._();
 
-  factory BalancePoint.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BalancePoint.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BalancePoint.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BalancePoint.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BalancePoint',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BalancePoint',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'month')
     ..aInt64(2, _omitFieldNames ? '' : 'balanceCents')
     ..hasRequiredFields = false;
@@ -4124,7 +4820,9 @@ class BalancePoint extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BalancePoint clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BalancePoint copyWith(void Function(BalancePoint) updates) => super.copyWith((message) => updates(message as BalancePoint)) as BalancePoint;
+  BalancePoint copyWith(void Function(BalancePoint) updates) =>
+      super.copyWith((message) => updates(message as BalancePoint))
+          as BalancePoint;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4134,7 +4832,8 @@ class BalancePoint extends $pb.GeneratedMessage {
   @$core.override
   BalancePoint createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BalancePoint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BalancePoint>(create);
+  static BalancePoint getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BalancePoint>(create);
   static BalancePoint? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4169,22 +4868,29 @@ class BalanceHistoryResponse extends $pb.GeneratedMessage {
 
   BalanceHistoryResponse._();
 
-  factory BalanceHistoryResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BalanceHistoryResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory BalanceHistoryResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BalanceHistoryResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BalanceHistoryResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<BalancePoint>(1, _omitFieldNames ? '' : 'points', subBuilder: BalancePoint.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BalanceHistoryResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<BalancePoint>(1, _omitFieldNames ? '' : 'points',
+        subBuilder: BalancePoint.create)
     ..aOS(2, _omitFieldNames ? '' : 'currency')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BalanceHistoryResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BalanceHistoryResponse copyWith(void Function(BalanceHistoryResponse) updates) =>
-      super.copyWith((message) => updates(message as BalanceHistoryResponse)) as BalanceHistoryResponse;
+  BalanceHistoryResponse copyWith(
+          void Function(BalanceHistoryResponse) updates) =>
+      super.copyWith((message) => updates(message as BalanceHistoryResponse))
+          as BalanceHistoryResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4194,7 +4900,8 @@ class BalanceHistoryResponse extends $pb.GeneratedMessage {
   @$core.override
   BalanceHistoryResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static BalanceHistoryResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BalanceHistoryResponse>(create);
+  static BalanceHistoryResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BalanceHistoryResponse>(create);
   static BalanceHistoryResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4252,23 +4959,35 @@ class Transaction extends $pb.GeneratedMessage {
     if (invoiceId != null) result.invoiceId = invoiceId;
     if (invoiceNumber != null) result.invoiceNumber = invoiceNumber;
     if (attachmentCount != null) result.attachmentCount = attachmentCount;
-    if (runningBalanceCents != null) result.runningBalanceCents = runningBalanceCents;
+    if (runningBalanceCents != null)
+      result.runningBalanceCents = runningBalanceCents;
     if (accountName != null) result.accountName = accountName;
     return result;
   }
 
   Transaction._();
 
-  factory Transaction.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Transaction.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Transaction.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Transaction.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Transaction',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'bookedAt', subBuilder: $1.Timestamp.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Transaction',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'bookedAt',
+        subBuilder: $1.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'valueDate')
     ..aInt64(6, _omitFieldNames ? '' : 'amountCents')
     ..aOS(7, _omitFieldNames ? '' : 'currency')
@@ -4276,13 +4995,19 @@ class Transaction extends $pb.GeneratedMessage {
     ..aOS(9, _omitFieldNames ? '' : 'counterpartyName')
     ..aOS(10, _omitFieldNames ? '' : 'counterpartyIban')
     ..aOS(11, _omitFieldNames ? '' : 'reference')
-    ..a<$fixnum.Int64>(12, _omitFieldNames ? '' : 'categoryId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        12, _omitFieldNames ? '' : 'categoryId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(13, _omitFieldNames ? '' : 'categoryName')
     ..aOS(14, _omitFieldNames ? '' : 'note')
-    ..aE<TransactionStatus>(15, _omitFieldNames ? '' : 'status', enumValues: TransactionStatus.values)
-    ..a<$fixnum.Int64>(16, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aE<TransactionStatus>(15, _omitFieldNames ? '' : 'status',
+        enumValues: TransactionStatus.values)
+    ..a<$fixnum.Int64>(
+        16, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(17, _omitFieldNames ? '' : 'invoiceNumber')
-    ..aI(18, _omitFieldNames ? '' : 'attachmentCount', fieldType: $pb.PbFieldType.OU3)
+    ..aI(18, _omitFieldNames ? '' : 'attachmentCount',
+        fieldType: $pb.PbFieldType.OU3)
     ..aInt64(19, _omitFieldNames ? '' : 'runningBalanceCents')
     ..aOS(20, _omitFieldNames ? '' : 'accountName')
     ..hasRequiredFields = false;
@@ -4290,7 +5015,9 @@ class Transaction extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Transaction clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Transaction copyWith(void Function(Transaction) updates) => super.copyWith((message) => updates(message as Transaction)) as Transaction;
+  Transaction copyWith(void Function(Transaction) updates) =>
+      super.copyWith((message) => updates(message as Transaction))
+          as Transaction;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4300,7 +5027,8 @@ class Transaction extends $pb.GeneratedMessage {
   @$core.override
   Transaction createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Transaction getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Transaction>(create);
+  static Transaction getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Transaction>(create);
   static Transaction? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4509,16 +5237,25 @@ class ListTransactionsRequest extends $pb.GeneratedMessage {
 
   ListTransactionsRequest._();
 
-  factory ListTransactionsRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListTransactionsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListTransactionsRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListTransactionsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListTransactionsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aE<TransactionStatus>(3, _omitFieldNames ? '' : 'status', enumValues: TransactionStatus.values)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListTransactionsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'accountId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aE<TransactionStatus>(3, _omitFieldNames ? '' : 'status',
+        enumValues: TransactionStatus.values)
     ..aOS(4, _omitFieldNames ? '' : 'month')
     ..aOS(5, _omitFieldNames ? '' : 'search')
     ..aI(6, _omitFieldNames ? '' : 'page', fieldType: $pb.PbFieldType.OU3)
@@ -4528,8 +5265,10 @@ class ListTransactionsRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListTransactionsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListTransactionsRequest copyWith(void Function(ListTransactionsRequest) updates) =>
-      super.copyWith((message) => updates(message as ListTransactionsRequest)) as ListTransactionsRequest;
+  ListTransactionsRequest copyWith(
+          void Function(ListTransactionsRequest) updates) =>
+      super.copyWith((message) => updates(message as ListTransactionsRequest))
+          as ListTransactionsRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4539,7 +5278,8 @@ class ListTransactionsRequest extends $pb.GeneratedMessage {
   @$core.override
   ListTransactionsRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListTransactionsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListTransactionsRequest>(create);
+  static ListTransactionsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListTransactionsRequest>(create);
   static ListTransactionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4615,20 +5355,26 @@ class ListTransactionsResponse extends $pb.GeneratedMessage {
     final result = create();
     if (items != null) result.items.addAll(items);
     if (total != null) result.total = total;
-    if (balanceBroughtForwardCents != null) result.balanceBroughtForwardCents = balanceBroughtForwardCents;
+    if (balanceBroughtForwardCents != null)
+      result.balanceBroughtForwardCents = balanceBroughtForwardCents;
     return result;
   }
 
   ListTransactionsResponse._();
 
-  factory ListTransactionsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListTransactionsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListTransactionsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListTransactionsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListTransactionsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Transaction>(1, _omitFieldNames ? '' : 'items', subBuilder: Transaction.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListTransactionsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Transaction>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Transaction.create)
     ..aI(2, _omitFieldNames ? '' : 'total', fieldType: $pb.PbFieldType.OU3)
     ..aInt64(3, _omitFieldNames ? '' : 'balanceBroughtForwardCents')
     ..hasRequiredFields = false;
@@ -4636,8 +5382,10 @@ class ListTransactionsResponse extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListTransactionsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListTransactionsResponse copyWith(void Function(ListTransactionsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListTransactionsResponse)) as ListTransactionsResponse;
+  ListTransactionsResponse copyWith(
+          void Function(ListTransactionsResponse) updates) =>
+      super.copyWith((message) => updates(message as ListTransactionsResponse))
+          as ListTransactionsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4647,7 +5395,8 @@ class ListTransactionsResponse extends $pb.GeneratedMessage {
   @$core.override
   ListTransactionsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListTransactionsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListTransactionsResponse>(create);
+  static ListTransactionsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListTransactionsResponse>(create);
   static ListTransactionsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4693,16 +5442,25 @@ class ExplainTransactionRequest extends $pb.GeneratedMessage {
 
   ExplainTransactionRequest._();
 
-  factory ExplainTransactionRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ExplainTransactionRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ExplainTransactionRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ExplainTransactionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ExplainTransactionRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'categoryId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ExplainTransactionRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'categoryId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(4, _omitFieldNames ? '' : 'note')
     ..aOS(5, _omitFieldNames ? '' : 'description')
     ..aOB(6, _omitFieldNames ? '' : 'approve')
@@ -4711,8 +5469,10 @@ class ExplainTransactionRequest extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ExplainTransactionRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExplainTransactionRequest copyWith(void Function(ExplainTransactionRequest) updates) =>
-      super.copyWith((message) => updates(message as ExplainTransactionRequest)) as ExplainTransactionRequest;
+  ExplainTransactionRequest copyWith(
+          void Function(ExplainTransactionRequest) updates) =>
+      super.copyWith((message) => updates(message as ExplainTransactionRequest))
+          as ExplainTransactionRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4722,7 +5482,8 @@ class ExplainTransactionRequest extends $pb.GeneratedMessage {
   @$core.override
   ExplainTransactionRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ExplainTransactionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ExplainTransactionRequest>(create);
+  static ExplainTransactionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ExplainTransactionRequest>(create);
   static ExplainTransactionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4793,22 +5554,31 @@ class ApproveTransactionsRequest extends $pb.GeneratedMessage {
 
   ApproveTransactionsRequest._();
 
-  factory ApproveTransactionsRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ApproveTransactionsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ApproveTransactionsRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ApproveTransactionsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ApproveTransactionsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ApproveTransactionsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..p<$fixnum.Int64>(2, _omitFieldNames ? '' : 'ids', $pb.PbFieldType.KU6)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ApproveTransactionsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ApproveTransactionsRequest copyWith(void Function(ApproveTransactionsRequest) updates) =>
-      super.copyWith((message) => updates(message as ApproveTransactionsRequest)) as ApproveTransactionsRequest;
+  ApproveTransactionsRequest copyWith(
+          void Function(ApproveTransactionsRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as ApproveTransactionsRequest))
+          as ApproveTransactionsRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4818,7 +5588,8 @@ class ApproveTransactionsRequest extends $pb.GeneratedMessage {
   @$core.override
   ApproveTransactionsRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ApproveTransactionsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ApproveTransactionsRequest>(create);
+  static ApproveTransactionsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ApproveTransactionsRequest>(create);
   static ApproveTransactionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4849,23 +5620,35 @@ class LinkTransactionRequest extends $pb.GeneratedMessage {
 
   LinkTransactionRequest._();
 
-  factory LinkTransactionRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory LinkTransactionRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory LinkTransactionRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory LinkTransactionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LinkTransactionRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LinkTransactionRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   LinkTransactionRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LinkTransactionRequest copyWith(void Function(LinkTransactionRequest) updates) =>
-      super.copyWith((message) => updates(message as LinkTransactionRequest)) as LinkTransactionRequest;
+  LinkTransactionRequest copyWith(
+          void Function(LinkTransactionRequest) updates) =>
+      super.copyWith((message) => updates(message as LinkTransactionRequest))
+          as LinkTransactionRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4875,7 +5658,8 @@ class LinkTransactionRequest extends $pb.GeneratedMessage {
   @$core.override
   LinkTransactionRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static LinkTransactionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LinkTransactionRequest>(create);
+  static LinkTransactionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<LinkTransactionRequest>(create);
   static LinkTransactionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4931,26 +5715,42 @@ class Attachment extends $pb.GeneratedMessage {
 
   Attachment._();
 
-  factory Attachment.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Attachment.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Attachment.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Attachment.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(_omitMessageNames ? '' : 'Attachment', package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-        ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..a<$fixnum.Int64>(4, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOS(5, _omitFieldNames ? '' : 'filename')
-        ..aOS(6, _omitFieldNames ? '' : 'mime')
-        ..a<$fixnum.Int64>(7, _omitFieldNames ? '' : 'sizeBytes', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-        ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Attachment',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        4, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(5, _omitFieldNames ? '' : 'filename')
+    ..aOS(6, _omitFieldNames ? '' : 'mime')
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'sizeBytes', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Attachment clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Attachment copyWith(void Function(Attachment) updates) => super.copyWith((message) => updates(message as Attachment)) as Attachment;
+  Attachment copyWith(void Function(Attachment) updates) =>
+      super.copyWith((message) => updates(message as Attachment)) as Attachment;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4960,7 +5760,8 @@ class Attachment extends $pb.GeneratedMessage {
   @$core.override
   Attachment createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Attachment getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Attachment>(create);
+  static Attachment getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Attachment>(create);
   static Attachment? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5057,25 +5858,38 @@ class UploadAttachmentRequest extends $pb.GeneratedMessage {
 
   UploadAttachmentRequest._();
 
-  factory UploadAttachmentRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UploadAttachmentRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UploadAttachmentRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UploadAttachmentRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UploadAttachmentRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UploadAttachmentRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(4, _omitFieldNames ? '' : 'filename')
-    ..a<$core.List<$core.int>>(5, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        5, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UploadAttachmentRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadAttachmentRequest copyWith(void Function(UploadAttachmentRequest) updates) =>
-      super.copyWith((message) => updates(message as UploadAttachmentRequest)) as UploadAttachmentRequest;
+  UploadAttachmentRequest copyWith(
+          void Function(UploadAttachmentRequest) updates) =>
+      super.copyWith((message) => updates(message as UploadAttachmentRequest))
+          as UploadAttachmentRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5085,7 +5899,8 @@ class UploadAttachmentRequest extends $pb.GeneratedMessage {
   @$core.override
   UploadAttachmentRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static UploadAttachmentRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UploadAttachmentRequest>(create);
+  static UploadAttachmentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UploadAttachmentRequest>(create);
   static UploadAttachmentRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5149,23 +5964,35 @@ class ListAttachmentsRequest extends $pb.GeneratedMessage {
 
   ListAttachmentsRequest._();
 
-  factory ListAttachmentsRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListAttachmentsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListAttachmentsRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListAttachmentsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListAttachmentsRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListAttachmentsRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'transactionId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'invoiceId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListAttachmentsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListAttachmentsRequest copyWith(void Function(ListAttachmentsRequest) updates) =>
-      super.copyWith((message) => updates(message as ListAttachmentsRequest)) as ListAttachmentsRequest;
+  ListAttachmentsRequest copyWith(
+          void Function(ListAttachmentsRequest) updates) =>
+      super.copyWith((message) => updates(message as ListAttachmentsRequest))
+          as ListAttachmentsRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5175,7 +6002,8 @@ class ListAttachmentsRequest extends $pb.GeneratedMessage {
   @$core.override
   ListAttachmentsRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListAttachmentsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListAttachmentsRequest>(create);
+  static ListAttachmentsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListAttachmentsRequest>(create);
   static ListAttachmentsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5217,21 +6045,28 @@ class ListAttachmentsResponse extends $pb.GeneratedMessage {
 
   ListAttachmentsResponse._();
 
-  factory ListAttachmentsResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListAttachmentsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ListAttachmentsResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListAttachmentsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListAttachmentsResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..pPM<Attachment>(1, _omitFieldNames ? '' : 'items', subBuilder: Attachment.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListAttachmentsResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..pPM<Attachment>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: Attachment.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ListAttachmentsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ListAttachmentsResponse copyWith(void Function(ListAttachmentsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListAttachmentsResponse)) as ListAttachmentsResponse;
+  ListAttachmentsResponse copyWith(
+          void Function(ListAttachmentsResponse) updates) =>
+      super.copyWith((message) => updates(message as ListAttachmentsResponse))
+          as ListAttachmentsResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5241,7 +6076,8 @@ class ListAttachmentsResponse extends $pb.GeneratedMessage {
   @$core.override
   ListAttachmentsResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ListAttachmentsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListAttachmentsResponse>(create);
+  static ListAttachmentsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListAttachmentsResponse>(create);
   static ListAttachmentsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5261,21 +6097,29 @@ class OverviewRequest extends $pb.GeneratedMessage {
 
   OverviewRequest._();
 
-  factory OverviewRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory OverviewRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory OverviewRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory OverviewRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OverviewRequest',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'OverviewRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'companyId', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..aI(2, _omitFieldNames ? '' : 'months', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   OverviewRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  OverviewRequest copyWith(void Function(OverviewRequest) updates) => super.copyWith((message) => updates(message as OverviewRequest)) as OverviewRequest;
+  OverviewRequest copyWith(void Function(OverviewRequest) updates) =>
+      super.copyWith((message) => updates(message as OverviewRequest))
+          as OverviewRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5285,7 +6129,8 @@ class OverviewRequest extends $pb.GeneratedMessage {
   @$core.override
   OverviewRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static OverviewRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OverviewRequest>(create);
+  static OverviewRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<OverviewRequest>(create);
   static OverviewRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5322,12 +6167,17 @@ class CashflowPoint extends $pb.GeneratedMessage {
 
   CashflowPoint._();
 
-  factory CashflowPoint.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CashflowPoint.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory CashflowPoint.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory CashflowPoint.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CashflowPoint',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CashflowPoint',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'month')
     ..aInt64(2, _omitFieldNames ? '' : 'inCents')
     ..aInt64(3, _omitFieldNames ? '' : 'outCents')
@@ -5336,7 +6186,9 @@ class CashflowPoint extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CashflowPoint clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CashflowPoint copyWith(void Function(CashflowPoint) updates) => super.copyWith((message) => updates(message as CashflowPoint)) as CashflowPoint;
+  CashflowPoint copyWith(void Function(CashflowPoint) updates) =>
+      super.copyWith((message) => updates(message as CashflowPoint))
+          as CashflowPoint;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5346,7 +6198,8 @@ class CashflowPoint extends $pb.GeneratedMessage {
   @$core.override
   CashflowPoint createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static CashflowPoint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CashflowPoint>(create);
+  static CashflowPoint getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CashflowPoint>(create);
   static CashflowPoint? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5394,13 +6247,17 @@ class InvoiceTimelinePoint extends $pb.GeneratedMessage {
 
   InvoiceTimelinePoint._();
 
-  factory InvoiceTimelinePoint.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory InvoiceTimelinePoint.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory InvoiceTimelinePoint.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory InvoiceTimelinePoint.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InvoiceTimelinePoint',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'InvoiceTimelinePoint',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'month')
     ..aInt64(2, _omitFieldNames ? '' : 'paidCents')
     ..aInt64(3, _omitFieldNames ? '' : 'dueCents')
@@ -5411,7 +6268,8 @@ class InvoiceTimelinePoint extends $pb.GeneratedMessage {
   InvoiceTimelinePoint clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   InvoiceTimelinePoint copyWith(void Function(InvoiceTimelinePoint) updates) =>
-      super.copyWith((message) => updates(message as InvoiceTimelinePoint)) as InvoiceTimelinePoint;
+      super.copyWith((message) => updates(message as InvoiceTimelinePoint))
+          as InvoiceTimelinePoint;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5421,7 +6279,8 @@ class InvoiceTimelinePoint extends $pb.GeneratedMessage {
   @$core.override
   InvoiceTimelinePoint createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static InvoiceTimelinePoint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InvoiceTimelinePoint>(create);
+  static InvoiceTimelinePoint getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<InvoiceTimelinePoint>(create);
   static InvoiceTimelinePoint? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5492,31 +6351,41 @@ class OverviewResponse extends $pb.GeneratedMessage {
     if (forApprovalCount != null) result.forApprovalCount = forApprovalCount;
     if (unexplainedCount != null) result.unexplainedCount = unexplainedCount;
     if (hasBankAccounts != null) result.hasBankAccounts = hasBankAccounts;
-    if (hasExpiredConnections != null) result.hasExpiredConnections = hasExpiredConnections;
+    if (hasExpiredConnections != null)
+      result.hasExpiredConnections = hasExpiredConnections;
     return result;
   }
 
   OverviewResponse._();
 
-  factory OverviewResponse.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory OverviewResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory OverviewResponse.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+  factory OverviewResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OverviewResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'OverviewResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'accounting'),
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'currency')
-    ..pPM<CashflowPoint>(2, _omitFieldNames ? '' : 'cashflow', subBuilder: CashflowPoint.create)
+    ..pPM<CashflowPoint>(2, _omitFieldNames ? '' : 'cashflow',
+        subBuilder: CashflowPoint.create)
     ..aInt64(3, _omitFieldNames ? '' : 'incomingCents')
     ..aInt64(4, _omitFieldNames ? '' : 'outgoingCents')
-    ..pPM<BalancePoint>(5, _omitFieldNames ? '' : 'balanceHistory', subBuilder: BalancePoint.create)
+    ..pPM<BalancePoint>(5, _omitFieldNames ? '' : 'balanceHistory',
+        subBuilder: BalancePoint.create)
     ..aInt64(6, _omitFieldNames ? '' : 'totalBalanceCents')
-    ..pPM<InvoiceTimelinePoint>(7, _omitFieldNames ? '' : 'invoiceTimeline', subBuilder: InvoiceTimelinePoint.create)
+    ..pPM<InvoiceTimelinePoint>(7, _omitFieldNames ? '' : 'invoiceTimeline',
+        subBuilder: InvoiceTimelinePoint.create)
     ..aInt64(8, _omitFieldNames ? '' : 'outstandingCents')
     ..aInt64(9, _omitFieldNames ? '' : 'incomeCents')
     ..aInt64(10, _omitFieldNames ? '' : 'expensesCents')
-    ..aI(11, _omitFieldNames ? '' : 'forApprovalCount', fieldType: $pb.PbFieldType.OU3)
-    ..aI(12, _omitFieldNames ? '' : 'unexplainedCount', fieldType: $pb.PbFieldType.OU3)
+    ..aI(11, _omitFieldNames ? '' : 'forApprovalCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(12, _omitFieldNames ? '' : 'unexplainedCount',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(13, _omitFieldNames ? '' : 'hasBankAccounts')
     ..aOB(14, _omitFieldNames ? '' : 'hasExpiredConnections')
     ..hasRequiredFields = false;
@@ -5524,7 +6393,9 @@ class OverviewResponse extends $pb.GeneratedMessage {
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   OverviewResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  OverviewResponse copyWith(void Function(OverviewResponse) updates) => super.copyWith((message) => updates(message as OverviewResponse)) as OverviewResponse;
+  OverviewResponse copyWith(void Function(OverviewResponse) updates) =>
+      super.copyWith((message) => updates(message as OverviewResponse))
+          as OverviewResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5534,7 +6405,8 @@ class OverviewResponse extends $pb.GeneratedMessage {
   @$core.override
   OverviewResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static OverviewResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OverviewResponse>(create);
+  static OverviewResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<OverviewResponse>(create);
   static OverviewResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5646,5 +6518,7 @@ class OverviewResponse extends $pb.GeneratedMessage {
   void clearHasExpiredConnections() => $_clearField(14);
 }
 
-const $core.bool _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
-const $core.bool _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
+const $core.bool _omitFieldNames =
+    $core.bool.fromEnvironment('protobuf.omit_field_names');
+const $core.bool _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

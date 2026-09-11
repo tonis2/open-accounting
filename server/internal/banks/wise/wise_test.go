@@ -5,6 +5,8 @@ import (
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/pem"
+	"errors"
+	"open-accounting/server/internal/banks"
 	"strings"
 	"testing"
 )
@@ -33,8 +35,12 @@ func TestPickProfile(t *testing.T) {
 		{ID: 2, Type: "PERSONAL", FullName: "Tonis"},
 		{ID: 3, Type: "BUSINESS", BusinessName: "Internus"},
 	}
-	if _, err := pickProfile(profiles, "business", ""); err == nil || !strings.Contains(err.Error(), "1 (Geotrupes OÜ), 3 (Internus)") {
-		t.Fatalf("expected ambiguity error listing profiles, got %v", err)
+	var choice *banks.ChoiceRequired
+	if _, err := pickProfile(profiles, "business", ""); !errors.As(err, &choice) || choice.Field != "profile_id" || len(choice.Options) != 2 || choice.Options[1].Label != "Internus" {
+		t.Fatalf("expected a profile choice, got %v", err)
+	}
+	if !strings.Contains(choice.Error(), "1 (Geotrupes OÜ), 3 (Internus)") {
+		t.Fatalf("error text should list the options, got %q", choice.Error())
 	}
 	pr, err := pickProfile(profiles, "business", "3")
 	if err != nil || pr.ID != 3 {
@@ -44,8 +50,11 @@ func TestPickProfile(t *testing.T) {
 	if err != nil || pr.ID != 2 {
 		t.Fatalf("single match: got %+v, %v", pr, err)
 	}
-	if _, err := pickProfile(profiles, "business", "2"); err == nil {
-		t.Fatal("id of another type must be rejected")
+	if _, err := pickProfile(profiles, "business", "2"); !errors.As(err, &choice) {
+		t.Fatalf("stale id with several candidates must ask again, got %v", err)
+	}
+	if pr, err := pickProfile(profiles, "personal", "999"); err != nil || pr.ID != 2 {
+		t.Fatalf("stale id with one candidate must use it, got %+v %v", pr, err)
 	}
 	if _, err := pickProfile(profiles[:1], "personal", ""); err == nil {
 		t.Fatal("missing type must error")

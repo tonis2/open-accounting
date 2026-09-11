@@ -5,6 +5,7 @@ import '../../l10n/app_localizations.dart';
 import '../../logging/logging.dart';
 import '../../services/errors.dart';
 import '../../state.dart';
+import 'choice_dialog.dart';
 import 'key_file_field.dart';
 
 /// Edits a connection's name and provider settings. Secret fields start empty and are only
@@ -69,11 +70,21 @@ class _EditConnectionDialogState extends State<EditConnectionDialog> {
       config[e.key] = e.value.text.trim();
     }
     try {
-      final updated = await state.server.updateBankConnection(
+      final res = await state.server.updateBankConnection(
         UpdateBankConnectionRequest(companyId: widget.connection.companyId, id: widget.connection.id, name: _name.text.trim(), config: config.entries),
       );
+      if (res.hasChoice()) {
+        // The provider needs one more answer (e.g. which Wise profile) — ask, fill the field, retry.
+        final picked = mounted ? await ChoiceDialog.show(context, res.choice) : null;
+        if (!mounted) return;
+        setState(() => _busy = false);
+        if (picked == null) return;
+        _text[res.choice.key]?.text = picked;
+        await _save();
+        return;
+      }
       AppLogger.info(l.connectionUpdated);
-      if (mounted) Navigator.pop(context, updated);
+      if (mounted) Navigator.pop(context, res.connection);
     } catch (e) {
       AppLogger.error(errorMessage(e, fallback: l.somethingWentWrong), error: e);
       if (mounted) setState(() => _busy = false);

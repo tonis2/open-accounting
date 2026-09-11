@@ -101,14 +101,16 @@ class AccountingServiceClient extends $grpc.Client {
     $0.Empty request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$beginPasskeyRegistration, request, options: options);
+    return $createUnaryCall(_$beginPasskeyRegistration, request,
+        options: options);
   }
 
   $grpc.ResponseFuture<$0.Passkey> finishPasskeyRegistration(
     $0.FinishPasskeyRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$finishPasskeyRegistration, request, options: options);
+    return $createUnaryCall(_$finishPasskeyRegistration, request,
+        options: options);
   }
 
   $grpc.ResponseFuture<$0.ListPasskeysResponse> listPasskeys(
@@ -323,10 +325,11 @@ class AccountingServiceClient extends $grpc.Client {
     $0.CompleteBankConnectionRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$completeBankConnection, request, options: options);
+    return $createUnaryCall(_$completeBankConnection, request,
+        options: options);
   }
 
-  $grpc.ResponseFuture<$0.BankConnection> updateBankConnection(
+  $grpc.ResponseFuture<$0.UpdateBankConnectionResponse> updateBankConnection(
     $0.UpdateBankConnectionRequest request, {
     $grpc.CallOptions? options,
   }) {
@@ -337,7 +340,8 @@ class AccountingServiceClient extends $grpc.Client {
     $0.CompanyIdRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$reconnectBankConnection, request, options: options);
+    return $createUnaryCall(_$reconnectBankConnection, request,
+        options: options);
   }
 
   $grpc.ResponseFuture<$0.ListBankConnectionsResponse> listBankConnections(
@@ -415,7 +419,8 @@ class AccountingServiceClient extends $grpc.Client {
     $0.LinkTransactionRequest request, {
     $grpc.CallOptions? options,
   }) {
-    return $createUnaryCall(_$linkTransactionToInvoice, request, options: options);
+    return $createUnaryCall(_$linkTransactionToInvoice, request,
+        options: options);
   }
 
   $grpc.ResponseFuture<$0.Attachment> uploadAttachment(
@@ -456,127 +461,289 @@ class AccountingServiceClient extends $grpc.Client {
 
   // method descriptors
 
-  static final _$register = $grpc.ClientMethod<$0.RegisterRequest, $0.AuthResponse>(
-      '/accounting.AccountingService/Register', ($0.RegisterRequest value) => value.writeToBuffer(), $0.AuthResponse.fromBuffer);
+  static final _$register =
+      $grpc.ClientMethod<$0.RegisterRequest, $0.AuthResponse>(
+          '/accounting.AccountingService/Register',
+          ($0.RegisterRequest value) => value.writeToBuffer(),
+          $0.AuthResponse.fromBuffer);
   static final _$login = $grpc.ClientMethod<$0.LoginRequest, $0.AuthResponse>(
-      '/accounting.AccountingService/Login', ($0.LoginRequest value) => value.writeToBuffer(), $0.AuthResponse.fromBuffer);
-  static final _$requestRecovery = $grpc.ClientMethod<$0.RequestRecoveryRequest, $0.Empty>(
-      '/accounting.AccountingService/RequestRecovery', ($0.RequestRecoveryRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$validateRecoveryToken = $grpc.ClientMethod<$0.RecoveryTokenRequest, $0.RecoveryTokenResponse>(
-      '/accounting.AccountingService/ValidateRecoveryToken', ($0.RecoveryTokenRequest value) => value.writeToBuffer(), $0.RecoveryTokenResponse.fromBuffer);
-  static final _$recoverAccount = $grpc.ClientMethod<$0.RecoverAccountRequest, $0.AuthResponse>(
-      '/accounting.AccountingService/RecoverAccount', ($0.RecoverAccountRequest value) => value.writeToBuffer(), $0.AuthResponse.fromBuffer);
-  static final _$beginPasskeyLogin = $grpc.ClientMethod<$0.BeginPasskeyLoginRequest, $0.PasskeyOptionsResponse>(
-      '/accounting.AccountingService/BeginPasskeyLogin', ($0.BeginPasskeyLoginRequest value) => value.writeToBuffer(), $0.PasskeyOptionsResponse.fromBuffer);
-  static final _$finishPasskeyLogin = $grpc.ClientMethod<$0.FinishPasskeyRequest, $0.AuthResponse>(
-      '/accounting.AccountingService/FinishPasskeyLogin', ($0.FinishPasskeyRequest value) => value.writeToBuffer(), $0.AuthResponse.fromBuffer);
-  static final _$me = $grpc.ClientMethod<$0.Empty, $0.User>('/accounting.AccountingService/Me', ($0.Empty value) => value.writeToBuffer(), $0.User.fromBuffer);
-  static final _$changePassword = $grpc.ClientMethod<$0.ChangePasswordRequest, $0.Empty>(
-      '/accounting.AccountingService/ChangePassword', ($0.ChangePasswordRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$beginPasskeyRegistration = $grpc.ClientMethod<$0.Empty, $0.PasskeyOptionsResponse>(
-      '/accounting.AccountingService/BeginPasskeyRegistration', ($0.Empty value) => value.writeToBuffer(), $0.PasskeyOptionsResponse.fromBuffer);
-  static final _$finishPasskeyRegistration = $grpc.ClientMethod<$0.FinishPasskeyRequest, $0.Passkey>(
-      '/accounting.AccountingService/FinishPasskeyRegistration', ($0.FinishPasskeyRequest value) => value.writeToBuffer(), $0.Passkey.fromBuffer);
-  static final _$listPasskeys = $grpc.ClientMethod<$0.Empty, $0.ListPasskeysResponse>(
-      '/accounting.AccountingService/ListPasskeys', ($0.Empty value) => value.writeToBuffer(), $0.ListPasskeysResponse.fromBuffer);
+      '/accounting.AccountingService/Login',
+      ($0.LoginRequest value) => value.writeToBuffer(),
+      $0.AuthResponse.fromBuffer);
+  static final _$requestRecovery =
+      $grpc.ClientMethod<$0.RequestRecoveryRequest, $0.Empty>(
+          '/accounting.AccountingService/RequestRecovery',
+          ($0.RequestRecoveryRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$validateRecoveryToken =
+      $grpc.ClientMethod<$0.RecoveryTokenRequest, $0.RecoveryTokenResponse>(
+          '/accounting.AccountingService/ValidateRecoveryToken',
+          ($0.RecoveryTokenRequest value) => value.writeToBuffer(),
+          $0.RecoveryTokenResponse.fromBuffer);
+  static final _$recoverAccount =
+      $grpc.ClientMethod<$0.RecoverAccountRequest, $0.AuthResponse>(
+          '/accounting.AccountingService/RecoverAccount',
+          ($0.RecoverAccountRequest value) => value.writeToBuffer(),
+          $0.AuthResponse.fromBuffer);
+  static final _$beginPasskeyLogin = $grpc.ClientMethod<
+          $0.BeginPasskeyLoginRequest, $0.PasskeyOptionsResponse>(
+      '/accounting.AccountingService/BeginPasskeyLogin',
+      ($0.BeginPasskeyLoginRequest value) => value.writeToBuffer(),
+      $0.PasskeyOptionsResponse.fromBuffer);
+  static final _$finishPasskeyLogin =
+      $grpc.ClientMethod<$0.FinishPasskeyRequest, $0.AuthResponse>(
+          '/accounting.AccountingService/FinishPasskeyLogin',
+          ($0.FinishPasskeyRequest value) => value.writeToBuffer(),
+          $0.AuthResponse.fromBuffer);
+  static final _$me = $grpc.ClientMethod<$0.Empty, $0.User>(
+      '/accounting.AccountingService/Me',
+      ($0.Empty value) => value.writeToBuffer(),
+      $0.User.fromBuffer);
+  static final _$changePassword =
+      $grpc.ClientMethod<$0.ChangePasswordRequest, $0.Empty>(
+          '/accounting.AccountingService/ChangePassword',
+          ($0.ChangePasswordRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$beginPasskeyRegistration =
+      $grpc.ClientMethod<$0.Empty, $0.PasskeyOptionsResponse>(
+          '/accounting.AccountingService/BeginPasskeyRegistration',
+          ($0.Empty value) => value.writeToBuffer(),
+          $0.PasskeyOptionsResponse.fromBuffer);
+  static final _$finishPasskeyRegistration =
+      $grpc.ClientMethod<$0.FinishPasskeyRequest, $0.Passkey>(
+          '/accounting.AccountingService/FinishPasskeyRegistration',
+          ($0.FinishPasskeyRequest value) => value.writeToBuffer(),
+          $0.Passkey.fromBuffer);
+  static final _$listPasskeys =
+      $grpc.ClientMethod<$0.Empty, $0.ListPasskeysResponse>(
+          '/accounting.AccountingService/ListPasskeys',
+          ($0.Empty value) => value.writeToBuffer(),
+          $0.ListPasskeysResponse.fromBuffer);
   static final _$deletePasskey = $grpc.ClientMethod<$0.IdRequest, $0.Empty>(
-      '/accounting.AccountingService/DeletePasskey', ($0.IdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
+      '/accounting.AccountingService/DeletePasskey',
+      ($0.IdRequest value) => value.writeToBuffer(),
+      $0.Empty.fromBuffer);
   static final _$createCompany = $grpc.ClientMethod<$0.Company, $0.Company>(
-      '/accounting.AccountingService/CreateCompany', ($0.Company value) => value.writeToBuffer(), $0.Company.fromBuffer);
+      '/accounting.AccountingService/CreateCompany',
+      ($0.Company value) => value.writeToBuffer(),
+      $0.Company.fromBuffer);
   static final _$updateCompany = $grpc.ClientMethod<$0.Company, $0.Company>(
-      '/accounting.AccountingService/UpdateCompany', ($0.Company value) => value.writeToBuffer(), $0.Company.fromBuffer);
-  static final _$listCompanies = $grpc.ClientMethod<$0.Empty, $0.ListCompaniesResponse>(
-      '/accounting.AccountingService/ListCompanies', ($0.Empty value) => value.writeToBuffer(), $0.ListCompaniesResponse.fromBuffer);
+      '/accounting.AccountingService/UpdateCompany',
+      ($0.Company value) => value.writeToBuffer(),
+      $0.Company.fromBuffer);
+  static final _$listCompanies =
+      $grpc.ClientMethod<$0.Empty, $0.ListCompaniesResponse>(
+          '/accounting.AccountingService/ListCompanies',
+          ($0.Empty value) => value.writeToBuffer(),
+          $0.ListCompaniesResponse.fromBuffer);
   static final _$getCompany = $grpc.ClientMethod<$0.CompanyRequest, $0.Company>(
-      '/accounting.AccountingService/GetCompany', ($0.CompanyRequest value) => value.writeToBuffer(), $0.Company.fromBuffer);
+      '/accounting.AccountingService/GetCompany',
+      ($0.CompanyRequest value) => value.writeToBuffer(),
+      $0.Company.fromBuffer);
   static final _$createProject = $grpc.ClientMethod<$0.Project, $0.Project>(
-      '/accounting.AccountingService/CreateProject', ($0.Project value) => value.writeToBuffer(), $0.Project.fromBuffer);
+      '/accounting.AccountingService/CreateProject',
+      ($0.Project value) => value.writeToBuffer(),
+      $0.Project.fromBuffer);
   static final _$updateProject = $grpc.ClientMethod<$0.Project, $0.Project>(
-      '/accounting.AccountingService/UpdateProject', ($0.Project value) => value.writeToBuffer(), $0.Project.fromBuffer);
-  static final _$deleteProject = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
-      '/accounting.AccountingService/DeleteProject', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$listProjects = $grpc.ClientMethod<$0.ListProjectsRequest, $0.ListProjectsResponse>(
-      '/accounting.AccountingService/ListProjects', ($0.ListProjectsRequest value) => value.writeToBuffer(), $0.ListProjectsResponse.fromBuffer);
-  static final _$getProject = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Project>(
-      '/accounting.AccountingService/GetProject', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Project.fromBuffer);
-  static final _$listCategories = $grpc.ClientMethod<$0.CompanyRequest, $0.ListCategoriesResponse>(
-      '/accounting.AccountingService/ListCategories', ($0.CompanyRequest value) => value.writeToBuffer(), $0.ListCategoriesResponse.fromBuffer);
+      '/accounting.AccountingService/UpdateProject',
+      ($0.Project value) => value.writeToBuffer(),
+      $0.Project.fromBuffer);
+  static final _$deleteProject =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
+          '/accounting.AccountingService/DeleteProject',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$listProjects =
+      $grpc.ClientMethod<$0.ListProjectsRequest, $0.ListProjectsResponse>(
+          '/accounting.AccountingService/ListProjects',
+          ($0.ListProjectsRequest value) => value.writeToBuffer(),
+          $0.ListProjectsResponse.fromBuffer);
+  static final _$getProject =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Project>(
+          '/accounting.AccountingService/GetProject',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Project.fromBuffer);
+  static final _$listCategories =
+      $grpc.ClientMethod<$0.CompanyRequest, $0.ListCategoriesResponse>(
+          '/accounting.AccountingService/ListCategories',
+          ($0.CompanyRequest value) => value.writeToBuffer(),
+          $0.ListCategoriesResponse.fromBuffer);
   static final _$createCategory = $grpc.ClientMethod<$0.Category, $0.Category>(
-      '/accounting.AccountingService/CreateCategory', ($0.Category value) => value.writeToBuffer(), $0.Category.fromBuffer);
+      '/accounting.AccountingService/CreateCategory',
+      ($0.Category value) => value.writeToBuffer(),
+      $0.Category.fromBuffer);
   static final _$updateCategory = $grpc.ClientMethod<$0.Category, $0.Category>(
-      '/accounting.AccountingService/UpdateCategory', ($0.Category value) => value.writeToBuffer(), $0.Category.fromBuffer);
-  static final _$deleteCategory = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
-      '/accounting.AccountingService/DeleteCategory', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
+      '/accounting.AccountingService/UpdateCategory',
+      ($0.Category value) => value.writeToBuffer(),
+      $0.Category.fromBuffer);
+  static final _$deleteCategory =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
+          '/accounting.AccountingService/DeleteCategory',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
   static final _$createInvoice = $grpc.ClientMethod<$0.Invoice, $0.Invoice>(
-      '/accounting.AccountingService/CreateInvoice', ($0.Invoice value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
+      '/accounting.AccountingService/CreateInvoice',
+      ($0.Invoice value) => value.writeToBuffer(),
+      $0.Invoice.fromBuffer);
   static final _$updateInvoice = $grpc.ClientMethod<$0.Invoice, $0.Invoice>(
-      '/accounting.AccountingService/UpdateInvoice', ($0.Invoice value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$listInvoices = $grpc.ClientMethod<$0.ListInvoicesRequest, $0.ListInvoicesResponse>(
-      '/accounting.AccountingService/ListInvoices', ($0.ListInvoicesRequest value) => value.writeToBuffer(), $0.ListInvoicesResponse.fromBuffer);
-  static final _$getInvoice = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
-      '/accounting.AccountingService/GetInvoice', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$issueInvoice = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
-      '/accounting.AccountingService/IssueInvoice', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$sendInvoice = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
-      '/accounting.AccountingService/SendInvoice', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$getInvoicePdf = $grpc.ClientMethod<$0.CompanyIdRequest, $0.FileResponse>(
-      '/accounting.AccountingService/GetInvoicePdf', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.FileResponse.fromBuffer);
-  static final _$markInvoicePaid = $grpc.ClientMethod<$0.MarkInvoicePaidRequest, $0.Invoice>(
-      '/accounting.AccountingService/MarkInvoicePaid', ($0.MarkInvoicePaidRequest value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$unlinkInvoicePayment = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
-      '/accounting.AccountingService/UnlinkInvoicePayment', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$cancelInvoice = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
-      '/accounting.AccountingService/CancelInvoice', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Invoice.fromBuffer);
-  static final _$deleteInvoice = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
-      '/accounting.AccountingService/DeleteInvoice', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$listBankProviders = $grpc.ClientMethod<$0.Empty, $0.ListBankProvidersResponse>(
-      '/accounting.AccountingService/ListBankProviders', ($0.Empty value) => value.writeToBuffer(), $0.ListBankProvidersResponse.fromBuffer);
-  static final _$listInstitutions = $grpc.ClientMethod<$0.ListInstitutionsRequest, $0.ListInstitutionsResponse>(
-      '/accounting.AccountingService/ListInstitutions', ($0.ListInstitutionsRequest value) => value.writeToBuffer(), $0.ListInstitutionsResponse.fromBuffer);
-  static final _$createBankConnection = $grpc.ClientMethod<$0.CreateBankConnectionRequest, $0.CreateBankConnectionResponse>(
+      '/accounting.AccountingService/UpdateInvoice',
+      ($0.Invoice value) => value.writeToBuffer(),
+      $0.Invoice.fromBuffer);
+  static final _$listInvoices =
+      $grpc.ClientMethod<$0.ListInvoicesRequest, $0.ListInvoicesResponse>(
+          '/accounting.AccountingService/ListInvoices',
+          ($0.ListInvoicesRequest value) => value.writeToBuffer(),
+          $0.ListInvoicesResponse.fromBuffer);
+  static final _$getInvoice =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
+          '/accounting.AccountingService/GetInvoice',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Invoice.fromBuffer);
+  static final _$issueInvoice =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
+          '/accounting.AccountingService/IssueInvoice',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Invoice.fromBuffer);
+  static final _$sendInvoice =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
+          '/accounting.AccountingService/SendInvoice',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Invoice.fromBuffer);
+  static final _$getInvoicePdf =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.FileResponse>(
+          '/accounting.AccountingService/GetInvoicePdf',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.FileResponse.fromBuffer);
+  static final _$markInvoicePaid =
+      $grpc.ClientMethod<$0.MarkInvoicePaidRequest, $0.Invoice>(
+          '/accounting.AccountingService/MarkInvoicePaid',
+          ($0.MarkInvoicePaidRequest value) => value.writeToBuffer(),
+          $0.Invoice.fromBuffer);
+  static final _$unlinkInvoicePayment =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
+          '/accounting.AccountingService/UnlinkInvoicePayment',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Invoice.fromBuffer);
+  static final _$cancelInvoice =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Invoice>(
+          '/accounting.AccountingService/CancelInvoice',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Invoice.fromBuffer);
+  static final _$deleteInvoice =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
+          '/accounting.AccountingService/DeleteInvoice',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$listBankProviders =
+      $grpc.ClientMethod<$0.Empty, $0.ListBankProvidersResponse>(
+          '/accounting.AccountingService/ListBankProviders',
+          ($0.Empty value) => value.writeToBuffer(),
+          $0.ListBankProvidersResponse.fromBuffer);
+  static final _$listInstitutions = $grpc.ClientMethod<
+          $0.ListInstitutionsRequest, $0.ListInstitutionsResponse>(
+      '/accounting.AccountingService/ListInstitutions',
+      ($0.ListInstitutionsRequest value) => value.writeToBuffer(),
+      $0.ListInstitutionsResponse.fromBuffer);
+  static final _$createBankConnection = $grpc.ClientMethod<
+          $0.CreateBankConnectionRequest, $0.CreateBankConnectionResponse>(
       '/accounting.AccountingService/CreateBankConnection',
       ($0.CreateBankConnectionRequest value) => value.writeToBuffer(),
       $0.CreateBankConnectionResponse.fromBuffer);
-  static final _$completeBankConnection = $grpc.ClientMethod<$0.CompleteBankConnectionRequest, $0.BankConnection>(
-      '/accounting.AccountingService/CompleteBankConnection', ($0.CompleteBankConnectionRequest value) => value.writeToBuffer(), $0.BankConnection.fromBuffer);
-  static final _$updateBankConnection = $grpc.ClientMethod<$0.UpdateBankConnectionRequest, $0.BankConnection>(
-      '/accounting.AccountingService/UpdateBankConnection', ($0.UpdateBankConnectionRequest value) => value.writeToBuffer(), $0.BankConnection.fromBuffer);
-  static final _$reconnectBankConnection = $grpc.ClientMethod<$0.CompanyIdRequest, $0.CreateBankConnectionResponse>(
-      '/accounting.AccountingService/ReconnectBankConnection',
-      ($0.CompanyIdRequest value) => value.writeToBuffer(),
-      $0.CreateBankConnectionResponse.fromBuffer);
-  static final _$listBankConnections = $grpc.ClientMethod<$0.CompanyRequest, $0.ListBankConnectionsResponse>(
-      '/accounting.AccountingService/ListBankConnections', ($0.CompanyRequest value) => value.writeToBuffer(), $0.ListBankConnectionsResponse.fromBuffer);
-  static final _$deleteBankConnection = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
-      '/accounting.AccountingService/DeleteBankConnection', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$listBankAccounts = $grpc.ClientMethod<$0.CompanyRequest, $0.ListBankAccountsResponse>(
-      '/accounting.AccountingService/ListBankAccounts', ($0.CompanyRequest value) => value.writeToBuffer(), $0.ListBankAccountsResponse.fromBuffer);
-  static final _$setPrimaryAccount = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
-      '/accounting.AccountingService/SetPrimaryAccount', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$syncNow = $grpc.ClientMethod<$0.CompanyRequest, $0.SyncNowResponse>(
-      '/accounting.AccountingService/SyncNow', ($0.CompanyRequest value) => value.writeToBuffer(), $0.SyncNowResponse.fromBuffer);
-  static final _$getBalanceHistory = $grpc.ClientMethod<$0.BalanceHistoryRequest, $0.BalanceHistoryResponse>(
-      '/accounting.AccountingService/GetBalanceHistory', ($0.BalanceHistoryRequest value) => value.writeToBuffer(), $0.BalanceHistoryResponse.fromBuffer);
-  static final _$uploadStatement = $grpc.ClientMethod<$0.UploadStatementRequest, $0.UploadStatementResponse>(
-      '/accounting.AccountingService/UploadStatement', ($0.UploadStatementRequest value) => value.writeToBuffer(), $0.UploadStatementResponse.fromBuffer);
-  static final _$listTransactions = $grpc.ClientMethod<$0.ListTransactionsRequest, $0.ListTransactionsResponse>(
-      '/accounting.AccountingService/ListTransactions', ($0.ListTransactionsRequest value) => value.writeToBuffer(), $0.ListTransactionsResponse.fromBuffer);
-  static final _$explainTransaction = $grpc.ClientMethod<$0.ExplainTransactionRequest, $0.Transaction>(
-      '/accounting.AccountingService/ExplainTransaction', ($0.ExplainTransactionRequest value) => value.writeToBuffer(), $0.Transaction.fromBuffer);
-  static final _$approveTransactions = $grpc.ClientMethod<$0.ApproveTransactionsRequest, $0.Empty>(
-      '/accounting.AccountingService/ApproveTransactions', ($0.ApproveTransactionsRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$linkTransactionToInvoice = $grpc.ClientMethod<$0.LinkTransactionRequest, $0.Transaction>(
-      '/accounting.AccountingService/LinkTransactionToInvoice', ($0.LinkTransactionRequest value) => value.writeToBuffer(), $0.Transaction.fromBuffer);
-  static final _$uploadAttachment = $grpc.ClientMethod<$0.UploadAttachmentRequest, $0.Attachment>(
-      '/accounting.AccountingService/UploadAttachment', ($0.UploadAttachmentRequest value) => value.writeToBuffer(), $0.Attachment.fromBuffer);
-  static final _$listAttachments = $grpc.ClientMethod<$0.ListAttachmentsRequest, $0.ListAttachmentsResponse>(
-      '/accounting.AccountingService/ListAttachments', ($0.ListAttachmentsRequest value) => value.writeToBuffer(), $0.ListAttachmentsResponse.fromBuffer);
-  static final _$getAttachment = $grpc.ClientMethod<$0.CompanyIdRequest, $0.FileResponse>(
-      '/accounting.AccountingService/GetAttachment', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.FileResponse.fromBuffer);
-  static final _$deleteAttachment = $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
-      '/accounting.AccountingService/DeleteAttachment', ($0.CompanyIdRequest value) => value.writeToBuffer(), $0.Empty.fromBuffer);
-  static final _$getOverview = $grpc.ClientMethod<$0.OverviewRequest, $0.OverviewResponse>(
-      '/accounting.AccountingService/GetOverview', ($0.OverviewRequest value) => value.writeToBuffer(), $0.OverviewResponse.fromBuffer);
+  static final _$completeBankConnection =
+      $grpc.ClientMethod<$0.CompleteBankConnectionRequest, $0.BankConnection>(
+          '/accounting.AccountingService/CompleteBankConnection',
+          ($0.CompleteBankConnectionRequest value) => value.writeToBuffer(),
+          $0.BankConnection.fromBuffer);
+  static final _$updateBankConnection = $grpc.ClientMethod<
+          $0.UpdateBankConnectionRequest, $0.UpdateBankConnectionResponse>(
+      '/accounting.AccountingService/UpdateBankConnection',
+      ($0.UpdateBankConnectionRequest value) => value.writeToBuffer(),
+      $0.UpdateBankConnectionResponse.fromBuffer);
+  static final _$reconnectBankConnection =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.CreateBankConnectionResponse>(
+          '/accounting.AccountingService/ReconnectBankConnection',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.CreateBankConnectionResponse.fromBuffer);
+  static final _$listBankConnections =
+      $grpc.ClientMethod<$0.CompanyRequest, $0.ListBankConnectionsResponse>(
+          '/accounting.AccountingService/ListBankConnections',
+          ($0.CompanyRequest value) => value.writeToBuffer(),
+          $0.ListBankConnectionsResponse.fromBuffer);
+  static final _$deleteBankConnection =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
+          '/accounting.AccountingService/DeleteBankConnection',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$listBankAccounts =
+      $grpc.ClientMethod<$0.CompanyRequest, $0.ListBankAccountsResponse>(
+          '/accounting.AccountingService/ListBankAccounts',
+          ($0.CompanyRequest value) => value.writeToBuffer(),
+          $0.ListBankAccountsResponse.fromBuffer);
+  static final _$setPrimaryAccount =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
+          '/accounting.AccountingService/SetPrimaryAccount',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$syncNow =
+      $grpc.ClientMethod<$0.CompanyRequest, $0.SyncNowResponse>(
+          '/accounting.AccountingService/SyncNow',
+          ($0.CompanyRequest value) => value.writeToBuffer(),
+          $0.SyncNowResponse.fromBuffer);
+  static final _$getBalanceHistory =
+      $grpc.ClientMethod<$0.BalanceHistoryRequest, $0.BalanceHistoryResponse>(
+          '/accounting.AccountingService/GetBalanceHistory',
+          ($0.BalanceHistoryRequest value) => value.writeToBuffer(),
+          $0.BalanceHistoryResponse.fromBuffer);
+  static final _$uploadStatement =
+      $grpc.ClientMethod<$0.UploadStatementRequest, $0.UploadStatementResponse>(
+          '/accounting.AccountingService/UploadStatement',
+          ($0.UploadStatementRequest value) => value.writeToBuffer(),
+          $0.UploadStatementResponse.fromBuffer);
+  static final _$listTransactions = $grpc.ClientMethod<
+          $0.ListTransactionsRequest, $0.ListTransactionsResponse>(
+      '/accounting.AccountingService/ListTransactions',
+      ($0.ListTransactionsRequest value) => value.writeToBuffer(),
+      $0.ListTransactionsResponse.fromBuffer);
+  static final _$explainTransaction =
+      $grpc.ClientMethod<$0.ExplainTransactionRequest, $0.Transaction>(
+          '/accounting.AccountingService/ExplainTransaction',
+          ($0.ExplainTransactionRequest value) => value.writeToBuffer(),
+          $0.Transaction.fromBuffer);
+  static final _$approveTransactions =
+      $grpc.ClientMethod<$0.ApproveTransactionsRequest, $0.Empty>(
+          '/accounting.AccountingService/ApproveTransactions',
+          ($0.ApproveTransactionsRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$linkTransactionToInvoice =
+      $grpc.ClientMethod<$0.LinkTransactionRequest, $0.Transaction>(
+          '/accounting.AccountingService/LinkTransactionToInvoice',
+          ($0.LinkTransactionRequest value) => value.writeToBuffer(),
+          $0.Transaction.fromBuffer);
+  static final _$uploadAttachment =
+      $grpc.ClientMethod<$0.UploadAttachmentRequest, $0.Attachment>(
+          '/accounting.AccountingService/UploadAttachment',
+          ($0.UploadAttachmentRequest value) => value.writeToBuffer(),
+          $0.Attachment.fromBuffer);
+  static final _$listAttachments =
+      $grpc.ClientMethod<$0.ListAttachmentsRequest, $0.ListAttachmentsResponse>(
+          '/accounting.AccountingService/ListAttachments',
+          ($0.ListAttachmentsRequest value) => value.writeToBuffer(),
+          $0.ListAttachmentsResponse.fromBuffer);
+  static final _$getAttachment =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.FileResponse>(
+          '/accounting.AccountingService/GetAttachment',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.FileResponse.fromBuffer);
+  static final _$deleteAttachment =
+      $grpc.ClientMethod<$0.CompanyIdRequest, $0.Empty>(
+          '/accounting.AccountingService/DeleteAttachment',
+          ($0.CompanyIdRequest value) => value.writeToBuffer(),
+          $0.Empty.fromBuffer);
+  static final _$getOverview =
+      $grpc.ClientMethod<$0.OverviewRequest, $0.OverviewResponse>(
+          '/accounting.AccountingService/GetOverview',
+          ($0.OverviewRequest value) => value.writeToBuffer(),
+          $0.OverviewResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('accounting.AccountingService')
@@ -584,483 +751,949 @@ abstract class AccountingServiceBase extends $grpc.Service {
   $core.String get $name => 'accounting.AccountingService';
 
   AccountingServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.RegisterRequest, $0.AuthResponse>('Register', register_Pre, false, false,
-        ($core.List<$core.int> value) => $0.RegisterRequest.fromBuffer(value), ($0.AuthResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.LoginRequest, $0.AuthResponse>('Login', login_Pre, false, false,
-        ($core.List<$core.int> value) => $0.LoginRequest.fromBuffer(value), ($0.AuthResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RequestRecoveryRequest, $0.Empty>('RequestRecovery', requestRecovery_Pre, false, false,
-        ($core.List<$core.int> value) => $0.RequestRecoveryRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RecoveryTokenRequest, $0.RecoveryTokenResponse>('ValidateRecoveryToken', validateRecoveryToken_Pre, false, false,
-        ($core.List<$core.int> value) => $0.RecoveryTokenRequest.fromBuffer(value), ($0.RecoveryTokenResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RecoverAccountRequest, $0.AuthResponse>('RecoverAccount', recoverAccount_Pre, false, false,
-        ($core.List<$core.int> value) => $0.RecoverAccountRequest.fromBuffer(value), ($0.AuthResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.BeginPasskeyLoginRequest, $0.PasskeyOptionsResponse>('BeginPasskeyLogin', beginPasskeyLogin_Pre, false, false,
-        ($core.List<$core.int> value) => $0.BeginPasskeyLoginRequest.fromBuffer(value), ($0.PasskeyOptionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.FinishPasskeyRequest, $0.AuthResponse>('FinishPasskeyLogin', finishPasskeyLogin_Pre, false, false,
-        ($core.List<$core.int> value) => $0.FinishPasskeyRequest.fromBuffer(value), ($0.AuthResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RegisterRequest, $0.AuthResponse>(
+        'Register',
+        register_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.RegisterRequest.fromBuffer(value),
+        ($0.AuthResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.LoginRequest, $0.AuthResponse>(
+        'Login',
+        login_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.LoginRequest.fromBuffer(value),
+        ($0.AuthResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RequestRecoveryRequest, $0.Empty>(
+        'RequestRecovery',
+        requestRecovery_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.RequestRecoveryRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.RecoveryTokenRequest, $0.RecoveryTokenResponse>(
+            'ValidateRecoveryToken',
+            validateRecoveryToken_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.RecoveryTokenRequest.fromBuffer(value),
+            ($0.RecoveryTokenResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RecoverAccountRequest, $0.AuthResponse>(
+        'RecoverAccount',
+        recoverAccount_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.RecoverAccountRequest.fromBuffer(value),
+        ($0.AuthResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BeginPasskeyLoginRequest,
+            $0.PasskeyOptionsResponse>(
+        'BeginPasskeyLogin',
+        beginPasskeyLogin_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.BeginPasskeyLoginRequest.fromBuffer(value),
+        ($0.PasskeyOptionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.FinishPasskeyRequest, $0.AuthResponse>(
+        'FinishPasskeyLogin',
+        finishPasskeyLogin_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.FinishPasskeyRequest.fromBuffer(value),
+        ($0.AuthResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Empty, $0.User>(
-        'Me', me_Pre, false, false, ($core.List<$core.int> value) => $0.Empty.fromBuffer(value), ($0.User value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ChangePasswordRequest, $0.Empty>('ChangePassword', changePassword_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ChangePasswordRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.PasskeyOptionsResponse>('BeginPasskeyRegistration', beginPasskeyRegistration_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value), ($0.PasskeyOptionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.FinishPasskeyRequest, $0.Passkey>('FinishPasskeyRegistration', finishPasskeyRegistration_Pre, false, false,
-        ($core.List<$core.int> value) => $0.FinishPasskeyRequest.fromBuffer(value), ($0.Passkey value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.ListPasskeysResponse>('ListPasskeys', listPasskeys_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value), ($0.ListPasskeysResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.IdRequest, $0.Empty>('DeletePasskey', deletePasskey_Pre, false, false,
-        ($core.List<$core.int> value) => $0.IdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Company, $0.Company>('CreateCompany', createCompany_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Company.fromBuffer(value), ($0.Company value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Company, $0.Company>('UpdateCompany', updateCompany_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Company.fromBuffer(value), ($0.Company value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.ListCompaniesResponse>('ListCompanies', listCompanies_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value), ($0.ListCompaniesResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.Company>('GetCompany', getCompany_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value), ($0.Company value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Project, $0.Project>('CreateProject', createProject_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Project.fromBuffer(value), ($0.Project value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Project, $0.Project>('UpdateProject', updateProject_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Project.fromBuffer(value), ($0.Project value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>('DeleteProject', deleteProject_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ListProjectsRequest, $0.ListProjectsResponse>('ListProjects', listProjects_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ListProjectsRequest.fromBuffer(value), ($0.ListProjectsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Project>('GetProject', getProject_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Project value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.ListCategoriesResponse>('ListCategories', listCategories_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value), ($0.ListCategoriesResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Category, $0.Category>('CreateCategory', createCategory_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Category.fromBuffer(value), ($0.Category value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Category, $0.Category>('UpdateCategory', updateCategory_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Category.fromBuffer(value), ($0.Category value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>('DeleteCategory', deleteCategory_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Invoice, $0.Invoice>('CreateInvoice', createInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Invoice.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Invoice, $0.Invoice>('UpdateInvoice', updateInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Invoice.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ListInvoicesRequest, $0.ListInvoicesResponse>('ListInvoices', listInvoices_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ListInvoicesRequest.fromBuffer(value), ($0.ListInvoicesResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>('GetInvoice', getInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>('IssueInvoice', issueInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>('SendInvoice', sendInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.FileResponse>('GetInvoicePdf', getInvoicePdf_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.FileResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.MarkInvoicePaidRequest, $0.Invoice>('MarkInvoicePaid', markInvoicePaid_Pre, false, false,
-        ($core.List<$core.int> value) => $0.MarkInvoicePaidRequest.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>('UnlinkInvoicePayment', unlinkInvoicePayment_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>('CancelInvoice', cancelInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Invoice value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>('DeleteInvoice', deleteInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.ListBankProvidersResponse>('ListBankProviders', listBankProviders_Pre, false, false,
-        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value), ($0.ListBankProvidersResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ListInstitutionsRequest, $0.ListInstitutionsResponse>('ListInstitutions', listInstitutions_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ListInstitutionsRequest.fromBuffer(value), ($0.ListInstitutionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CreateBankConnectionRequest, $0.CreateBankConnectionResponse>(
+        'Me',
+        me_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.User value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ChangePasswordRequest, $0.Empty>(
+        'ChangePassword',
+        changePassword_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ChangePasswordRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.PasskeyOptionsResponse>(
+        'BeginPasskeyRegistration',
+        beginPasskeyRegistration_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.PasskeyOptionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.FinishPasskeyRequest, $0.Passkey>(
+        'FinishPasskeyRegistration',
+        finishPasskeyRegistration_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.FinishPasskeyRequest.fromBuffer(value),
+        ($0.Passkey value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.ListPasskeysResponse>(
+        'ListPasskeys',
+        listPasskeys_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.ListPasskeysResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.IdRequest, $0.Empty>(
+        'DeletePasskey',
+        deletePasskey_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.IdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Company, $0.Company>(
+        'CreateCompany',
+        createCompany_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Company.fromBuffer(value),
+        ($0.Company value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Company, $0.Company>(
+        'UpdateCompany',
+        updateCompany_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Company.fromBuffer(value),
+        ($0.Company value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.ListCompaniesResponse>(
+        'ListCompanies',
+        listCompanies_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.ListCompaniesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.Company>(
+        'GetCompany',
+        getCompany_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value),
+        ($0.Company value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Project, $0.Project>(
+        'CreateProject',
+        createProject_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Project.fromBuffer(value),
+        ($0.Project value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Project, $0.Project>(
+        'UpdateProject',
+        updateProject_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Project.fromBuffer(value),
+        ($0.Project value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>(
+        'DeleteProject',
+        deleteProject_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.ListProjectsRequest, $0.ListProjectsResponse>(
+            'ListProjects',
+            listProjects_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.ListProjectsRequest.fromBuffer(value),
+            ($0.ListProjectsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Project>(
+        'GetProject',
+        getProject_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Project value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.CompanyRequest, $0.ListCategoriesResponse>(
+            'ListCategories',
+            listCategories_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.CompanyRequest.fromBuffer(value),
+            ($0.ListCategoriesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Category, $0.Category>(
+        'CreateCategory',
+        createCategory_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Category.fromBuffer(value),
+        ($0.Category value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Category, $0.Category>(
+        'UpdateCategory',
+        updateCategory_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Category.fromBuffer(value),
+        ($0.Category value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>(
+        'DeleteCategory',
+        deleteCategory_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Invoice, $0.Invoice>(
+        'CreateInvoice',
+        createInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Invoice.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Invoice, $0.Invoice>(
+        'UpdateInvoice',
+        updateInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Invoice.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.ListInvoicesRequest, $0.ListInvoicesResponse>(
+            'ListInvoices',
+            listInvoices_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.ListInvoicesRequest.fromBuffer(value),
+            ($0.ListInvoicesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>(
+        'GetInvoice',
+        getInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>(
+        'IssueInvoice',
+        issueInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>(
+        'SendInvoice',
+        sendInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.FileResponse>(
+        'GetInvoicePdf',
+        getInvoicePdf_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.FileResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MarkInvoicePaidRequest, $0.Invoice>(
+        'MarkInvoicePaid',
+        markInvoicePaid_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.MarkInvoicePaidRequest.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>(
+        'UnlinkInvoicePayment',
+        unlinkInvoicePayment_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Invoice>(
+        'CancelInvoice',
+        cancelInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Invoice value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>(
+        'DeleteInvoice',
+        deleteInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.ListBankProvidersResponse>(
+        'ListBankProviders',
+        listBankProviders_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.ListBankProvidersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ListInstitutionsRequest,
+            $0.ListInstitutionsResponse>(
+        'ListInstitutions',
+        listInstitutions_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ListInstitutionsRequest.fromBuffer(value),
+        ($0.ListInstitutionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CreateBankConnectionRequest,
+            $0.CreateBankConnectionResponse>(
         'CreateBankConnection',
         createBankConnection_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.CreateBankConnectionRequest.fromBuffer(value),
+        ($core.List<$core.int> value) =>
+            $0.CreateBankConnectionRequest.fromBuffer(value),
         ($0.CreateBankConnectionResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompleteBankConnectionRequest, $0.BankConnection>('CompleteBankConnection', completeBankConnection_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompleteBankConnectionRequest.fromBuffer(value), ($0.BankConnection value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateBankConnectionRequest, $0.BankConnection>('UpdateBankConnection', updateBankConnection_Pre, false, false,
-        ($core.List<$core.int> value) => $0.UpdateBankConnectionRequest.fromBuffer(value), ($0.BankConnection value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.CreateBankConnectionResponse>('ReconnectBankConnection', reconnectBankConnection_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.CreateBankConnectionResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.ListBankConnectionsResponse>('ListBankConnections', listBankConnections_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value), ($0.ListBankConnectionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>('DeleteBankConnection', deleteBankConnection_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.ListBankAccountsResponse>('ListBankAccounts', listBankAccounts_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value), ($0.ListBankAccountsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>('SetPrimaryAccount', setPrimaryAccount_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.SyncNowResponse>('SyncNow', syncNow_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value), ($0.SyncNowResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.BalanceHistoryRequest, $0.BalanceHistoryResponse>('GetBalanceHistory', getBalanceHistory_Pre, false, false,
-        ($core.List<$core.int> value) => $0.BalanceHistoryRequest.fromBuffer(value), ($0.BalanceHistoryResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UploadStatementRequest, $0.UploadStatementResponse>('UploadStatement', uploadStatement_Pre, false, false,
-        ($core.List<$core.int> value) => $0.UploadStatementRequest.fromBuffer(value), ($0.UploadStatementResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ListTransactionsRequest, $0.ListTransactionsResponse>('ListTransactions', listTransactions_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ListTransactionsRequest.fromBuffer(value), ($0.ListTransactionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ExplainTransactionRequest, $0.Transaction>('ExplainTransaction', explainTransaction_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ExplainTransactionRequest.fromBuffer(value), ($0.Transaction value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ApproveTransactionsRequest, $0.Empty>('ApproveTransactions', approveTransactions_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ApproveTransactionsRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.LinkTransactionRequest, $0.Transaction>('LinkTransactionToInvoice', linkTransactionToInvoice_Pre, false, false,
-        ($core.List<$core.int> value) => $0.LinkTransactionRequest.fromBuffer(value), ($0.Transaction value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UploadAttachmentRequest, $0.Attachment>('UploadAttachment', uploadAttachment_Pre, false, false,
-        ($core.List<$core.int> value) => $0.UploadAttachmentRequest.fromBuffer(value), ($0.Attachment value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.ListAttachmentsRequest, $0.ListAttachmentsResponse>('ListAttachments', listAttachments_Pre, false, false,
-        ($core.List<$core.int> value) => $0.ListAttachmentsRequest.fromBuffer(value), ($0.ListAttachmentsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.FileResponse>('GetAttachment', getAttachment_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.FileResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>('DeleteAttachment', deleteAttachment_Pre, false, false,
-        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value), ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.OverviewRequest, $0.OverviewResponse>('GetOverview', getOverview_Pre, false, false,
-        ($core.List<$core.int> value) => $0.OverviewRequest.fromBuffer(value), ($0.OverviewResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompleteBankConnectionRequest,
+            $0.BankConnection>(
+        'CompleteBankConnection',
+        completeBankConnection_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.CompleteBankConnectionRequest.fromBuffer(value),
+        ($0.BankConnection value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UpdateBankConnectionRequest,
+            $0.UpdateBankConnectionResponse>(
+        'UpdateBankConnection',
+        updateBankConnection_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.UpdateBankConnectionRequest.fromBuffer(value),
+        ($0.UpdateBankConnectionResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest,
+            $0.CreateBankConnectionResponse>(
+        'ReconnectBankConnection',
+        reconnectBankConnection_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.CreateBankConnectionResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.CompanyRequest, $0.ListBankConnectionsResponse>(
+            'ListBankConnections',
+            listBankConnections_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.CompanyRequest.fromBuffer(value),
+            ($0.ListBankConnectionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>(
+        'DeleteBankConnection',
+        deleteBankConnection_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.CompanyRequest, $0.ListBankAccountsResponse>(
+            'ListBankAccounts',
+            listBankAccounts_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.CompanyRequest.fromBuffer(value),
+            ($0.ListBankAccountsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>(
+        'SetPrimaryAccount',
+        setPrimaryAccount_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyRequest, $0.SyncNowResponse>(
+        'SyncNow',
+        syncNow_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyRequest.fromBuffer(value),
+        ($0.SyncNowResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BalanceHistoryRequest,
+            $0.BalanceHistoryResponse>(
+        'GetBalanceHistory',
+        getBalanceHistory_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.BalanceHistoryRequest.fromBuffer(value),
+        ($0.BalanceHistoryResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UploadStatementRequest,
+            $0.UploadStatementResponse>(
+        'UploadStatement',
+        uploadStatement_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.UploadStatementRequest.fromBuffer(value),
+        ($0.UploadStatementResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ListTransactionsRequest,
+            $0.ListTransactionsResponse>(
+        'ListTransactions',
+        listTransactions_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ListTransactionsRequest.fromBuffer(value),
+        ($0.ListTransactionsResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.ExplainTransactionRequest, $0.Transaction>(
+            'ExplainTransaction',
+            explainTransaction_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.ExplainTransactionRequest.fromBuffer(value),
+            ($0.Transaction value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ApproveTransactionsRequest, $0.Empty>(
+        'ApproveTransactions',
+        approveTransactions_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ApproveTransactionsRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.LinkTransactionRequest, $0.Transaction>(
+        'LinkTransactionToInvoice',
+        linkTransactionToInvoice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.LinkTransactionRequest.fromBuffer(value),
+        ($0.Transaction value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UploadAttachmentRequest, $0.Attachment>(
+        'UploadAttachment',
+        uploadAttachment_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.UploadAttachmentRequest.fromBuffer(value),
+        ($0.Attachment value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ListAttachmentsRequest,
+            $0.ListAttachmentsResponse>(
+        'ListAttachments',
+        listAttachments_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ListAttachmentsRequest.fromBuffer(value),
+        ($0.ListAttachmentsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.FileResponse>(
+        'GetAttachment',
+        getAttachment_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.FileResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompanyIdRequest, $0.Empty>(
+        'DeleteAttachment',
+        deleteAttachment_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompanyIdRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.OverviewRequest, $0.OverviewResponse>(
+        'GetOverview',
+        getOverview_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.OverviewRequest.fromBuffer(value),
+        ($0.OverviewResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.AuthResponse> register_Pre($grpc.ServiceCall $call, $async.Future<$0.RegisterRequest> $request) async {
+  $async.Future<$0.AuthResponse> register_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.RegisterRequest> $request) async {
     return register($call, await $request);
   }
 
-  $async.Future<$0.AuthResponse> register($grpc.ServiceCall call, $0.RegisterRequest request);
+  $async.Future<$0.AuthResponse> register(
+      $grpc.ServiceCall call, $0.RegisterRequest request);
 
-  $async.Future<$0.AuthResponse> login_Pre($grpc.ServiceCall $call, $async.Future<$0.LoginRequest> $request) async {
+  $async.Future<$0.AuthResponse> login_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.LoginRequest> $request) async {
     return login($call, await $request);
   }
 
-  $async.Future<$0.AuthResponse> login($grpc.ServiceCall call, $0.LoginRequest request);
+  $async.Future<$0.AuthResponse> login(
+      $grpc.ServiceCall call, $0.LoginRequest request);
 
-  $async.Future<$0.Empty> requestRecovery_Pre($grpc.ServiceCall $call, $async.Future<$0.RequestRecoveryRequest> $request) async {
+  $async.Future<$0.Empty> requestRecovery_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.RequestRecoveryRequest> $request) async {
     return requestRecovery($call, await $request);
   }
 
-  $async.Future<$0.Empty> requestRecovery($grpc.ServiceCall call, $0.RequestRecoveryRequest request);
+  $async.Future<$0.Empty> requestRecovery(
+      $grpc.ServiceCall call, $0.RequestRecoveryRequest request);
 
-  $async.Future<$0.RecoveryTokenResponse> validateRecoveryToken_Pre($grpc.ServiceCall $call, $async.Future<$0.RecoveryTokenRequest> $request) async {
+  $async.Future<$0.RecoveryTokenResponse> validateRecoveryToken_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.RecoveryTokenRequest> $request) async {
     return validateRecoveryToken($call, await $request);
   }
 
-  $async.Future<$0.RecoveryTokenResponse> validateRecoveryToken($grpc.ServiceCall call, $0.RecoveryTokenRequest request);
+  $async.Future<$0.RecoveryTokenResponse> validateRecoveryToken(
+      $grpc.ServiceCall call, $0.RecoveryTokenRequest request);
 
-  $async.Future<$0.AuthResponse> recoverAccount_Pre($grpc.ServiceCall $call, $async.Future<$0.RecoverAccountRequest> $request) async {
+  $async.Future<$0.AuthResponse> recoverAccount_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.RecoverAccountRequest> $request) async {
     return recoverAccount($call, await $request);
   }
 
-  $async.Future<$0.AuthResponse> recoverAccount($grpc.ServiceCall call, $0.RecoverAccountRequest request);
+  $async.Future<$0.AuthResponse> recoverAccount(
+      $grpc.ServiceCall call, $0.RecoverAccountRequest request);
 
-  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyLogin_Pre($grpc.ServiceCall $call, $async.Future<$0.BeginPasskeyLoginRequest> $request) async {
+  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyLogin_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.BeginPasskeyLoginRequest> $request) async {
     return beginPasskeyLogin($call, await $request);
   }
 
-  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyLogin($grpc.ServiceCall call, $0.BeginPasskeyLoginRequest request);
+  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyLogin(
+      $grpc.ServiceCall call, $0.BeginPasskeyLoginRequest request);
 
-  $async.Future<$0.AuthResponse> finishPasskeyLogin_Pre($grpc.ServiceCall $call, $async.Future<$0.FinishPasskeyRequest> $request) async {
+  $async.Future<$0.AuthResponse> finishPasskeyLogin_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.FinishPasskeyRequest> $request) async {
     return finishPasskeyLogin($call, await $request);
   }
 
-  $async.Future<$0.AuthResponse> finishPasskeyLogin($grpc.ServiceCall call, $0.FinishPasskeyRequest request);
+  $async.Future<$0.AuthResponse> finishPasskeyLogin(
+      $grpc.ServiceCall call, $0.FinishPasskeyRequest request);
 
-  $async.Future<$0.User> me_Pre($grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
+  $async.Future<$0.User> me_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
     return me($call, await $request);
   }
 
   $async.Future<$0.User> me($grpc.ServiceCall call, $0.Empty request);
 
-  $async.Future<$0.Empty> changePassword_Pre($grpc.ServiceCall $call, $async.Future<$0.ChangePasswordRequest> $request) async {
+  $async.Future<$0.Empty> changePassword_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.ChangePasswordRequest> $request) async {
     return changePassword($call, await $request);
   }
 
-  $async.Future<$0.Empty> changePassword($grpc.ServiceCall call, $0.ChangePasswordRequest request);
+  $async.Future<$0.Empty> changePassword(
+      $grpc.ServiceCall call, $0.ChangePasswordRequest request);
 
-  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyRegistration_Pre($grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
+  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyRegistration_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
     return beginPasskeyRegistration($call, await $request);
   }
 
-  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyRegistration($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.PasskeyOptionsResponse> beginPasskeyRegistration(
+      $grpc.ServiceCall call, $0.Empty request);
 
-  $async.Future<$0.Passkey> finishPasskeyRegistration_Pre($grpc.ServiceCall $call, $async.Future<$0.FinishPasskeyRequest> $request) async {
+  $async.Future<$0.Passkey> finishPasskeyRegistration_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.FinishPasskeyRequest> $request) async {
     return finishPasskeyRegistration($call, await $request);
   }
 
-  $async.Future<$0.Passkey> finishPasskeyRegistration($grpc.ServiceCall call, $0.FinishPasskeyRequest request);
+  $async.Future<$0.Passkey> finishPasskeyRegistration(
+      $grpc.ServiceCall call, $0.FinishPasskeyRequest request);
 
-  $async.Future<$0.ListPasskeysResponse> listPasskeys_Pre($grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
+  $async.Future<$0.ListPasskeysResponse> listPasskeys_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
     return listPasskeys($call, await $request);
   }
 
-  $async.Future<$0.ListPasskeysResponse> listPasskeys($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.ListPasskeysResponse> listPasskeys(
+      $grpc.ServiceCall call, $0.Empty request);
 
-  $async.Future<$0.Empty> deletePasskey_Pre($grpc.ServiceCall $call, $async.Future<$0.IdRequest> $request) async {
+  $async.Future<$0.Empty> deletePasskey_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.IdRequest> $request) async {
     return deletePasskey($call, await $request);
   }
 
-  $async.Future<$0.Empty> deletePasskey($grpc.ServiceCall call, $0.IdRequest request);
+  $async.Future<$0.Empty> deletePasskey(
+      $grpc.ServiceCall call, $0.IdRequest request);
 
-  $async.Future<$0.Company> createCompany_Pre($grpc.ServiceCall $call, $async.Future<$0.Company> $request) async {
+  $async.Future<$0.Company> createCompany_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Company> $request) async {
     return createCompany($call, await $request);
   }
 
-  $async.Future<$0.Company> createCompany($grpc.ServiceCall call, $0.Company request);
+  $async.Future<$0.Company> createCompany(
+      $grpc.ServiceCall call, $0.Company request);
 
-  $async.Future<$0.Company> updateCompany_Pre($grpc.ServiceCall $call, $async.Future<$0.Company> $request) async {
+  $async.Future<$0.Company> updateCompany_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Company> $request) async {
     return updateCompany($call, await $request);
   }
 
-  $async.Future<$0.Company> updateCompany($grpc.ServiceCall call, $0.Company request);
+  $async.Future<$0.Company> updateCompany(
+      $grpc.ServiceCall call, $0.Company request);
 
-  $async.Future<$0.ListCompaniesResponse> listCompanies_Pre($grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
+  $async.Future<$0.ListCompaniesResponse> listCompanies_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
     return listCompanies($call, await $request);
   }
 
-  $async.Future<$0.ListCompaniesResponse> listCompanies($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.ListCompaniesResponse> listCompanies(
+      $grpc.ServiceCall call, $0.Empty request);
 
-  $async.Future<$0.Company> getCompany_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyRequest> $request) async {
+  $async.Future<$0.Company> getCompany_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyRequest> $request) async {
     return getCompany($call, await $request);
   }
 
-  $async.Future<$0.Company> getCompany($grpc.ServiceCall call, $0.CompanyRequest request);
+  $async.Future<$0.Company> getCompany(
+      $grpc.ServiceCall call, $0.CompanyRequest request);
 
-  $async.Future<$0.Project> createProject_Pre($grpc.ServiceCall $call, $async.Future<$0.Project> $request) async {
+  $async.Future<$0.Project> createProject_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Project> $request) async {
     return createProject($call, await $request);
   }
 
-  $async.Future<$0.Project> createProject($grpc.ServiceCall call, $0.Project request);
+  $async.Future<$0.Project> createProject(
+      $grpc.ServiceCall call, $0.Project request);
 
-  $async.Future<$0.Project> updateProject_Pre($grpc.ServiceCall $call, $async.Future<$0.Project> $request) async {
+  $async.Future<$0.Project> updateProject_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Project> $request) async {
     return updateProject($call, await $request);
   }
 
-  $async.Future<$0.Project> updateProject($grpc.ServiceCall call, $0.Project request);
+  $async.Future<$0.Project> updateProject(
+      $grpc.ServiceCall call, $0.Project request);
 
-  $async.Future<$0.Empty> deleteProject_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Empty> deleteProject_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return deleteProject($call, await $request);
   }
 
-  $async.Future<$0.Empty> deleteProject($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Empty> deleteProject(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.ListProjectsResponse> listProjects_Pre($grpc.ServiceCall $call, $async.Future<$0.ListProjectsRequest> $request) async {
+  $async.Future<$0.ListProjectsResponse> listProjects_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ListProjectsRequest> $request) async {
     return listProjects($call, await $request);
   }
 
-  $async.Future<$0.ListProjectsResponse> listProjects($grpc.ServiceCall call, $0.ListProjectsRequest request);
+  $async.Future<$0.ListProjectsResponse> listProjects(
+      $grpc.ServiceCall call, $0.ListProjectsRequest request);
 
-  $async.Future<$0.Project> getProject_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Project> getProject_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return getProject($call, await $request);
   }
 
-  $async.Future<$0.Project> getProject($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Project> getProject(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.ListCategoriesResponse> listCategories_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyRequest> $request) async {
+  $async.Future<$0.ListCategoriesResponse> listCategories_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CompanyRequest> $request) async {
     return listCategories($call, await $request);
   }
 
-  $async.Future<$0.ListCategoriesResponse> listCategories($grpc.ServiceCall call, $0.CompanyRequest request);
+  $async.Future<$0.ListCategoriesResponse> listCategories(
+      $grpc.ServiceCall call, $0.CompanyRequest request);
 
-  $async.Future<$0.Category> createCategory_Pre($grpc.ServiceCall $call, $async.Future<$0.Category> $request) async {
+  $async.Future<$0.Category> createCategory_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Category> $request) async {
     return createCategory($call, await $request);
   }
 
-  $async.Future<$0.Category> createCategory($grpc.ServiceCall call, $0.Category request);
+  $async.Future<$0.Category> createCategory(
+      $grpc.ServiceCall call, $0.Category request);
 
-  $async.Future<$0.Category> updateCategory_Pre($grpc.ServiceCall $call, $async.Future<$0.Category> $request) async {
+  $async.Future<$0.Category> updateCategory_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Category> $request) async {
     return updateCategory($call, await $request);
   }
 
-  $async.Future<$0.Category> updateCategory($grpc.ServiceCall call, $0.Category request);
+  $async.Future<$0.Category> updateCategory(
+      $grpc.ServiceCall call, $0.Category request);
 
-  $async.Future<$0.Empty> deleteCategory_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Empty> deleteCategory_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return deleteCategory($call, await $request);
   }
 
-  $async.Future<$0.Empty> deleteCategory($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Empty> deleteCategory(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Invoice> createInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.Invoice> $request) async {
+  $async.Future<$0.Invoice> createInvoice_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Invoice> $request) async {
     return createInvoice($call, await $request);
   }
 
-  $async.Future<$0.Invoice> createInvoice($grpc.ServiceCall call, $0.Invoice request);
+  $async.Future<$0.Invoice> createInvoice(
+      $grpc.ServiceCall call, $0.Invoice request);
 
-  $async.Future<$0.Invoice> updateInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.Invoice> $request) async {
+  $async.Future<$0.Invoice> updateInvoice_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Invoice> $request) async {
     return updateInvoice($call, await $request);
   }
 
-  $async.Future<$0.Invoice> updateInvoice($grpc.ServiceCall call, $0.Invoice request);
+  $async.Future<$0.Invoice> updateInvoice(
+      $grpc.ServiceCall call, $0.Invoice request);
 
-  $async.Future<$0.ListInvoicesResponse> listInvoices_Pre($grpc.ServiceCall $call, $async.Future<$0.ListInvoicesRequest> $request) async {
+  $async.Future<$0.ListInvoicesResponse> listInvoices_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ListInvoicesRequest> $request) async {
     return listInvoices($call, await $request);
   }
 
-  $async.Future<$0.ListInvoicesResponse> listInvoices($grpc.ServiceCall call, $0.ListInvoicesRequest request);
+  $async.Future<$0.ListInvoicesResponse> listInvoices(
+      $grpc.ServiceCall call, $0.ListInvoicesRequest request);
 
-  $async.Future<$0.Invoice> getInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Invoice> getInvoice_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return getInvoice($call, await $request);
   }
 
-  $async.Future<$0.Invoice> getInvoice($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Invoice> getInvoice(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Invoice> issueInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Invoice> issueInvoice_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return issueInvoice($call, await $request);
   }
 
-  $async.Future<$0.Invoice> issueInvoice($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Invoice> issueInvoice(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Invoice> sendInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Invoice> sendInvoice_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return sendInvoice($call, await $request);
   }
 
-  $async.Future<$0.Invoice> sendInvoice($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Invoice> sendInvoice(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.FileResponse> getInvoicePdf_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.FileResponse> getInvoicePdf_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return getInvoicePdf($call, await $request);
   }
 
-  $async.Future<$0.FileResponse> getInvoicePdf($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.FileResponse> getInvoicePdf(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Invoice> markInvoicePaid_Pre($grpc.ServiceCall $call, $async.Future<$0.MarkInvoicePaidRequest> $request) async {
+  $async.Future<$0.Invoice> markInvoicePaid_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.MarkInvoicePaidRequest> $request) async {
     return markInvoicePaid($call, await $request);
   }
 
-  $async.Future<$0.Invoice> markInvoicePaid($grpc.ServiceCall call, $0.MarkInvoicePaidRequest request);
+  $async.Future<$0.Invoice> markInvoicePaid(
+      $grpc.ServiceCall call, $0.MarkInvoicePaidRequest request);
 
-  $async.Future<$0.Invoice> unlinkInvoicePayment_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Invoice> unlinkInvoicePayment_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return unlinkInvoicePayment($call, await $request);
   }
 
-  $async.Future<$0.Invoice> unlinkInvoicePayment($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Invoice> unlinkInvoicePayment(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Invoice> cancelInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Invoice> cancelInvoice_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return cancelInvoice($call, await $request);
   }
 
-  $async.Future<$0.Invoice> cancelInvoice($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Invoice> cancelInvoice(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Empty> deleteInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Empty> deleteInvoice_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return deleteInvoice($call, await $request);
   }
 
-  $async.Future<$0.Empty> deleteInvoice($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Empty> deleteInvoice(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.ListBankProvidersResponse> listBankProviders_Pre($grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
+  $async.Future<$0.ListBankProvidersResponse> listBankProviders_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
     return listBankProviders($call, await $request);
   }
 
-  $async.Future<$0.ListBankProvidersResponse> listBankProviders($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.ListBankProvidersResponse> listBankProviders(
+      $grpc.ServiceCall call, $0.Empty request);
 
-  $async.Future<$0.ListInstitutionsResponse> listInstitutions_Pre($grpc.ServiceCall $call, $async.Future<$0.ListInstitutionsRequest> $request) async {
+  $async.Future<$0.ListInstitutionsResponse> listInstitutions_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ListInstitutionsRequest> $request) async {
     return listInstitutions($call, await $request);
   }
 
-  $async.Future<$0.ListInstitutionsResponse> listInstitutions($grpc.ServiceCall call, $0.ListInstitutionsRequest request);
+  $async.Future<$0.ListInstitutionsResponse> listInstitutions(
+      $grpc.ServiceCall call, $0.ListInstitutionsRequest request);
 
   $async.Future<$0.CreateBankConnectionResponse> createBankConnection_Pre(
-      $grpc.ServiceCall $call, $async.Future<$0.CreateBankConnectionRequest> $request) async {
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CreateBankConnectionRequest> $request) async {
     return createBankConnection($call, await $request);
   }
 
-  $async.Future<$0.CreateBankConnectionResponse> createBankConnection($grpc.ServiceCall call, $0.CreateBankConnectionRequest request);
+  $async.Future<$0.CreateBankConnectionResponse> createBankConnection(
+      $grpc.ServiceCall call, $0.CreateBankConnectionRequest request);
 
-  $async.Future<$0.BankConnection> completeBankConnection_Pre($grpc.ServiceCall $call, $async.Future<$0.CompleteBankConnectionRequest> $request) async {
+  $async.Future<$0.BankConnection> completeBankConnection_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CompleteBankConnectionRequest> $request) async {
     return completeBankConnection($call, await $request);
   }
 
-  $async.Future<$0.BankConnection> completeBankConnection($grpc.ServiceCall call, $0.CompleteBankConnectionRequest request);
+  $async.Future<$0.BankConnection> completeBankConnection(
+      $grpc.ServiceCall call, $0.CompleteBankConnectionRequest request);
 
-  $async.Future<$0.BankConnection> updateBankConnection_Pre($grpc.ServiceCall $call, $async.Future<$0.UpdateBankConnectionRequest> $request) async {
+  $async.Future<$0.UpdateBankConnectionResponse> updateBankConnection_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.UpdateBankConnectionRequest> $request) async {
     return updateBankConnection($call, await $request);
   }
 
-  $async.Future<$0.BankConnection> updateBankConnection($grpc.ServiceCall call, $0.UpdateBankConnectionRequest request);
+  $async.Future<$0.UpdateBankConnectionResponse> updateBankConnection(
+      $grpc.ServiceCall call, $0.UpdateBankConnectionRequest request);
 
-  $async.Future<$0.CreateBankConnectionResponse> reconnectBankConnection_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.CreateBankConnectionResponse> reconnectBankConnection_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return reconnectBankConnection($call, await $request);
   }
 
-  $async.Future<$0.CreateBankConnectionResponse> reconnectBankConnection($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.CreateBankConnectionResponse> reconnectBankConnection(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.ListBankConnectionsResponse> listBankConnections_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyRequest> $request) async {
+  $async.Future<$0.ListBankConnectionsResponse> listBankConnections_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CompanyRequest> $request) async {
     return listBankConnections($call, await $request);
   }
 
-  $async.Future<$0.ListBankConnectionsResponse> listBankConnections($grpc.ServiceCall call, $0.CompanyRequest request);
+  $async.Future<$0.ListBankConnectionsResponse> listBankConnections(
+      $grpc.ServiceCall call, $0.CompanyRequest request);
 
-  $async.Future<$0.Empty> deleteBankConnection_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Empty> deleteBankConnection_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return deleteBankConnection($call, await $request);
   }
 
-  $async.Future<$0.Empty> deleteBankConnection($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Empty> deleteBankConnection(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.ListBankAccountsResponse> listBankAccounts_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyRequest> $request) async {
+  $async.Future<$0.ListBankAccountsResponse> listBankAccounts_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CompanyRequest> $request) async {
     return listBankAccounts($call, await $request);
   }
 
-  $async.Future<$0.ListBankAccountsResponse> listBankAccounts($grpc.ServiceCall call, $0.CompanyRequest request);
+  $async.Future<$0.ListBankAccountsResponse> listBankAccounts(
+      $grpc.ServiceCall call, $0.CompanyRequest request);
 
-  $async.Future<$0.Empty> setPrimaryAccount_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Empty> setPrimaryAccount_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return setPrimaryAccount($call, await $request);
   }
 
-  $async.Future<$0.Empty> setPrimaryAccount($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Empty> setPrimaryAccount(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.SyncNowResponse> syncNow_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyRequest> $request) async {
+  $async.Future<$0.SyncNowResponse> syncNow_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyRequest> $request) async {
     return syncNow($call, await $request);
   }
 
-  $async.Future<$0.SyncNowResponse> syncNow($grpc.ServiceCall call, $0.CompanyRequest request);
+  $async.Future<$0.SyncNowResponse> syncNow(
+      $grpc.ServiceCall call, $0.CompanyRequest request);
 
-  $async.Future<$0.BalanceHistoryResponse> getBalanceHistory_Pre($grpc.ServiceCall $call, $async.Future<$0.BalanceHistoryRequest> $request) async {
+  $async.Future<$0.BalanceHistoryResponse> getBalanceHistory_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.BalanceHistoryRequest> $request) async {
     return getBalanceHistory($call, await $request);
   }
 
-  $async.Future<$0.BalanceHistoryResponse> getBalanceHistory($grpc.ServiceCall call, $0.BalanceHistoryRequest request);
+  $async.Future<$0.BalanceHistoryResponse> getBalanceHistory(
+      $grpc.ServiceCall call, $0.BalanceHistoryRequest request);
 
-  $async.Future<$0.UploadStatementResponse> uploadStatement_Pre($grpc.ServiceCall $call, $async.Future<$0.UploadStatementRequest> $request) async {
+  $async.Future<$0.UploadStatementResponse> uploadStatement_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.UploadStatementRequest> $request) async {
     return uploadStatement($call, await $request);
   }
 
-  $async.Future<$0.UploadStatementResponse> uploadStatement($grpc.ServiceCall call, $0.UploadStatementRequest request);
+  $async.Future<$0.UploadStatementResponse> uploadStatement(
+      $grpc.ServiceCall call, $0.UploadStatementRequest request);
 
-  $async.Future<$0.ListTransactionsResponse> listTransactions_Pre($grpc.ServiceCall $call, $async.Future<$0.ListTransactionsRequest> $request) async {
+  $async.Future<$0.ListTransactionsResponse> listTransactions_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ListTransactionsRequest> $request) async {
     return listTransactions($call, await $request);
   }
 
-  $async.Future<$0.ListTransactionsResponse> listTransactions($grpc.ServiceCall call, $0.ListTransactionsRequest request);
+  $async.Future<$0.ListTransactionsResponse> listTransactions(
+      $grpc.ServiceCall call, $0.ListTransactionsRequest request);
 
-  $async.Future<$0.Transaction> explainTransaction_Pre($grpc.ServiceCall $call, $async.Future<$0.ExplainTransactionRequest> $request) async {
+  $async.Future<$0.Transaction> explainTransaction_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.ExplainTransactionRequest> $request) async {
     return explainTransaction($call, await $request);
   }
 
-  $async.Future<$0.Transaction> explainTransaction($grpc.ServiceCall call, $0.ExplainTransactionRequest request);
+  $async.Future<$0.Transaction> explainTransaction(
+      $grpc.ServiceCall call, $0.ExplainTransactionRequest request);
 
-  $async.Future<$0.Empty> approveTransactions_Pre($grpc.ServiceCall $call, $async.Future<$0.ApproveTransactionsRequest> $request) async {
+  $async.Future<$0.Empty> approveTransactions_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.ApproveTransactionsRequest> $request) async {
     return approveTransactions($call, await $request);
   }
 
-  $async.Future<$0.Empty> approveTransactions($grpc.ServiceCall call, $0.ApproveTransactionsRequest request);
+  $async.Future<$0.Empty> approveTransactions(
+      $grpc.ServiceCall call, $0.ApproveTransactionsRequest request);
 
-  $async.Future<$0.Transaction> linkTransactionToInvoice_Pre($grpc.ServiceCall $call, $async.Future<$0.LinkTransactionRequest> $request) async {
+  $async.Future<$0.Transaction> linkTransactionToInvoice_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.LinkTransactionRequest> $request) async {
     return linkTransactionToInvoice($call, await $request);
   }
 
-  $async.Future<$0.Transaction> linkTransactionToInvoice($grpc.ServiceCall call, $0.LinkTransactionRequest request);
+  $async.Future<$0.Transaction> linkTransactionToInvoice(
+      $grpc.ServiceCall call, $0.LinkTransactionRequest request);
 
-  $async.Future<$0.Attachment> uploadAttachment_Pre($grpc.ServiceCall $call, $async.Future<$0.UploadAttachmentRequest> $request) async {
+  $async.Future<$0.Attachment> uploadAttachment_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.UploadAttachmentRequest> $request) async {
     return uploadAttachment($call, await $request);
   }
 
-  $async.Future<$0.Attachment> uploadAttachment($grpc.ServiceCall call, $0.UploadAttachmentRequest request);
+  $async.Future<$0.Attachment> uploadAttachment(
+      $grpc.ServiceCall call, $0.UploadAttachmentRequest request);
 
-  $async.Future<$0.ListAttachmentsResponse> listAttachments_Pre($grpc.ServiceCall $call, $async.Future<$0.ListAttachmentsRequest> $request) async {
+  $async.Future<$0.ListAttachmentsResponse> listAttachments_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ListAttachmentsRequest> $request) async {
     return listAttachments($call, await $request);
   }
 
-  $async.Future<$0.ListAttachmentsResponse> listAttachments($grpc.ServiceCall call, $0.ListAttachmentsRequest request);
+  $async.Future<$0.ListAttachmentsResponse> listAttachments(
+      $grpc.ServiceCall call, $0.ListAttachmentsRequest request);
 
-  $async.Future<$0.FileResponse> getAttachment_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.FileResponse> getAttachment_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return getAttachment($call, await $request);
   }
 
-  $async.Future<$0.FileResponse> getAttachment($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.FileResponse> getAttachment(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.Empty> deleteAttachment_Pre($grpc.ServiceCall $call, $async.Future<$0.CompanyIdRequest> $request) async {
+  $async.Future<$0.Empty> deleteAttachment_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.CompanyIdRequest> $request) async {
     return deleteAttachment($call, await $request);
   }
 
-  $async.Future<$0.Empty> deleteAttachment($grpc.ServiceCall call, $0.CompanyIdRequest request);
+  $async.Future<$0.Empty> deleteAttachment(
+      $grpc.ServiceCall call, $0.CompanyIdRequest request);
 
-  $async.Future<$0.OverviewResponse> getOverview_Pre($grpc.ServiceCall $call, $async.Future<$0.OverviewRequest> $request) async {
+  $async.Future<$0.OverviewResponse> getOverview_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.OverviewRequest> $request) async {
     return getOverview($call, await $request);
   }
 
-  $async.Future<$0.OverviewResponse> getOverview($grpc.ServiceCall call, $0.OverviewRequest request);
+  $async.Future<$0.OverviewResponse> getOverview(
+      $grpc.ServiceCall call, $0.OverviewRequest request);
 }

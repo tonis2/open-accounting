@@ -132,7 +132,7 @@ type AccountingServiceClient interface {
 	ListInstitutions(ctx context.Context, in *ListInstitutionsRequest, opts ...grpc.CallOption) (*ListInstitutionsResponse, error)
 	CreateBankConnection(ctx context.Context, in *CreateBankConnectionRequest, opts ...grpc.CallOption) (*CreateBankConnectionResponse, error)
 	CompleteBankConnection(ctx context.Context, in *CompleteBankConnectionRequest, opts ...grpc.CallOption) (*BankConnection, error)
-	UpdateBankConnection(ctx context.Context, in *UpdateBankConnectionRequest, opts ...grpc.CallOption) (*BankConnection, error)
+	UpdateBankConnection(ctx context.Context, in *UpdateBankConnectionRequest, opts ...grpc.CallOption) (*UpdateBankConnectionResponse, error)
 	ReconnectBankConnection(ctx context.Context, in *CompanyIdRequest, opts ...grpc.CallOption) (*CreateBankConnectionResponse, error)
 	ListBankConnections(ctx context.Context, in *CompanyRequest, opts ...grpc.CallOption) (*ListBankConnectionsResponse, error)
 	DeleteBankConnection(ctx context.Context, in *CompanyIdRequest, opts ...grpc.CallOption) (*Empty, error)
@@ -572,9 +572,9 @@ func (c *accountingServiceClient) CompleteBankConnection(ctx context.Context, in
 	return out, nil
 }
 
-func (c *accountingServiceClient) UpdateBankConnection(ctx context.Context, in *UpdateBankConnectionRequest, opts ...grpc.CallOption) (*BankConnection, error) {
+func (c *accountingServiceClient) UpdateBankConnection(ctx context.Context, in *UpdateBankConnectionRequest, opts ...grpc.CallOption) (*UpdateBankConnectionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BankConnection)
+	out := new(UpdateBankConnectionResponse)
 	err := c.cc.Invoke(ctx, AccountingService_UpdateBankConnection_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -804,7 +804,7 @@ type AccountingServiceServer interface {
 	ListInstitutions(context.Context, *ListInstitutionsRequest) (*ListInstitutionsResponse, error)
 	CreateBankConnection(context.Context, *CreateBankConnectionRequest) (*CreateBankConnectionResponse, error)
 	CompleteBankConnection(context.Context, *CompleteBankConnectionRequest) (*BankConnection, error)
-	UpdateBankConnection(context.Context, *UpdateBankConnectionRequest) (*BankConnection, error)
+	UpdateBankConnection(context.Context, *UpdateBankConnectionRequest) (*UpdateBankConnectionResponse, error)
 	ReconnectBankConnection(context.Context, *CompanyIdRequest) (*CreateBankConnectionResponse, error)
 	ListBankConnections(context.Context, *CompanyRequest) (*ListBankConnectionsResponse, error)
 	DeleteBankConnection(context.Context, *CompanyIdRequest) (*Empty, error)
@@ -957,7 +957,7 @@ func (UnimplementedAccountingServiceServer) CreateBankConnection(context.Context
 func (UnimplementedAccountingServiceServer) CompleteBankConnection(context.Context, *CompleteBankConnectionRequest) (*BankConnection, error) {
 	return nil, status.Error(codes.Unimplemented, "method CompleteBankConnection not implemented")
 }
-func (UnimplementedAccountingServiceServer) UpdateBankConnection(context.Context, *UpdateBankConnectionRequest) (*BankConnection, error) {
+func (UnimplementedAccountingServiceServer) UpdateBankConnection(context.Context, *UpdateBankConnectionRequest) (*UpdateBankConnectionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateBankConnection not implemented")
 }
 func (UnimplementedAccountingServiceServer) ReconnectBankConnection(context.Context, *CompanyIdRequest) (*CreateBankConnectionResponse, error) {

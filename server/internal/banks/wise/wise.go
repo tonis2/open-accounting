@@ -76,15 +76,11 @@ type profile struct {
 	BusinessName string `json:"businessName"`
 }
 
-func (pr profile) label() string {
-	name := pr.BusinessName
-	if name == "" {
-		name = pr.FullName
+func (pr profile) name() string {
+	if pr.BusinessName != "" {
+		return pr.BusinessName
 	}
-	if name == "" {
-		return strconv.FormatInt(pr.ID, 10)
-	}
-	return fmt.Sprintf("%d (%s)", pr.ID, name)
+	return pr.FullName
 }
 
 func (p *Provider) Connect(ctx context.Context, cfg banks.Config, _ string) (banks.ConnectResult, error) {
@@ -109,25 +105,23 @@ func pickProfile(profiles []profile, wantType, wantID string) (profile, error) {
 			matches = append(matches, pr)
 		}
 	}
-	if wantID = strings.TrimSpace(wantID); wantID != "" {
-		for _, pr := range matches {
-			if strconv.FormatInt(pr.ID, 10) == wantID {
-				return pr, nil
-			}
+	for _, pr := range matches {
+		if strconv.FormatInt(pr.ID, 10) == strings.TrimSpace(wantID) {
+			return pr, nil
 		}
-		return profile{}, fmt.Errorf("no %s profile with id %s on this Wise account", wantType, wantID)
 	}
+	// An unknown or empty id falls through: a single candidate is used, several are offered.
 	switch len(matches) {
 	case 0:
 		return profile{}, fmt.Errorf("no %s profile found on this Wise account", wantType)
 	case 1:
 		return matches[0], nil
 	}
-	labels := make([]string, len(matches))
-	for i, pr := range matches {
-		labels[i] = pr.label()
+	choice := &banks.ChoiceRequired{Field: "profile_id", Label: "Wise profile"}
+	for _, pr := range matches {
+		choice.Options = append(choice.Options, banks.Option{Value: strconv.FormatInt(pr.ID, 10), Label: pr.name()})
 	}
-	return profile{}, fmt.Errorf("this Wise account has several %s profiles — set Profile ID to one of: %s", wantType, strings.Join(labels, ", "))
+	return profile{}, choice
 }
 
 func (p *Provider) CompleteConnect(_ context.Context, _ banks.Config, st json.RawMessage, _ map[string]string) (banks.ConnectResult, error) {

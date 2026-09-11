@@ -395,6 +395,8 @@
   "inDays": "in {days} days",
   "@inDays": {"placeholders": {"days": {"type": "int"}}},
 
+  "selectOne": "Select {label}",
+  "@selectOne": {"placeholders": {"label": {"type": "String"}}},
   "editConnection": "Edit connection",
   "connectionSettings": "Connection settings",
   "connectionUpdated": "Connection updated",

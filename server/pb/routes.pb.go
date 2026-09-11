@@ -2971,6 +2971,7 @@ type CreateBankConnectionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Connection    *BankConnection        `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty"`
 	RedirectUrl   string                 `protobuf:"bytes,2,opt,name=redirect_url,json=redirectUrl,proto3" json:"redirect_url,omitempty"` // non-empty when the user must authorise at the bank
+	Choice        *ChoiceRequired        `protobuf:"bytes,3,opt,name=choice,proto3" json:"choice,omitempty"`                              // set (and no connection created) when a field must be picked first
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3019,6 +3020,127 @@ func (x *CreateBankConnectionResponse) GetRedirectUrl() string {
 	return ""
 }
 
+func (x *CreateBankConnectionResponse) GetChoice() *ChoiceRequired {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+// A config field the provider can only resolve from account-specific options, e.g. which
+// Wise profile to use. The client re-submits with that config key set to one of the option values.
+type ChoiceRequired struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Key           string                 `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"` // config field to fill with the chosen value
+	Label         string                 `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
+	Options       []*ChoiceOption        `protobuf:"bytes,3,rep,name=options,proto3" json:"options,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChoiceRequired) Reset() {
+	*x = ChoiceRequired{}
+	mi := &file_routes_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChoiceRequired) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChoiceRequired) ProtoMessage() {}
+
+func (x *ChoiceRequired) ProtoReflect() protoreflect.Message {
+	mi := &file_routes_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChoiceRequired.ProtoReflect.Descriptor instead.
+func (*ChoiceRequired) Descriptor() ([]byte, []int) {
+	return file_routes_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *ChoiceRequired) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+func (x *ChoiceRequired) GetLabel() string {
+	if x != nil {
+		return x.Label
+	}
+	return ""
+}
+
+func (x *ChoiceRequired) GetOptions() []*ChoiceOption {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+type ChoiceOption struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	Label         string                 `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChoiceOption) Reset() {
+	*x = ChoiceOption{}
+	mi := &file_routes_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChoiceOption) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChoiceOption) ProtoMessage() {}
+
+func (x *ChoiceOption) ProtoReflect() protoreflect.Message {
+	mi := &file_routes_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChoiceOption.ProtoReflect.Descriptor instead.
+func (*ChoiceOption) Descriptor() ([]byte, []int) {
+	return file_routes_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *ChoiceOption) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+func (x *ChoiceOption) GetLabel() string {
+	if x != nil {
+		return x.Label
+	}
+	return ""
+}
+
 // Empty values keep the stored setting, so secrets never need to be re-entered.
 type UpdateBankConnectionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -3032,7 +3154,7 @@ type UpdateBankConnectionRequest struct {
 
 func (x *UpdateBankConnectionRequest) Reset() {
 	*x = UpdateBankConnectionRequest{}
-	mi := &file_routes_proto_msgTypes[40]
+	mi := &file_routes_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3044,7 +3166,7 @@ func (x *UpdateBankConnectionRequest) String() string {
 func (*UpdateBankConnectionRequest) ProtoMessage() {}
 
 func (x *UpdateBankConnectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[40]
+	mi := &file_routes_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3057,7 +3179,7 @@ func (x *UpdateBankConnectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateBankConnectionRequest.ProtoReflect.Descriptor instead.
 func (*UpdateBankConnectionRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{40}
+	return file_routes_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *UpdateBankConnectionRequest) GetCompanyId() uint64 {
@@ -3088,6 +3210,58 @@ func (x *UpdateBankConnectionRequest) GetConfig() map[string]string {
 	return nil
 }
 
+type UpdateBankConnectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Connection    *BankConnection        `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty"`
+	Choice        *ChoiceRequired        `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"` // set (and nothing saved) when a field must be picked first
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateBankConnectionResponse) Reset() {
+	*x = UpdateBankConnectionResponse{}
+	mi := &file_routes_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateBankConnectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateBankConnectionResponse) ProtoMessage() {}
+
+func (x *UpdateBankConnectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_routes_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateBankConnectionResponse.ProtoReflect.Descriptor instead.
+func (*UpdateBankConnectionResponse) Descriptor() ([]byte, []int) {
+	return file_routes_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *UpdateBankConnectionResponse) GetConnection() *BankConnection {
+	if x != nil {
+		return x.Connection
+	}
+	return nil
+}
+
+func (x *UpdateBankConnectionResponse) GetChoice() *ChoiceRequired {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
 type CompleteBankConnectionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Reference     string                 `protobuf:"bytes,1,opt,name=reference,proto3" json:"reference,omitempty"`                                                                     // value from the ?ref= callback query
@@ -3098,7 +3272,7 @@ type CompleteBankConnectionRequest struct {
 
 func (x *CompleteBankConnectionRequest) Reset() {
 	*x = CompleteBankConnectionRequest{}
-	mi := &file_routes_proto_msgTypes[41]
+	mi := &file_routes_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3110,7 +3284,7 @@ func (x *CompleteBankConnectionRequest) String() string {
 func (*CompleteBankConnectionRequest) ProtoMessage() {}
 
 func (x *CompleteBankConnectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[41]
+	mi := &file_routes_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3123,7 +3297,7 @@ func (x *CompleteBankConnectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteBankConnectionRequest.ProtoReflect.Descriptor instead.
 func (*CompleteBankConnectionRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{41}
+	return file_routes_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CompleteBankConnectionRequest) GetReference() string {
@@ -3149,7 +3323,7 @@ type ListBankConnectionsResponse struct {
 
 func (x *ListBankConnectionsResponse) Reset() {
 	*x = ListBankConnectionsResponse{}
-	mi := &file_routes_proto_msgTypes[42]
+	mi := &file_routes_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3161,7 +3335,7 @@ func (x *ListBankConnectionsResponse) String() string {
 func (*ListBankConnectionsResponse) ProtoMessage() {}
 
 func (x *ListBankConnectionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[42]
+	mi := &file_routes_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3174,7 +3348,7 @@ func (x *ListBankConnectionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBankConnectionsResponse.ProtoReflect.Descriptor instead.
 func (*ListBankConnectionsResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{42}
+	return file_routes_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *ListBankConnectionsResponse) GetItems() []*BankConnection {
@@ -3208,7 +3382,7 @@ type BankAccount struct {
 
 func (x *BankAccount) Reset() {
 	*x = BankAccount{}
-	mi := &file_routes_proto_msgTypes[43]
+	mi := &file_routes_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3220,7 +3394,7 @@ func (x *BankAccount) String() string {
 func (*BankAccount) ProtoMessage() {}
 
 func (x *BankAccount) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[43]
+	mi := &file_routes_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3233,7 +3407,7 @@ func (x *BankAccount) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BankAccount.ProtoReflect.Descriptor instead.
 func (*BankAccount) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{43}
+	return file_routes_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *BankAccount) GetId() uint64 {
@@ -3357,7 +3531,7 @@ type ListBankAccountsResponse struct {
 
 func (x *ListBankAccountsResponse) Reset() {
 	*x = ListBankAccountsResponse{}
-	mi := &file_routes_proto_msgTypes[44]
+	mi := &file_routes_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3369,7 +3543,7 @@ func (x *ListBankAccountsResponse) String() string {
 func (*ListBankAccountsResponse) ProtoMessage() {}
 
 func (x *ListBankAccountsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[44]
+	mi := &file_routes_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3382,7 +3556,7 @@ func (x *ListBankAccountsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBankAccountsResponse.ProtoReflect.Descriptor instead.
 func (*ListBankAccountsResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{44}
+	return file_routes_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ListBankAccountsResponse) GetItems() []*BankAccount {
@@ -3404,7 +3578,7 @@ type SyncNowResponse struct {
 
 func (x *SyncNowResponse) Reset() {
 	*x = SyncNowResponse{}
-	mi := &file_routes_proto_msgTypes[45]
+	mi := &file_routes_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3416,7 +3590,7 @@ func (x *SyncNowResponse) String() string {
 func (*SyncNowResponse) ProtoMessage() {}
 
 func (x *SyncNowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[45]
+	mi := &file_routes_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3429,7 +3603,7 @@ func (x *SyncNowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SyncNowResponse.ProtoReflect.Descriptor instead.
 func (*SyncNowResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{45}
+	return file_routes_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *SyncNowResponse) GetConnectionsSynced() uint32 {
@@ -3473,7 +3647,7 @@ type UploadStatementRequest struct {
 
 func (x *UploadStatementRequest) Reset() {
 	*x = UploadStatementRequest{}
-	mi := &file_routes_proto_msgTypes[46]
+	mi := &file_routes_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3485,7 +3659,7 @@ func (x *UploadStatementRequest) String() string {
 func (*UploadStatementRequest) ProtoMessage() {}
 
 func (x *UploadStatementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[46]
+	mi := &file_routes_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3498,7 +3672,7 @@ func (x *UploadStatementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadStatementRequest.ProtoReflect.Descriptor instead.
 func (*UploadStatementRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{46}
+	return file_routes_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *UploadStatementRequest) GetCompanyId() uint64 {
@@ -3542,7 +3716,7 @@ type UploadStatementResponse struct {
 
 func (x *UploadStatementResponse) Reset() {
 	*x = UploadStatementResponse{}
-	mi := &file_routes_proto_msgTypes[47]
+	mi := &file_routes_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3554,7 +3728,7 @@ func (x *UploadStatementResponse) String() string {
 func (*UploadStatementResponse) ProtoMessage() {}
 
 func (x *UploadStatementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[47]
+	mi := &file_routes_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3567,7 +3741,7 @@ func (x *UploadStatementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadStatementResponse.ProtoReflect.Descriptor instead.
 func (*UploadStatementResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{47}
+	return file_routes_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *UploadStatementResponse) GetImported() uint32 {
@@ -3616,7 +3790,7 @@ type BalanceHistoryRequest struct {
 
 func (x *BalanceHistoryRequest) Reset() {
 	*x = BalanceHistoryRequest{}
-	mi := &file_routes_proto_msgTypes[48]
+	mi := &file_routes_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3628,7 +3802,7 @@ func (x *BalanceHistoryRequest) String() string {
 func (*BalanceHistoryRequest) ProtoMessage() {}
 
 func (x *BalanceHistoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[48]
+	mi := &file_routes_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3641,7 +3815,7 @@ func (x *BalanceHistoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BalanceHistoryRequest.ProtoReflect.Descriptor instead.
 func (*BalanceHistoryRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{48}
+	return file_routes_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *BalanceHistoryRequest) GetCompanyId() uint64 {
@@ -3675,7 +3849,7 @@ type BalancePoint struct {
 
 func (x *BalancePoint) Reset() {
 	*x = BalancePoint{}
-	mi := &file_routes_proto_msgTypes[49]
+	mi := &file_routes_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3687,7 +3861,7 @@ func (x *BalancePoint) String() string {
 func (*BalancePoint) ProtoMessage() {}
 
 func (x *BalancePoint) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[49]
+	mi := &file_routes_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3700,7 +3874,7 @@ func (x *BalancePoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BalancePoint.ProtoReflect.Descriptor instead.
 func (*BalancePoint) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{49}
+	return file_routes_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *BalancePoint) GetMonth() string {
@@ -3727,7 +3901,7 @@ type BalanceHistoryResponse struct {
 
 func (x *BalanceHistoryResponse) Reset() {
 	*x = BalanceHistoryResponse{}
-	mi := &file_routes_proto_msgTypes[50]
+	mi := &file_routes_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3739,7 +3913,7 @@ func (x *BalanceHistoryResponse) String() string {
 func (*BalanceHistoryResponse) ProtoMessage() {}
 
 func (x *BalanceHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[50]
+	mi := &file_routes_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3752,7 +3926,7 @@ func (x *BalanceHistoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BalanceHistoryResponse.ProtoReflect.Descriptor instead.
 func (*BalanceHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{50}
+	return file_routes_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *BalanceHistoryResponse) GetPoints() []*BalancePoint {
@@ -3797,7 +3971,7 @@ type Transaction struct {
 
 func (x *Transaction) Reset() {
 	*x = Transaction{}
-	mi := &file_routes_proto_msgTypes[51]
+	mi := &file_routes_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3809,7 +3983,7 @@ func (x *Transaction) String() string {
 func (*Transaction) ProtoMessage() {}
 
 func (x *Transaction) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[51]
+	mi := &file_routes_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3822,7 +3996,7 @@ func (x *Transaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Transaction.ProtoReflect.Descriptor instead.
 func (*Transaction) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{51}
+	return file_routes_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *Transaction) GetId() uint64 {
@@ -3980,7 +4154,7 @@ type ListTransactionsRequest struct {
 
 func (x *ListTransactionsRequest) Reset() {
 	*x = ListTransactionsRequest{}
-	mi := &file_routes_proto_msgTypes[52]
+	mi := &file_routes_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3992,7 +4166,7 @@ func (x *ListTransactionsRequest) String() string {
 func (*ListTransactionsRequest) ProtoMessage() {}
 
 func (x *ListTransactionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[52]
+	mi := &file_routes_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4005,7 +4179,7 @@ func (x *ListTransactionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTransactionsRequest.ProtoReflect.Descriptor instead.
 func (*ListTransactionsRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{52}
+	return file_routes_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *ListTransactionsRequest) GetCompanyId() uint64 {
@@ -4068,7 +4242,7 @@ type ListTransactionsResponse struct {
 
 func (x *ListTransactionsResponse) Reset() {
 	*x = ListTransactionsResponse{}
-	mi := &file_routes_proto_msgTypes[53]
+	mi := &file_routes_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4080,7 +4254,7 @@ func (x *ListTransactionsResponse) String() string {
 func (*ListTransactionsResponse) ProtoMessage() {}
 
 func (x *ListTransactionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[53]
+	mi := &file_routes_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4093,7 +4267,7 @@ func (x *ListTransactionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTransactionsResponse.ProtoReflect.Descriptor instead.
 func (*ListTransactionsResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{53}
+	return file_routes_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *ListTransactionsResponse) GetItems() []*Transaction {
@@ -4131,7 +4305,7 @@ type ExplainTransactionRequest struct {
 
 func (x *ExplainTransactionRequest) Reset() {
 	*x = ExplainTransactionRequest{}
-	mi := &file_routes_proto_msgTypes[54]
+	mi := &file_routes_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4143,7 +4317,7 @@ func (x *ExplainTransactionRequest) String() string {
 func (*ExplainTransactionRequest) ProtoMessage() {}
 
 func (x *ExplainTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[54]
+	mi := &file_routes_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4156,7 +4330,7 @@ func (x *ExplainTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExplainTransactionRequest.ProtoReflect.Descriptor instead.
 func (*ExplainTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{54}
+	return file_routes_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *ExplainTransactionRequest) GetCompanyId() uint64 {
@@ -4211,7 +4385,7 @@ type ApproveTransactionsRequest struct {
 
 func (x *ApproveTransactionsRequest) Reset() {
 	*x = ApproveTransactionsRequest{}
-	mi := &file_routes_proto_msgTypes[55]
+	mi := &file_routes_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4223,7 +4397,7 @@ func (x *ApproveTransactionsRequest) String() string {
 func (*ApproveTransactionsRequest) ProtoMessage() {}
 
 func (x *ApproveTransactionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[55]
+	mi := &file_routes_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4236,7 +4410,7 @@ func (x *ApproveTransactionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveTransactionsRequest.ProtoReflect.Descriptor instead.
 func (*ApproveTransactionsRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{55}
+	return file_routes_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ApproveTransactionsRequest) GetCompanyId() uint64 {
@@ -4264,7 +4438,7 @@ type LinkTransactionRequest struct {
 
 func (x *LinkTransactionRequest) Reset() {
 	*x = LinkTransactionRequest{}
-	mi := &file_routes_proto_msgTypes[56]
+	mi := &file_routes_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4276,7 +4450,7 @@ func (x *LinkTransactionRequest) String() string {
 func (*LinkTransactionRequest) ProtoMessage() {}
 
 func (x *LinkTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[56]
+	mi := &file_routes_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4289,7 +4463,7 @@ func (x *LinkTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LinkTransactionRequest.ProtoReflect.Descriptor instead.
 func (*LinkTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{56}
+	return file_routes_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *LinkTransactionRequest) GetCompanyId() uint64 {
@@ -4329,7 +4503,7 @@ type Attachment struct {
 
 func (x *Attachment) Reset() {
 	*x = Attachment{}
-	mi := &file_routes_proto_msgTypes[57]
+	mi := &file_routes_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4341,7 +4515,7 @@ func (x *Attachment) String() string {
 func (*Attachment) ProtoMessage() {}
 
 func (x *Attachment) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[57]
+	mi := &file_routes_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4354,7 +4528,7 @@ func (x *Attachment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Attachment.ProtoReflect.Descriptor instead.
 func (*Attachment) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{57}
+	return file_routes_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *Attachment) GetId() uint64 {
@@ -4426,7 +4600,7 @@ type UploadAttachmentRequest struct {
 
 func (x *UploadAttachmentRequest) Reset() {
 	*x = UploadAttachmentRequest{}
-	mi := &file_routes_proto_msgTypes[58]
+	mi := &file_routes_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4438,7 +4612,7 @@ func (x *UploadAttachmentRequest) String() string {
 func (*UploadAttachmentRequest) ProtoMessage() {}
 
 func (x *UploadAttachmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[58]
+	mi := &file_routes_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4451,7 +4625,7 @@ func (x *UploadAttachmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadAttachmentRequest.ProtoReflect.Descriptor instead.
 func (*UploadAttachmentRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{58}
+	return file_routes_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *UploadAttachmentRequest) GetCompanyId() uint64 {
@@ -4500,7 +4674,7 @@ type ListAttachmentsRequest struct {
 
 func (x *ListAttachmentsRequest) Reset() {
 	*x = ListAttachmentsRequest{}
-	mi := &file_routes_proto_msgTypes[59]
+	mi := &file_routes_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4512,7 +4686,7 @@ func (x *ListAttachmentsRequest) String() string {
 func (*ListAttachmentsRequest) ProtoMessage() {}
 
 func (x *ListAttachmentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[59]
+	mi := &file_routes_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4525,7 +4699,7 @@ func (x *ListAttachmentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAttachmentsRequest.ProtoReflect.Descriptor instead.
 func (*ListAttachmentsRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{59}
+	return file_routes_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *ListAttachmentsRequest) GetCompanyId() uint64 {
@@ -4558,7 +4732,7 @@ type ListAttachmentsResponse struct {
 
 func (x *ListAttachmentsResponse) Reset() {
 	*x = ListAttachmentsResponse{}
-	mi := &file_routes_proto_msgTypes[60]
+	mi := &file_routes_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4570,7 +4744,7 @@ func (x *ListAttachmentsResponse) String() string {
 func (*ListAttachmentsResponse) ProtoMessage() {}
 
 func (x *ListAttachmentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[60]
+	mi := &file_routes_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4583,7 +4757,7 @@ func (x *ListAttachmentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAttachmentsResponse.ProtoReflect.Descriptor instead.
 func (*ListAttachmentsResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{60}
+	return file_routes_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *ListAttachmentsResponse) GetItems() []*Attachment {
@@ -4603,7 +4777,7 @@ type OverviewRequest struct {
 
 func (x *OverviewRequest) Reset() {
 	*x = OverviewRequest{}
-	mi := &file_routes_proto_msgTypes[61]
+	mi := &file_routes_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4615,7 +4789,7 @@ func (x *OverviewRequest) String() string {
 func (*OverviewRequest) ProtoMessage() {}
 
 func (x *OverviewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[61]
+	mi := &file_routes_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4628,7 +4802,7 @@ func (x *OverviewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OverviewRequest.ProtoReflect.Descriptor instead.
 func (*OverviewRequest) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{61}
+	return file_routes_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *OverviewRequest) GetCompanyId() uint64 {
@@ -4656,7 +4830,7 @@ type CashflowPoint struct {
 
 func (x *CashflowPoint) Reset() {
 	*x = CashflowPoint{}
-	mi := &file_routes_proto_msgTypes[62]
+	mi := &file_routes_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4668,7 +4842,7 @@ func (x *CashflowPoint) String() string {
 func (*CashflowPoint) ProtoMessage() {}
 
 func (x *CashflowPoint) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[62]
+	mi := &file_routes_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4681,7 +4855,7 @@ func (x *CashflowPoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CashflowPoint.ProtoReflect.Descriptor instead.
 func (*CashflowPoint) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{62}
+	return file_routes_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *CashflowPoint) GetMonth() string {
@@ -4717,7 +4891,7 @@ type InvoiceTimelinePoint struct {
 
 func (x *InvoiceTimelinePoint) Reset() {
 	*x = InvoiceTimelinePoint{}
-	mi := &file_routes_proto_msgTypes[63]
+	mi := &file_routes_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4729,7 +4903,7 @@ func (x *InvoiceTimelinePoint) String() string {
 func (*InvoiceTimelinePoint) ProtoMessage() {}
 
 func (x *InvoiceTimelinePoint) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[63]
+	mi := &file_routes_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4742,7 +4916,7 @@ func (x *InvoiceTimelinePoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvoiceTimelinePoint.ProtoReflect.Descriptor instead.
 func (*InvoiceTimelinePoint) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{63}
+	return file_routes_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *InvoiceTimelinePoint) GetMonth() string {
@@ -4795,7 +4969,7 @@ type OverviewResponse struct {
 
 func (x *OverviewResponse) Reset() {
 	*x = OverviewResponse{}
-	mi := &file_routes_proto_msgTypes[64]
+	mi := &file_routes_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4807,7 +4981,7 @@ func (x *OverviewResponse) String() string {
 func (*OverviewResponse) ProtoMessage() {}
 
 func (x *OverviewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_routes_proto_msgTypes[64]
+	mi := &file_routes_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4820,7 +4994,7 @@ func (x *OverviewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OverviewResponse.ProtoReflect.Descriptor instead.
 func (*OverviewResponse) Descriptor() ([]byte, []int) {
-	return file_routes_proto_rawDescGZIP(), []int{64}
+	return file_routes_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *OverviewResponse) GetCurrency() string {
@@ -5168,12 +5342,20 @@ const file_routes_proto_rawDesc = "" +
 	"\x06config\x18\x04 \x03(\v23.accounting.CreateBankConnectionRequest.ConfigEntryR\x06config\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"}\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xb1\x01\n" +
 	"\x1cCreateBankConnectionResponse\x12:\n" +
 	"\n" +
 	"connection\x18\x01 \x01(\v2\x1a.accounting.BankConnectionR\n" +
 	"connection\x12!\n" +
-	"\fredirect_url\x18\x02 \x01(\tR\vredirectUrl\"\xe8\x01\n" +
+	"\fredirect_url\x18\x02 \x01(\tR\vredirectUrl\x122\n" +
+	"\x06choice\x18\x03 \x01(\v2\x1a.accounting.ChoiceRequiredR\x06choice\"l\n" +
+	"\x0eChoiceRequired\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05label\x18\x02 \x01(\tR\x05label\x122\n" +
+	"\aoptions\x18\x03 \x03(\v2\x18.accounting.ChoiceOptionR\aoptions\":\n" +
+	"\fChoiceOption\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x14\n" +
+	"\x05label\x18\x02 \x01(\tR\x05label\"\xe8\x01\n" +
 	"\x1bUpdateBankConnectionRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x04R\tcompanyId\x12\x0e\n" +
@@ -5182,7 +5364,12 @@ const file_routes_proto_rawDesc = "" +
 	"\x06config\x18\x04 \x03(\v23.accounting.UpdateBankConnectionRequest.ConfigEntryR\x06config\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xc7\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x8e\x01\n" +
+	"\x1cUpdateBankConnectionResponse\x12:\n" +
+	"\n" +
+	"connection\x18\x01 \x01(\v2\x1a.accounting.BankConnectionR\n" +
+	"connection\x122\n" +
+	"\x06choice\x18\x02 \x01(\v2\x1a.accounting.ChoiceRequiredR\x06choice\"\xc7\x01\n" +
 	"\x1dCompleteBankConnectionRequest\x12\x1c\n" +
 	"\treference\x18\x01 \x01(\tR\treference\x12M\n" +
 	"\x06params\x18\x02 \x03(\v25.accounting.CompleteBankConnectionRequest.ParamsEntryR\x06params\x1a9\n" +
@@ -5393,7 +5580,7 @@ const file_routes_proto_rawDesc = "" +
 	"\x1eTRANSACTION_STATUS_UNSPECIFIED\x10\x00\x12\"\n" +
 	"\x1eTRANSACTION_STATUS_UNEXPLAINED\x10\x01\x12 \n" +
 	"\x1cTRANSACTION_STATUS_EXPLAINED\x10\x02\x12\x1f\n" +
-	"\x1bTRANSACTION_STATUS_APPROVED\x10\x032\xf5#\n" +
+	"\x1bTRANSACTION_STATUS_APPROVED\x10\x032\x83$\n" +
 	"\x11AccountingService\x12C\n" +
 	"\bRegister\x12\x1b.accounting.RegisterRequest\x1a\x18.accounting.AuthResponse\"\x00\x12=\n" +
 	"\x05Login\x12\x18.accounting.LoginRequest\x1a\x18.accounting.AuthResponse\"\x00\x12J\n" +
@@ -5438,8 +5625,8 @@ const file_routes_proto_rawDesc = "" +
 	"\x11ListBankProviders\x12\x11.accounting.Empty\x1a%.accounting.ListBankProvidersResponse\"\x00\x12_\n" +
 	"\x10ListInstitutions\x12#.accounting.ListInstitutionsRequest\x1a$.accounting.ListInstitutionsResponse\"\x00\x12k\n" +
 	"\x14CreateBankConnection\x12'.accounting.CreateBankConnectionRequest\x1a(.accounting.CreateBankConnectionResponse\"\x00\x12a\n" +
-	"\x16CompleteBankConnection\x12).accounting.CompleteBankConnectionRequest\x1a\x1a.accounting.BankConnection\"\x00\x12]\n" +
-	"\x14UpdateBankConnection\x12'.accounting.UpdateBankConnectionRequest\x1a\x1a.accounting.BankConnection\"\x00\x12c\n" +
+	"\x16CompleteBankConnection\x12).accounting.CompleteBankConnectionRequest\x1a\x1a.accounting.BankConnection\"\x00\x12k\n" +
+	"\x14UpdateBankConnection\x12'.accounting.UpdateBankConnectionRequest\x1a(.accounting.UpdateBankConnectionResponse\"\x00\x12c\n" +
 	"\x17ReconnectBankConnection\x12\x1c.accounting.CompanyIdRequest\x1a(.accounting.CreateBankConnectionResponse\"\x00\x12\\\n" +
 	"\x13ListBankConnections\x12\x1a.accounting.CompanyRequest\x1a'.accounting.ListBankConnectionsResponse\"\x00\x12I\n" +
 	"\x14DeleteBankConnection\x12\x1c.accounting.CompanyIdRequest\x1a\x11.accounting.Empty\"\x00\x12V\n" +
@@ -5471,7 +5658,7 @@ func file_routes_proto_rawDescGZIP() []byte {
 }
 
 var file_routes_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_routes_proto_msgTypes = make([]protoimpl.MessageInfo, 70)
+var file_routes_proto_msgTypes = make([]protoimpl.MessageInfo, 73)
 var file_routes_proto_goTypes = []any{
 	(CategoryKind)(0),                     // 0: accounting.CategoryKind
 	(InvoiceStatus)(0),                    // 1: accounting.InvoiceStatus
@@ -5518,210 +5705,217 @@ var file_routes_proto_goTypes = []any{
 	(*BankConnection)(nil),                // 42: accounting.BankConnection
 	(*CreateBankConnectionRequest)(nil),   // 43: accounting.CreateBankConnectionRequest
 	(*CreateBankConnectionResponse)(nil),  // 44: accounting.CreateBankConnectionResponse
-	(*UpdateBankConnectionRequest)(nil),   // 45: accounting.UpdateBankConnectionRequest
-	(*CompleteBankConnectionRequest)(nil), // 46: accounting.CompleteBankConnectionRequest
-	(*ListBankConnectionsResponse)(nil),   // 47: accounting.ListBankConnectionsResponse
-	(*BankAccount)(nil),                   // 48: accounting.BankAccount
-	(*ListBankAccountsResponse)(nil),      // 49: accounting.ListBankAccountsResponse
-	(*SyncNowResponse)(nil),               // 50: accounting.SyncNowResponse
-	(*UploadStatementRequest)(nil),        // 51: accounting.UploadStatementRequest
-	(*UploadStatementResponse)(nil),       // 52: accounting.UploadStatementResponse
-	(*BalanceHistoryRequest)(nil),         // 53: accounting.BalanceHistoryRequest
-	(*BalancePoint)(nil),                  // 54: accounting.BalancePoint
-	(*BalanceHistoryResponse)(nil),        // 55: accounting.BalanceHistoryResponse
-	(*Transaction)(nil),                   // 56: accounting.Transaction
-	(*ListTransactionsRequest)(nil),       // 57: accounting.ListTransactionsRequest
-	(*ListTransactionsResponse)(nil),      // 58: accounting.ListTransactionsResponse
-	(*ExplainTransactionRequest)(nil),     // 59: accounting.ExplainTransactionRequest
-	(*ApproveTransactionsRequest)(nil),    // 60: accounting.ApproveTransactionsRequest
-	(*LinkTransactionRequest)(nil),        // 61: accounting.LinkTransactionRequest
-	(*Attachment)(nil),                    // 62: accounting.Attachment
-	(*UploadAttachmentRequest)(nil),       // 63: accounting.UploadAttachmentRequest
-	(*ListAttachmentsRequest)(nil),        // 64: accounting.ListAttachmentsRequest
-	(*ListAttachmentsResponse)(nil),       // 65: accounting.ListAttachmentsResponse
-	(*OverviewRequest)(nil),               // 66: accounting.OverviewRequest
-	(*CashflowPoint)(nil),                 // 67: accounting.CashflowPoint
-	(*InvoiceTimelinePoint)(nil),          // 68: accounting.InvoiceTimelinePoint
-	(*OverviewResponse)(nil),              // 69: accounting.OverviewResponse
-	nil,                                   // 70: accounting.ListInstitutionsRequest.ConfigEntry
-	nil,                                   // 71: accounting.BankConnection.ConfigEntry
-	nil,                                   // 72: accounting.CreateBankConnectionRequest.ConfigEntry
-	nil,                                   // 73: accounting.UpdateBankConnectionRequest.ConfigEntry
-	nil,                                   // 74: accounting.CompleteBankConnectionRequest.ParamsEntry
-	(*timestamppb.Timestamp)(nil),         // 75: google.protobuf.Timestamp
+	(*ChoiceRequired)(nil),                // 45: accounting.ChoiceRequired
+	(*ChoiceOption)(nil),                  // 46: accounting.ChoiceOption
+	(*UpdateBankConnectionRequest)(nil),   // 47: accounting.UpdateBankConnectionRequest
+	(*UpdateBankConnectionResponse)(nil),  // 48: accounting.UpdateBankConnectionResponse
+	(*CompleteBankConnectionRequest)(nil), // 49: accounting.CompleteBankConnectionRequest
+	(*ListBankConnectionsResponse)(nil),   // 50: accounting.ListBankConnectionsResponse
+	(*BankAccount)(nil),                   // 51: accounting.BankAccount
+	(*ListBankAccountsResponse)(nil),      // 52: accounting.ListBankAccountsResponse
+	(*SyncNowResponse)(nil),               // 53: accounting.SyncNowResponse
+	(*UploadStatementRequest)(nil),        // 54: accounting.UploadStatementRequest
+	(*UploadStatementResponse)(nil),       // 55: accounting.UploadStatementResponse
+	(*BalanceHistoryRequest)(nil),         // 56: accounting.BalanceHistoryRequest
+	(*BalancePoint)(nil),                  // 57: accounting.BalancePoint
+	(*BalanceHistoryResponse)(nil),        // 58: accounting.BalanceHistoryResponse
+	(*Transaction)(nil),                   // 59: accounting.Transaction
+	(*ListTransactionsRequest)(nil),       // 60: accounting.ListTransactionsRequest
+	(*ListTransactionsResponse)(nil),      // 61: accounting.ListTransactionsResponse
+	(*ExplainTransactionRequest)(nil),     // 62: accounting.ExplainTransactionRequest
+	(*ApproveTransactionsRequest)(nil),    // 63: accounting.ApproveTransactionsRequest
+	(*LinkTransactionRequest)(nil),        // 64: accounting.LinkTransactionRequest
+	(*Attachment)(nil),                    // 65: accounting.Attachment
+	(*UploadAttachmentRequest)(nil),       // 66: accounting.UploadAttachmentRequest
+	(*ListAttachmentsRequest)(nil),        // 67: accounting.ListAttachmentsRequest
+	(*ListAttachmentsResponse)(nil),       // 68: accounting.ListAttachmentsResponse
+	(*OverviewRequest)(nil),               // 69: accounting.OverviewRequest
+	(*CashflowPoint)(nil),                 // 70: accounting.CashflowPoint
+	(*InvoiceTimelinePoint)(nil),          // 71: accounting.InvoiceTimelinePoint
+	(*OverviewResponse)(nil),              // 72: accounting.OverviewResponse
+	nil,                                   // 73: accounting.ListInstitutionsRequest.ConfigEntry
+	nil,                                   // 74: accounting.BankConnection.ConfigEntry
+	nil,                                   // 75: accounting.CreateBankConnectionRequest.ConfigEntry
+	nil,                                   // 76: accounting.UpdateBankConnectionRequest.ConfigEntry
+	nil,                                   // 77: accounting.CompleteBankConnectionRequest.ParamsEntry
+	(*timestamppb.Timestamp)(nil),         // 78: google.protobuf.Timestamp
 }
 var file_routes_proto_depIdxs = []int32{
-	75,  // 0: accounting.User.created_at:type_name -> google.protobuf.Timestamp
+	78,  // 0: accounting.User.created_at:type_name -> google.protobuf.Timestamp
 	10,  // 1: accounting.AuthResponse.user:type_name -> accounting.User
-	75,  // 2: accounting.Passkey.created_at:type_name -> google.protobuf.Timestamp
-	75,  // 3: accounting.Passkey.last_used_at:type_name -> google.protobuf.Timestamp
+	78,  // 2: accounting.Passkey.created_at:type_name -> google.protobuf.Timestamp
+	78,  // 3: accounting.Passkey.last_used_at:type_name -> google.protobuf.Timestamp
 	22,  // 4: accounting.ListPasskeysResponse.items:type_name -> accounting.Passkey
-	75,  // 5: accounting.Company.created_at:type_name -> google.protobuf.Timestamp
+	78,  // 5: accounting.Company.created_at:type_name -> google.protobuf.Timestamp
 	24,  // 6: accounting.ListCompaniesResponse.items:type_name -> accounting.Company
-	75,  // 7: accounting.Project.created_at:type_name -> google.protobuf.Timestamp
+	78,  // 7: accounting.Project.created_at:type_name -> google.protobuf.Timestamp
 	26,  // 8: accounting.ListProjectsResponse.items:type_name -> accounting.Project
 	0,   // 9: accounting.Category.kind:type_name -> accounting.CategoryKind
 	29,  // 10: accounting.ListCategoriesResponse.items:type_name -> accounting.Category
 	1,   // 11: accounting.Invoice.status:type_name -> accounting.InvoiceStatus
-	75,  // 12: accounting.Invoice.paid_at:type_name -> google.protobuf.Timestamp
-	75,  // 13: accounting.Invoice.sent_at:type_name -> google.protobuf.Timestamp
-	75,  // 14: accounting.Invoice.created_at:type_name -> google.protobuf.Timestamp
+	78,  // 12: accounting.Invoice.paid_at:type_name -> google.protobuf.Timestamp
+	78,  // 13: accounting.Invoice.sent_at:type_name -> google.protobuf.Timestamp
+	78,  // 14: accounting.Invoice.created_at:type_name -> google.protobuf.Timestamp
 	31,  // 15: accounting.Invoice.items:type_name -> accounting.InvoiceItem
 	1,   // 16: accounting.ListInvoicesRequest.status:type_name -> accounting.InvoiceStatus
 	32,  // 17: accounting.ListInvoicesResponse.items:type_name -> accounting.Invoice
 	2,   // 18: accounting.ConfigField.kind:type_name -> accounting.FieldKind
 	36,  // 19: accounting.BankProvider.config_fields:type_name -> accounting.ConfigField
 	37,  // 20: accounting.ListBankProvidersResponse.items:type_name -> accounting.BankProvider
-	70,  // 21: accounting.ListInstitutionsRequest.config:type_name -> accounting.ListInstitutionsRequest.ConfigEntry
+	73,  // 21: accounting.ListInstitutionsRequest.config:type_name -> accounting.ListInstitutionsRequest.ConfigEntry
 	40,  // 22: accounting.ListInstitutionsResponse.items:type_name -> accounting.Institution
 	3,   // 23: accounting.BankConnection.status:type_name -> accounting.ConnectionStatus
-	75,  // 24: accounting.BankConnection.consent_expires_at:type_name -> google.protobuf.Timestamp
-	75,  // 25: accounting.BankConnection.last_sync_at:type_name -> google.protobuf.Timestamp
-	75,  // 26: accounting.BankConnection.created_at:type_name -> google.protobuf.Timestamp
-	71,  // 27: accounting.BankConnection.config:type_name -> accounting.BankConnection.ConfigEntry
-	72,  // 28: accounting.CreateBankConnectionRequest.config:type_name -> accounting.CreateBankConnectionRequest.ConfigEntry
+	78,  // 24: accounting.BankConnection.consent_expires_at:type_name -> google.protobuf.Timestamp
+	78,  // 25: accounting.BankConnection.last_sync_at:type_name -> google.protobuf.Timestamp
+	78,  // 26: accounting.BankConnection.created_at:type_name -> google.protobuf.Timestamp
+	74,  // 27: accounting.BankConnection.config:type_name -> accounting.BankConnection.ConfigEntry
+	75,  // 28: accounting.CreateBankConnectionRequest.config:type_name -> accounting.CreateBankConnectionRequest.ConfigEntry
 	42,  // 29: accounting.CreateBankConnectionResponse.connection:type_name -> accounting.BankConnection
-	73,  // 30: accounting.UpdateBankConnectionRequest.config:type_name -> accounting.UpdateBankConnectionRequest.ConfigEntry
-	74,  // 31: accounting.CompleteBankConnectionRequest.params:type_name -> accounting.CompleteBankConnectionRequest.ParamsEntry
-	42,  // 32: accounting.ListBankConnectionsResponse.items:type_name -> accounting.BankConnection
-	75,  // 33: accounting.BankAccount.balance_at:type_name -> google.protobuf.Timestamp
-	3,   // 34: accounting.BankAccount.connection_status:type_name -> accounting.ConnectionStatus
-	75,  // 35: accounting.BankAccount.consent_expires_at:type_name -> google.protobuf.Timestamp
-	75,  // 36: accounting.BankAccount.last_sync_at:type_name -> google.protobuf.Timestamp
-	48,  // 37: accounting.ListBankAccountsResponse.items:type_name -> accounting.BankAccount
-	54,  // 38: accounting.BalanceHistoryResponse.points:type_name -> accounting.BalancePoint
-	75,  // 39: accounting.Transaction.booked_at:type_name -> google.protobuf.Timestamp
-	4,   // 40: accounting.Transaction.status:type_name -> accounting.TransactionStatus
-	4,   // 41: accounting.ListTransactionsRequest.status:type_name -> accounting.TransactionStatus
-	56,  // 42: accounting.ListTransactionsResponse.items:type_name -> accounting.Transaction
-	75,  // 43: accounting.Attachment.created_at:type_name -> google.protobuf.Timestamp
-	62,  // 44: accounting.ListAttachmentsResponse.items:type_name -> accounting.Attachment
-	67,  // 45: accounting.OverviewResponse.cashflow:type_name -> accounting.CashflowPoint
-	54,  // 46: accounting.OverviewResponse.balance_history:type_name -> accounting.BalancePoint
-	68,  // 47: accounting.OverviewResponse.invoice_timeline:type_name -> accounting.InvoiceTimelinePoint
-	11,  // 48: accounting.AccountingService.Register:input_type -> accounting.RegisterRequest
-	12,  // 49: accounting.AccountingService.Login:input_type -> accounting.LoginRequest
-	14,  // 50: accounting.AccountingService.RequestRecovery:input_type -> accounting.RequestRecoveryRequest
-	15,  // 51: accounting.AccountingService.ValidateRecoveryToken:input_type -> accounting.RecoveryTokenRequest
-	17,  // 52: accounting.AccountingService.RecoverAccount:input_type -> accounting.RecoverAccountRequest
-	19,  // 53: accounting.AccountingService.BeginPasskeyLogin:input_type -> accounting.BeginPasskeyLoginRequest
-	21,  // 54: accounting.AccountingService.FinishPasskeyLogin:input_type -> accounting.FinishPasskeyRequest
-	5,   // 55: accounting.AccountingService.Me:input_type -> accounting.Empty
-	18,  // 56: accounting.AccountingService.ChangePassword:input_type -> accounting.ChangePasswordRequest
-	5,   // 57: accounting.AccountingService.BeginPasskeyRegistration:input_type -> accounting.Empty
-	21,  // 58: accounting.AccountingService.FinishPasskeyRegistration:input_type -> accounting.FinishPasskeyRequest
-	5,   // 59: accounting.AccountingService.ListPasskeys:input_type -> accounting.Empty
-	6,   // 60: accounting.AccountingService.DeletePasskey:input_type -> accounting.IdRequest
-	24,  // 61: accounting.AccountingService.CreateCompany:input_type -> accounting.Company
-	24,  // 62: accounting.AccountingService.UpdateCompany:input_type -> accounting.Company
-	5,   // 63: accounting.AccountingService.ListCompanies:input_type -> accounting.Empty
-	7,   // 64: accounting.AccountingService.GetCompany:input_type -> accounting.CompanyRequest
-	26,  // 65: accounting.AccountingService.CreateProject:input_type -> accounting.Project
-	26,  // 66: accounting.AccountingService.UpdateProject:input_type -> accounting.Project
-	8,   // 67: accounting.AccountingService.DeleteProject:input_type -> accounting.CompanyIdRequest
-	27,  // 68: accounting.AccountingService.ListProjects:input_type -> accounting.ListProjectsRequest
-	8,   // 69: accounting.AccountingService.GetProject:input_type -> accounting.CompanyIdRequest
-	7,   // 70: accounting.AccountingService.ListCategories:input_type -> accounting.CompanyRequest
-	29,  // 71: accounting.AccountingService.CreateCategory:input_type -> accounting.Category
-	29,  // 72: accounting.AccountingService.UpdateCategory:input_type -> accounting.Category
-	8,   // 73: accounting.AccountingService.DeleteCategory:input_type -> accounting.CompanyIdRequest
-	32,  // 74: accounting.AccountingService.CreateInvoice:input_type -> accounting.Invoice
-	32,  // 75: accounting.AccountingService.UpdateInvoice:input_type -> accounting.Invoice
-	33,  // 76: accounting.AccountingService.ListInvoices:input_type -> accounting.ListInvoicesRequest
-	8,   // 77: accounting.AccountingService.GetInvoice:input_type -> accounting.CompanyIdRequest
-	8,   // 78: accounting.AccountingService.IssueInvoice:input_type -> accounting.CompanyIdRequest
-	8,   // 79: accounting.AccountingService.SendInvoice:input_type -> accounting.CompanyIdRequest
-	8,   // 80: accounting.AccountingService.GetInvoicePdf:input_type -> accounting.CompanyIdRequest
-	35,  // 81: accounting.AccountingService.MarkInvoicePaid:input_type -> accounting.MarkInvoicePaidRequest
-	8,   // 82: accounting.AccountingService.UnlinkInvoicePayment:input_type -> accounting.CompanyIdRequest
-	8,   // 83: accounting.AccountingService.CancelInvoice:input_type -> accounting.CompanyIdRequest
-	8,   // 84: accounting.AccountingService.DeleteInvoice:input_type -> accounting.CompanyIdRequest
-	5,   // 85: accounting.AccountingService.ListBankProviders:input_type -> accounting.Empty
-	39,  // 86: accounting.AccountingService.ListInstitutions:input_type -> accounting.ListInstitutionsRequest
-	43,  // 87: accounting.AccountingService.CreateBankConnection:input_type -> accounting.CreateBankConnectionRequest
-	46,  // 88: accounting.AccountingService.CompleteBankConnection:input_type -> accounting.CompleteBankConnectionRequest
-	45,  // 89: accounting.AccountingService.UpdateBankConnection:input_type -> accounting.UpdateBankConnectionRequest
-	8,   // 90: accounting.AccountingService.ReconnectBankConnection:input_type -> accounting.CompanyIdRequest
-	7,   // 91: accounting.AccountingService.ListBankConnections:input_type -> accounting.CompanyRequest
-	8,   // 92: accounting.AccountingService.DeleteBankConnection:input_type -> accounting.CompanyIdRequest
-	7,   // 93: accounting.AccountingService.ListBankAccounts:input_type -> accounting.CompanyRequest
-	8,   // 94: accounting.AccountingService.SetPrimaryAccount:input_type -> accounting.CompanyIdRequest
-	7,   // 95: accounting.AccountingService.SyncNow:input_type -> accounting.CompanyRequest
-	53,  // 96: accounting.AccountingService.GetBalanceHistory:input_type -> accounting.BalanceHistoryRequest
-	51,  // 97: accounting.AccountingService.UploadStatement:input_type -> accounting.UploadStatementRequest
-	57,  // 98: accounting.AccountingService.ListTransactions:input_type -> accounting.ListTransactionsRequest
-	59,  // 99: accounting.AccountingService.ExplainTransaction:input_type -> accounting.ExplainTransactionRequest
-	60,  // 100: accounting.AccountingService.ApproveTransactions:input_type -> accounting.ApproveTransactionsRequest
-	61,  // 101: accounting.AccountingService.LinkTransactionToInvoice:input_type -> accounting.LinkTransactionRequest
-	63,  // 102: accounting.AccountingService.UploadAttachment:input_type -> accounting.UploadAttachmentRequest
-	64,  // 103: accounting.AccountingService.ListAttachments:input_type -> accounting.ListAttachmentsRequest
-	8,   // 104: accounting.AccountingService.GetAttachment:input_type -> accounting.CompanyIdRequest
-	8,   // 105: accounting.AccountingService.DeleteAttachment:input_type -> accounting.CompanyIdRequest
-	66,  // 106: accounting.AccountingService.GetOverview:input_type -> accounting.OverviewRequest
-	13,  // 107: accounting.AccountingService.Register:output_type -> accounting.AuthResponse
-	13,  // 108: accounting.AccountingService.Login:output_type -> accounting.AuthResponse
-	5,   // 109: accounting.AccountingService.RequestRecovery:output_type -> accounting.Empty
-	16,  // 110: accounting.AccountingService.ValidateRecoveryToken:output_type -> accounting.RecoveryTokenResponse
-	13,  // 111: accounting.AccountingService.RecoverAccount:output_type -> accounting.AuthResponse
-	20,  // 112: accounting.AccountingService.BeginPasskeyLogin:output_type -> accounting.PasskeyOptionsResponse
-	13,  // 113: accounting.AccountingService.FinishPasskeyLogin:output_type -> accounting.AuthResponse
-	10,  // 114: accounting.AccountingService.Me:output_type -> accounting.User
-	5,   // 115: accounting.AccountingService.ChangePassword:output_type -> accounting.Empty
-	20,  // 116: accounting.AccountingService.BeginPasskeyRegistration:output_type -> accounting.PasskeyOptionsResponse
-	22,  // 117: accounting.AccountingService.FinishPasskeyRegistration:output_type -> accounting.Passkey
-	23,  // 118: accounting.AccountingService.ListPasskeys:output_type -> accounting.ListPasskeysResponse
-	5,   // 119: accounting.AccountingService.DeletePasskey:output_type -> accounting.Empty
-	24,  // 120: accounting.AccountingService.CreateCompany:output_type -> accounting.Company
-	24,  // 121: accounting.AccountingService.UpdateCompany:output_type -> accounting.Company
-	25,  // 122: accounting.AccountingService.ListCompanies:output_type -> accounting.ListCompaniesResponse
-	24,  // 123: accounting.AccountingService.GetCompany:output_type -> accounting.Company
-	26,  // 124: accounting.AccountingService.CreateProject:output_type -> accounting.Project
-	26,  // 125: accounting.AccountingService.UpdateProject:output_type -> accounting.Project
-	5,   // 126: accounting.AccountingService.DeleteProject:output_type -> accounting.Empty
-	28,  // 127: accounting.AccountingService.ListProjects:output_type -> accounting.ListProjectsResponse
-	26,  // 128: accounting.AccountingService.GetProject:output_type -> accounting.Project
-	30,  // 129: accounting.AccountingService.ListCategories:output_type -> accounting.ListCategoriesResponse
-	29,  // 130: accounting.AccountingService.CreateCategory:output_type -> accounting.Category
-	29,  // 131: accounting.AccountingService.UpdateCategory:output_type -> accounting.Category
-	5,   // 132: accounting.AccountingService.DeleteCategory:output_type -> accounting.Empty
-	32,  // 133: accounting.AccountingService.CreateInvoice:output_type -> accounting.Invoice
-	32,  // 134: accounting.AccountingService.UpdateInvoice:output_type -> accounting.Invoice
-	34,  // 135: accounting.AccountingService.ListInvoices:output_type -> accounting.ListInvoicesResponse
-	32,  // 136: accounting.AccountingService.GetInvoice:output_type -> accounting.Invoice
-	32,  // 137: accounting.AccountingService.IssueInvoice:output_type -> accounting.Invoice
-	32,  // 138: accounting.AccountingService.SendInvoice:output_type -> accounting.Invoice
-	9,   // 139: accounting.AccountingService.GetInvoicePdf:output_type -> accounting.FileResponse
-	32,  // 140: accounting.AccountingService.MarkInvoicePaid:output_type -> accounting.Invoice
-	32,  // 141: accounting.AccountingService.UnlinkInvoicePayment:output_type -> accounting.Invoice
-	32,  // 142: accounting.AccountingService.CancelInvoice:output_type -> accounting.Invoice
-	5,   // 143: accounting.AccountingService.DeleteInvoice:output_type -> accounting.Empty
-	38,  // 144: accounting.AccountingService.ListBankProviders:output_type -> accounting.ListBankProvidersResponse
-	41,  // 145: accounting.AccountingService.ListInstitutions:output_type -> accounting.ListInstitutionsResponse
-	44,  // 146: accounting.AccountingService.CreateBankConnection:output_type -> accounting.CreateBankConnectionResponse
-	42,  // 147: accounting.AccountingService.CompleteBankConnection:output_type -> accounting.BankConnection
-	42,  // 148: accounting.AccountingService.UpdateBankConnection:output_type -> accounting.BankConnection
-	44,  // 149: accounting.AccountingService.ReconnectBankConnection:output_type -> accounting.CreateBankConnectionResponse
-	47,  // 150: accounting.AccountingService.ListBankConnections:output_type -> accounting.ListBankConnectionsResponse
-	5,   // 151: accounting.AccountingService.DeleteBankConnection:output_type -> accounting.Empty
-	49,  // 152: accounting.AccountingService.ListBankAccounts:output_type -> accounting.ListBankAccountsResponse
-	5,   // 153: accounting.AccountingService.SetPrimaryAccount:output_type -> accounting.Empty
-	50,  // 154: accounting.AccountingService.SyncNow:output_type -> accounting.SyncNowResponse
-	55,  // 155: accounting.AccountingService.GetBalanceHistory:output_type -> accounting.BalanceHistoryResponse
-	52,  // 156: accounting.AccountingService.UploadStatement:output_type -> accounting.UploadStatementResponse
-	58,  // 157: accounting.AccountingService.ListTransactions:output_type -> accounting.ListTransactionsResponse
-	56,  // 158: accounting.AccountingService.ExplainTransaction:output_type -> accounting.Transaction
-	5,   // 159: accounting.AccountingService.ApproveTransactions:output_type -> accounting.Empty
-	56,  // 160: accounting.AccountingService.LinkTransactionToInvoice:output_type -> accounting.Transaction
-	62,  // 161: accounting.AccountingService.UploadAttachment:output_type -> accounting.Attachment
-	65,  // 162: accounting.AccountingService.ListAttachments:output_type -> accounting.ListAttachmentsResponse
-	9,   // 163: accounting.AccountingService.GetAttachment:output_type -> accounting.FileResponse
-	5,   // 164: accounting.AccountingService.DeleteAttachment:output_type -> accounting.Empty
-	69,  // 165: accounting.AccountingService.GetOverview:output_type -> accounting.OverviewResponse
-	107, // [107:166] is the sub-list for method output_type
-	48,  // [48:107] is the sub-list for method input_type
-	48,  // [48:48] is the sub-list for extension type_name
-	48,  // [48:48] is the sub-list for extension extendee
-	0,   // [0:48] is the sub-list for field type_name
+	45,  // 30: accounting.CreateBankConnectionResponse.choice:type_name -> accounting.ChoiceRequired
+	46,  // 31: accounting.ChoiceRequired.options:type_name -> accounting.ChoiceOption
+	76,  // 32: accounting.UpdateBankConnectionRequest.config:type_name -> accounting.UpdateBankConnectionRequest.ConfigEntry
+	42,  // 33: accounting.UpdateBankConnectionResponse.connection:type_name -> accounting.BankConnection
+	45,  // 34: accounting.UpdateBankConnectionResponse.choice:type_name -> accounting.ChoiceRequired
+	77,  // 35: accounting.CompleteBankConnectionRequest.params:type_name -> accounting.CompleteBankConnectionRequest.ParamsEntry
+	42,  // 36: accounting.ListBankConnectionsResponse.items:type_name -> accounting.BankConnection
+	78,  // 37: accounting.BankAccount.balance_at:type_name -> google.protobuf.Timestamp
+	3,   // 38: accounting.BankAccount.connection_status:type_name -> accounting.ConnectionStatus
+	78,  // 39: accounting.BankAccount.consent_expires_at:type_name -> google.protobuf.Timestamp
+	78,  // 40: accounting.BankAccount.last_sync_at:type_name -> google.protobuf.Timestamp
+	51,  // 41: accounting.ListBankAccountsResponse.items:type_name -> accounting.BankAccount
+	57,  // 42: accounting.BalanceHistoryResponse.points:type_name -> accounting.BalancePoint
+	78,  // 43: accounting.Transaction.booked_at:type_name -> google.protobuf.Timestamp
+	4,   // 44: accounting.Transaction.status:type_name -> accounting.TransactionStatus
+	4,   // 45: accounting.ListTransactionsRequest.status:type_name -> accounting.TransactionStatus
+	59,  // 46: accounting.ListTransactionsResponse.items:type_name -> accounting.Transaction
+	78,  // 47: accounting.Attachment.created_at:type_name -> google.protobuf.Timestamp
+	65,  // 48: accounting.ListAttachmentsResponse.items:type_name -> accounting.Attachment
+	70,  // 49: accounting.OverviewResponse.cashflow:type_name -> accounting.CashflowPoint
+	57,  // 50: accounting.OverviewResponse.balance_history:type_name -> accounting.BalancePoint
+	71,  // 51: accounting.OverviewResponse.invoice_timeline:type_name -> accounting.InvoiceTimelinePoint
+	11,  // 52: accounting.AccountingService.Register:input_type -> accounting.RegisterRequest
+	12,  // 53: accounting.AccountingService.Login:input_type -> accounting.LoginRequest
+	14,  // 54: accounting.AccountingService.RequestRecovery:input_type -> accounting.RequestRecoveryRequest
+	15,  // 55: accounting.AccountingService.ValidateRecoveryToken:input_type -> accounting.RecoveryTokenRequest
+	17,  // 56: accounting.AccountingService.RecoverAccount:input_type -> accounting.RecoverAccountRequest
+	19,  // 57: accounting.AccountingService.BeginPasskeyLogin:input_type -> accounting.BeginPasskeyLoginRequest
+	21,  // 58: accounting.AccountingService.FinishPasskeyLogin:input_type -> accounting.FinishPasskeyRequest
+	5,   // 59: accounting.AccountingService.Me:input_type -> accounting.Empty
+	18,  // 60: accounting.AccountingService.ChangePassword:input_type -> accounting.ChangePasswordRequest
+	5,   // 61: accounting.AccountingService.BeginPasskeyRegistration:input_type -> accounting.Empty
+	21,  // 62: accounting.AccountingService.FinishPasskeyRegistration:input_type -> accounting.FinishPasskeyRequest
+	5,   // 63: accounting.AccountingService.ListPasskeys:input_type -> accounting.Empty
+	6,   // 64: accounting.AccountingService.DeletePasskey:input_type -> accounting.IdRequest
+	24,  // 65: accounting.AccountingService.CreateCompany:input_type -> accounting.Company
+	24,  // 66: accounting.AccountingService.UpdateCompany:input_type -> accounting.Company
+	5,   // 67: accounting.AccountingService.ListCompanies:input_type -> accounting.Empty
+	7,   // 68: accounting.AccountingService.GetCompany:input_type -> accounting.CompanyRequest
+	26,  // 69: accounting.AccountingService.CreateProject:input_type -> accounting.Project
+	26,  // 70: accounting.AccountingService.UpdateProject:input_type -> accounting.Project
+	8,   // 71: accounting.AccountingService.DeleteProject:input_type -> accounting.CompanyIdRequest
+	27,  // 72: accounting.AccountingService.ListProjects:input_type -> accounting.ListProjectsRequest
+	8,   // 73: accounting.AccountingService.GetProject:input_type -> accounting.CompanyIdRequest
+	7,   // 74: accounting.AccountingService.ListCategories:input_type -> accounting.CompanyRequest
+	29,  // 75: accounting.AccountingService.CreateCategory:input_type -> accounting.Category
+	29,  // 76: accounting.AccountingService.UpdateCategory:input_type -> accounting.Category
+	8,   // 77: accounting.AccountingService.DeleteCategory:input_type -> accounting.CompanyIdRequest
+	32,  // 78: accounting.AccountingService.CreateInvoice:input_type -> accounting.Invoice
+	32,  // 79: accounting.AccountingService.UpdateInvoice:input_type -> accounting.Invoice
+	33,  // 80: accounting.AccountingService.ListInvoices:input_type -> accounting.ListInvoicesRequest
+	8,   // 81: accounting.AccountingService.GetInvoice:input_type -> accounting.CompanyIdRequest
+	8,   // 82: accounting.AccountingService.IssueInvoice:input_type -> accounting.CompanyIdRequest
+	8,   // 83: accounting.AccountingService.SendInvoice:input_type -> accounting.CompanyIdRequest
+	8,   // 84: accounting.AccountingService.GetInvoicePdf:input_type -> accounting.CompanyIdRequest
+	35,  // 85: accounting.AccountingService.MarkInvoicePaid:input_type -> accounting.MarkInvoicePaidRequest
+	8,   // 86: accounting.AccountingService.UnlinkInvoicePayment:input_type -> accounting.CompanyIdRequest
+	8,   // 87: accounting.AccountingService.CancelInvoice:input_type -> accounting.CompanyIdRequest
+	8,   // 88: accounting.AccountingService.DeleteInvoice:input_type -> accounting.CompanyIdRequest
+	5,   // 89: accounting.AccountingService.ListBankProviders:input_type -> accounting.Empty
+	39,  // 90: accounting.AccountingService.ListInstitutions:input_type -> accounting.ListInstitutionsRequest
+	43,  // 91: accounting.AccountingService.CreateBankConnection:input_type -> accounting.CreateBankConnectionRequest
+	49,  // 92: accounting.AccountingService.CompleteBankConnection:input_type -> accounting.CompleteBankConnectionRequest
+	47,  // 93: accounting.AccountingService.UpdateBankConnection:input_type -> accounting.UpdateBankConnectionRequest
+	8,   // 94: accounting.AccountingService.ReconnectBankConnection:input_type -> accounting.CompanyIdRequest
+	7,   // 95: accounting.AccountingService.ListBankConnections:input_type -> accounting.CompanyRequest
+	8,   // 96: accounting.AccountingService.DeleteBankConnection:input_type -> accounting.CompanyIdRequest
+	7,   // 97: accounting.AccountingService.ListBankAccounts:input_type -> accounting.CompanyRequest
+	8,   // 98: accounting.AccountingService.SetPrimaryAccount:input_type -> accounting.CompanyIdRequest
+	7,   // 99: accounting.AccountingService.SyncNow:input_type -> accounting.CompanyRequest
+	56,  // 100: accounting.AccountingService.GetBalanceHistory:input_type -> accounting.BalanceHistoryRequest
+	54,  // 101: accounting.AccountingService.UploadStatement:input_type -> accounting.UploadStatementRequest
+	60,  // 102: accounting.AccountingService.ListTransactions:input_type -> accounting.ListTransactionsRequest
+	62,  // 103: accounting.AccountingService.ExplainTransaction:input_type -> accounting.ExplainTransactionRequest
+	63,  // 104: accounting.AccountingService.ApproveTransactions:input_type -> accounting.ApproveTransactionsRequest
+	64,  // 105: accounting.AccountingService.LinkTransactionToInvoice:input_type -> accounting.LinkTransactionRequest
+	66,  // 106: accounting.AccountingService.UploadAttachment:input_type -> accounting.UploadAttachmentRequest
+	67,  // 107: accounting.AccountingService.ListAttachments:input_type -> accounting.ListAttachmentsRequest
+	8,   // 108: accounting.AccountingService.GetAttachment:input_type -> accounting.CompanyIdRequest
+	8,   // 109: accounting.AccountingService.DeleteAttachment:input_type -> accounting.CompanyIdRequest
+	69,  // 110: accounting.AccountingService.GetOverview:input_type -> accounting.OverviewRequest
+	13,  // 111: accounting.AccountingService.Register:output_type -> accounting.AuthResponse
+	13,  // 112: accounting.AccountingService.Login:output_type -> accounting.AuthResponse
+	5,   // 113: accounting.AccountingService.RequestRecovery:output_type -> accounting.Empty
+	16,  // 114: accounting.AccountingService.ValidateRecoveryToken:output_type -> accounting.RecoveryTokenResponse
+	13,  // 115: accounting.AccountingService.RecoverAccount:output_type -> accounting.AuthResponse
+	20,  // 116: accounting.AccountingService.BeginPasskeyLogin:output_type -> accounting.PasskeyOptionsResponse
+	13,  // 117: accounting.AccountingService.FinishPasskeyLogin:output_type -> accounting.AuthResponse
+	10,  // 118: accounting.AccountingService.Me:output_type -> accounting.User
+	5,   // 119: accounting.AccountingService.ChangePassword:output_type -> accounting.Empty
+	20,  // 120: accounting.AccountingService.BeginPasskeyRegistration:output_type -> accounting.PasskeyOptionsResponse
+	22,  // 121: accounting.AccountingService.FinishPasskeyRegistration:output_type -> accounting.Passkey
+	23,  // 122: accounting.AccountingService.ListPasskeys:output_type -> accounting.ListPasskeysResponse
+	5,   // 123: accounting.AccountingService.DeletePasskey:output_type -> accounting.Empty
+	24,  // 124: accounting.AccountingService.CreateCompany:output_type -> accounting.Company
+	24,  // 125: accounting.AccountingService.UpdateCompany:output_type -> accounting.Company
+	25,  // 126: accounting.AccountingService.ListCompanies:output_type -> accounting.ListCompaniesResponse
+	24,  // 127: accounting.AccountingService.GetCompany:output_type -> accounting.Company
+	26,  // 128: accounting.AccountingService.CreateProject:output_type -> accounting.Project
+	26,  // 129: accounting.AccountingService.UpdateProject:output_type -> accounting.Project
+	5,   // 130: accounting.AccountingService.DeleteProject:output_type -> accounting.Empty
+	28,  // 131: accounting.AccountingService.ListProjects:output_type -> accounting.ListProjectsResponse
+	26,  // 132: accounting.AccountingService.GetProject:output_type -> accounting.Project
+	30,  // 133: accounting.AccountingService.ListCategories:output_type -> accounting.ListCategoriesResponse
+	29,  // 134: accounting.AccountingService.CreateCategory:output_type -> accounting.Category
+	29,  // 135: accounting.AccountingService.UpdateCategory:output_type -> accounting.Category
+	5,   // 136: accounting.AccountingService.DeleteCategory:output_type -> accounting.Empty
+	32,  // 137: accounting.AccountingService.CreateInvoice:output_type -> accounting.Invoice
+	32,  // 138: accounting.AccountingService.UpdateInvoice:output_type -> accounting.Invoice
+	34,  // 139: accounting.AccountingService.ListInvoices:output_type -> accounting.ListInvoicesResponse
+	32,  // 140: accounting.AccountingService.GetInvoice:output_type -> accounting.Invoice
+	32,  // 141: accounting.AccountingService.IssueInvoice:output_type -> accounting.Invoice
+	32,  // 142: accounting.AccountingService.SendInvoice:output_type -> accounting.Invoice
+	9,   // 143: accounting.AccountingService.GetInvoicePdf:output_type -> accounting.FileResponse
+	32,  // 144: accounting.AccountingService.MarkInvoicePaid:output_type -> accounting.Invoice
+	32,  // 145: accounting.AccountingService.UnlinkInvoicePayment:output_type -> accounting.Invoice
+	32,  // 146: accounting.AccountingService.CancelInvoice:output_type -> accounting.Invoice
+	5,   // 147: accounting.AccountingService.DeleteInvoice:output_type -> accounting.Empty
+	38,  // 148: accounting.AccountingService.ListBankProviders:output_type -> accounting.ListBankProvidersResponse
+	41,  // 149: accounting.AccountingService.ListInstitutions:output_type -> accounting.ListInstitutionsResponse
+	44,  // 150: accounting.AccountingService.CreateBankConnection:output_type -> accounting.CreateBankConnectionResponse
+	42,  // 151: accounting.AccountingService.CompleteBankConnection:output_type -> accounting.BankConnection
+	48,  // 152: accounting.AccountingService.UpdateBankConnection:output_type -> accounting.UpdateBankConnectionResponse
+	44,  // 153: accounting.AccountingService.ReconnectBankConnection:output_type -> accounting.CreateBankConnectionResponse
+	50,  // 154: accounting.AccountingService.ListBankConnections:output_type -> accounting.ListBankConnectionsResponse
+	5,   // 155: accounting.AccountingService.DeleteBankConnection:output_type -> accounting.Empty
+	52,  // 156: accounting.AccountingService.ListBankAccounts:output_type -> accounting.ListBankAccountsResponse
+	5,   // 157: accounting.AccountingService.SetPrimaryAccount:output_type -> accounting.Empty
+	53,  // 158: accounting.AccountingService.SyncNow:output_type -> accounting.SyncNowResponse
+	58,  // 159: accounting.AccountingService.GetBalanceHistory:output_type -> accounting.BalanceHistoryResponse
+	55,  // 160: accounting.AccountingService.UploadStatement:output_type -> accounting.UploadStatementResponse
+	61,  // 161: accounting.AccountingService.ListTransactions:output_type -> accounting.ListTransactionsResponse
+	59,  // 162: accounting.AccountingService.ExplainTransaction:output_type -> accounting.Transaction
+	5,   // 163: accounting.AccountingService.ApproveTransactions:output_type -> accounting.Empty
+	59,  // 164: accounting.AccountingService.LinkTransactionToInvoice:output_type -> accounting.Transaction
+	65,  // 165: accounting.AccountingService.UploadAttachment:output_type -> accounting.Attachment
+	68,  // 166: accounting.AccountingService.ListAttachments:output_type -> accounting.ListAttachmentsResponse
+	9,   // 167: accounting.AccountingService.GetAttachment:output_type -> accounting.FileResponse
+	5,   // 168: accounting.AccountingService.DeleteAttachment:output_type -> accounting.Empty
+	72,  // 169: accounting.AccountingService.GetOverview:output_type -> accounting.OverviewResponse
+	111, // [111:170] is the sub-list for method output_type
+	52,  // [52:111] is the sub-list for method input_type
+	52,  // [52:52] is the sub-list for extension type_name
+	52,  // [52:52] is the sub-list for extension extendee
+	0,   // [0:52] is the sub-list for field type_name
 }
 
 func init() { file_routes_proto_init() }
@@ -5735,7 +5929,7 @@ func file_routes_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_routes_proto_rawDesc), len(file_routes_proto_rawDesc)),
 			NumEnums:      5,
-			NumMessages:   70,
+			NumMessages:   73,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

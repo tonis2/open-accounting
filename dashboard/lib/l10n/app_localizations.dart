@@ -2227,6 +2227,12 @@ abstract class AppLocalizations {
   /// **'in {days} days'**
   String inDays(int days);
 
+  /// No description provided for @selectOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Select {label}'**
+  String selectOne(String label);
+
   /// No description provided for @editConnection.
   ///
   /// In en, this message translates to:

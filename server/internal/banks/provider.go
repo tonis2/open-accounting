@@ -4,11 +4,34 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"strings"
 	"time"
 )
 
 // ErrConsentExpired signals that the user must re-authorise the connection at the bank.
 var ErrConsentExpired = errors.New("bank consent expired")
+
+// ChoiceRequired is returned by Connect when a config field can only be picked from
+// account-specific options (e.g. which Wise profile); the client re-submits with it set.
+type ChoiceRequired struct {
+	Field   string
+	Label   string
+	Options []Option
+}
+
+type Option struct {
+	Value string
+	Label string
+}
+
+func (e *ChoiceRequired) Error() string {
+	labels := make([]string, len(e.Options))
+	for i, o := range e.Options {
+		labels[i] = fmt.Sprintf("%s (%s)", o.Value, o.Label)
+	}
+	return fmt.Sprintf("choose %s: %s", e.Label, strings.Join(labels, ", "))
+}
 
 // ErrStatementsUnavailable marks a provider that can report balances but is not allowed to
 // deliver transactions for this account; the connection stays active and rows come from uploads.

@@ -6,6 +6,7 @@ import '../../l10n/app_localizations.dart';
 import '../../logging/logging.dart';
 import '../../services/errors.dart';
 import '../../state.dart';
+import 'choice_dialog.dart';
 import 'key_file_field.dart';
 import '../../theme.dart';
 import 'connection_status.dart';
@@ -110,6 +111,16 @@ class _ConnectBankPageState extends State<ConnectBankPage> {
       final res = await state.server.createBankConnection(
         CreateBankConnectionRequest(companyId: state.companyId, provider: _provider!.id, name: _name.text.trim(), config: _config().entries),
       );
+      if (res.hasChoice()) {
+        // The provider needs one more answer (e.g. which Wise profile) — ask, fill the field, retry.
+        final picked = mounted ? await ChoiceDialog.show(context, res.choice) : null;
+        if (!mounted) return;
+        setState(() => _busy = false);
+        if (picked == null) return;
+        _text[res.choice.key]?.text = picked;
+        await _connect();
+        return;
+      }
       if (res.redirectUrl.isNotEmpty) {
         AppLogger.info(l.connectBankRedirecting);
         await openExternal(res.redirectUrl);

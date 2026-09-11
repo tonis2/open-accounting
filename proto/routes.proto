@@ -61,7 +61,7 @@ service AccountingService {
   rpc ListInstitutions (ListInstitutionsRequest) returns (ListInstitutionsResponse) {}
   rpc CreateBankConnection (CreateBankConnectionRequest) returns (CreateBankConnectionResponse) {}
   rpc CompleteBankConnection (CompleteBankConnectionRequest) returns (BankConnection) {}
-  rpc UpdateBankConnection (UpdateBankConnectionRequest) returns (BankConnection) {}
+  rpc UpdateBankConnection (UpdateBankConnectionRequest) returns (UpdateBankConnectionResponse) {}
   rpc ReconnectBankConnection (CompanyIdRequest) returns (CreateBankConnectionResponse) {}
   rpc ListBankConnections (CompanyRequest) returns (ListBankConnectionsResponse) {}
   rpc DeleteBankConnection (CompanyIdRequest) returns (Empty) {}
@@ -410,6 +410,20 @@ message CreateBankConnectionRequest {
 message CreateBankConnectionResponse {
   BankConnection connection = 1;
   string redirect_url = 2;  // non-empty when the user must authorise at the bank
+  ChoiceRequired choice = 3;  // set (and no connection created) when a field must be picked first
+}
+
+// A config field the provider can only resolve from account-specific options, e.g. which
+// Wise profile to use. The client re-submits with that config key set to one of the option values.
+message ChoiceRequired {
+  string key = 1;  // config field to fill with the chosen value
+  string label = 2;
+  repeated ChoiceOption options = 3;
+}
+
+message ChoiceOption {
+  string value = 1;
+  string label = 2;
 }
 
 // Empty values keep the stored setting, so secrets never need to be re-entered.
@@ -418,6 +432,11 @@ message UpdateBankConnectionRequest {
   uint64 id = 2;
   string name = 3;
   map<string, string> config = 4;
+}
+
+message UpdateBankConnectionResponse {
+  BankConnection connection = 1;
+  ChoiceRequired choice = 2;  // set (and nothing saved) when a field must be picked first
 }
 
 message CompleteBankConnectionRequest {
