@@ -1,0 +1,626 @@
+syntax = "proto3";
+
+package accounting;
+
+option go_package = "open-accounting/server/pb";
+
+import "google/protobuf/timestamp.proto";
+
+service AccountingService {
+  // Auth (no token required)
+  rpc Register (RegisterRequest) returns (AuthResponse) {}
+  rpc Login (LoginRequest) returns (AuthResponse) {}
+  rpc RequestRecovery (RequestRecoveryRequest) returns (Empty) {}
+  rpc ValidateRecoveryToken (RecoveryTokenRequest) returns (RecoveryTokenResponse) {}
+  rpc RecoverAccount (RecoverAccountRequest) returns (AuthResponse) {}
+  rpc BeginPasskeyLogin (BeginPasskeyLoginRequest) returns (PasskeyOptionsResponse) {}
+  rpc FinishPasskeyLogin (FinishPasskeyRequest) returns (AuthResponse) {}
+
+  // Account
+  rpc Me (Empty) returns (User) {}
+  rpc ChangePassword (ChangePasswordRequest) returns (Empty) {}
+  rpc BeginPasskeyRegistration (Empty) returns (PasskeyOptionsResponse) {}
+  rpc FinishPasskeyRegistration (FinishPasskeyRequest) returns (Passkey) {}
+  rpc ListPasskeys (Empty) returns (ListPasskeysResponse) {}
+  rpc DeletePasskey (IdRequest) returns (Empty) {}
+
+  // Companies
+  rpc CreateCompany (Company) returns (Company) {}
+  rpc UpdateCompany (Company) returns (Company) {}
+  rpc ListCompanies (Empty) returns (ListCompaniesResponse) {}
+  rpc GetCompany (CompanyRequest) returns (Company) {}
+
+  // Projects
+  rpc CreateProject (Project) returns (Project) {}
+  rpc UpdateProject (Project) returns (Project) {}
+  rpc DeleteProject (CompanyIdRequest) returns (Empty) {}
+  rpc ListProjects (ListProjectsRequest) returns (ListProjectsResponse) {}
+  rpc GetProject (CompanyIdRequest) returns (Project) {}
+
+  // Categories
+  rpc ListCategories (CompanyRequest) returns (ListCategoriesResponse) {}
+  rpc CreateCategory (Category) returns (Category) {}
+  rpc UpdateCategory (Category) returns (Category) {}
+  rpc DeleteCategory (CompanyIdRequest) returns (Empty) {}
+
+  // Invoices
+  rpc CreateInvoice (Invoice) returns (Invoice) {}
+  rpc UpdateInvoice (Invoice) returns (Invoice) {}
+  rpc ListInvoices (ListInvoicesRequest) returns (ListInvoicesResponse) {}
+  rpc GetInvoice (CompanyIdRequest) returns (Invoice) {}
+  rpc IssueInvoice (CompanyIdRequest) returns (Invoice) {}
+  rpc SendInvoice (CompanyIdRequest) returns (Invoice) {}
+  rpc GetInvoicePdf (CompanyIdRequest) returns (FileResponse) {}
+  rpc MarkInvoicePaid (MarkInvoicePaidRequest) returns (Invoice) {}
+  rpc UnlinkInvoicePayment (CompanyIdRequest) returns (Invoice) {}
+  rpc CancelInvoice (CompanyIdRequest) returns (Invoice) {}
+  rpc DeleteInvoice (CompanyIdRequest) returns (Empty) {}
+
+  // Banking
+  rpc ListBankProviders (Empty) returns (ListBankProvidersResponse) {}
+  rpc ListInstitutions (ListInstitutionsRequest) returns (ListInstitutionsResponse) {}
+  rpc CreateBankConnection (CreateBankConnectionRequest) returns (CreateBankConnectionResponse) {}
+  rpc CompleteBankConnection (CompleteBankConnectionRequest) returns (BankConnection) {}
+  rpc UpdateBankConnection (UpdateBankConnectionRequest) returns (BankConnection) {}
+  rpc ReconnectBankConnection (CompanyIdRequest) returns (CreateBankConnectionResponse) {}
+  rpc ListBankConnections (CompanyRequest) returns (ListBankConnectionsResponse) {}
+  rpc DeleteBankConnection (CompanyIdRequest) returns (Empty) {}
+  rpc ListBankAccounts (CompanyRequest) returns (ListBankAccountsResponse) {}
+  rpc SetPrimaryAccount (CompanyIdRequest) returns (Empty) {}
+  rpc SyncNow (CompanyRequest) returns (SyncNowResponse) {}
+  rpc GetBalanceHistory (BalanceHistoryRequest) returns (BalanceHistoryResponse) {}
+  rpc UploadStatement (UploadStatementRequest) returns (UploadStatementResponse) {}
+
+  // Transactions
+  rpc ListTransactions (ListTransactionsRequest) returns (ListTransactionsResponse) {}
+  rpc ExplainTransaction (ExplainTransactionRequest) returns (Transaction) {}
+  rpc ApproveTransactions (ApproveTransactionsRequest) returns (Empty) {}
+  rpc LinkTransactionToInvoice (LinkTransactionRequest) returns (Transaction) {}
+  rpc UploadAttachment (UploadAttachmentRequest) returns (Attachment) {}
+  rpc ListAttachments (ListAttachmentsRequest) returns (ListAttachmentsResponse) {}
+  rpc GetAttachment (CompanyIdRequest) returns (FileResponse) {}
+  rpc DeleteAttachment (CompanyIdRequest) returns (Empty) {}
+
+  // Dashboard
+  rpc GetOverview (OverviewRequest) returns (OverviewResponse) {}
+}
+
+// ==================== Common ====================
+
+message Empty {}
+
+message IdRequest {
+  uint64 id = 1;
+}
+
+message CompanyRequest {
+  uint64 company_id = 1;
+}
+
+message CompanyIdRequest {
+  uint64 company_id = 1;
+  uint64 id = 2;
+}
+
+message FileResponse {
+  bytes data = 1;
+  string filename = 2;
+  string mime = 3;
+}
+
+// ==================== Auth ====================
+
+message User {
+  uint64 id = 1;
+  string email = 2;
+  string name = 3;
+  bool has_password = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
+
+message RegisterRequest {
+  string email = 1;
+  string name = 2;
+  string password = 3;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  string token = 1;
+  User user = 2;
+}
+
+message RequestRecoveryRequest {
+  string email = 1;
+}
+
+message RecoveryTokenRequest {
+  string token = 1;
+}
+
+message RecoveryTokenResponse {
+  bool valid = 1;
+  string email = 2;
+}
+
+message RecoverAccountRequest {
+  string token = 1;
+  string new_password = 2;
+}
+
+message ChangePasswordRequest {
+  string current_password = 1;
+  string new_password = 2;
+}
+
+message BeginPasskeyLoginRequest {
+  string email = 1;
+}
+
+// options_json is the standard WebAuthn options object ({"publicKey": {...}})
+message PasskeyOptionsResponse {
+  string session_id = 1;
+  string options_json = 2;
+}
+
+// credential_json is the standard PublicKeyCredential JSON produced by the browser
+message FinishPasskeyRequest {
+  string session_id = 1;
+  string credential_json = 2;
+  string name = 3;
+}
+
+message Passkey {
+  uint64 id = 1;
+  string name = 2;
+  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp last_used_at = 4;
+}
+
+message ListPasskeysResponse {
+  repeated Passkey items = 1;
+}
+
+// ==================== Companies ====================
+
+message Company {
+  uint64 id = 1;
+  string name = 2;
+  string reg_number = 3;
+  string vat_number = 4;
+  string address = 5;
+  string email = 6;
+  string phone = 7;
+  string iban = 8;
+  string bank_name = 9;
+  string currency = 10;
+  string invoice_prefix = 11;
+  uint32 next_invoice_number = 12;
+  string default_vat_rate = 13; // decimal string e.g. "24.00"
+  uint32 default_due_days = 14;
+  string role = 15;
+  google.protobuf.Timestamp created_at = 16;
+}
+
+message ListCompaniesResponse {
+  repeated Company items = 1;
+}
+
+// ==================== Projects ====================
+
+message Project {
+  uint64 id = 1;
+  uint64 company_id = 2;
+  string name = 3;
+  string email = 4;
+  string description = 5;
+  string contact_name = 6;
+  string address = 7;
+  string reg_number = 8;
+  string vat_number = 9;
+  bool is_active = 10;
+  google.protobuf.Timestamp created_at = 11;
+  // Aggregates filled by the server on list/get
+  int64 invoiced_cents = 12;
+  int64 outstanding_cents = 13;
+  uint32 invoice_count = 14;
+}
+
+message ListProjectsRequest {
+  uint64 company_id = 1;
+  bool include_inactive = 2;
+}
+
+message ListProjectsResponse {
+  repeated Project items = 1;
+}
+
+// ==================== Categories ====================
+
+enum CategoryKind {
+  CATEGORY_KIND_UNSPECIFIED = 0;
+  CATEGORY_KIND_INCOME = 1;
+  CATEGORY_KIND_EXPENSE = 2;
+}
+
+message Category {
+  uint64 id = 1;
+  uint64 company_id = 2;
+  string name = 3;
+  CategoryKind kind = 4;
+  uint32 sort_order = 5;
+}
+
+message ListCategoriesResponse {
+  repeated Category items = 1;
+}
+
+// ==================== Invoices ====================
+
+enum InvoiceStatus {
+  INVOICE_STATUS_UNSPECIFIED = 0;
+  INVOICE_STATUS_DRAFT = 1;
+  INVOICE_STATUS_OPEN = 2;
+  INVOICE_STATUS_PAID = 3;
+  INVOICE_STATUS_CANCELLED = 4;
+}
+
+message InvoiceItem {
+  uint64 id = 1;
+  uint32 position = 2;
+  string description = 3;
+  string quantity = 4;     // decimal string, e.g. "2.500"
+  int64 unit_price_cents = 5;
+  string vat_rate = 6;     // decimal string, e.g. "24.00"
+  int64 net_cents = 7;
+  int64 vat_cents = 8;
+}
+
+message Invoice {
+  uint64 id = 1;
+  uint64 company_id = 2;
+  uint64 project_id = 3;
+  string project_name = 4;
+  string number = 5;
+  InvoiceStatus status = 6;
+  string issue_date = 7;   // YYYY-MM-DD
+  string due_date = 8;     // YYYY-MM-DD
+  string currency = 9;
+  int64 subtotal_cents = 10;
+  int64 vat_cents = 11;
+  int64 total_cents = 12;
+  string notes = 13;
+  string reference = 14;
+  google.protobuf.Timestamp paid_at = 15;
+  uint64 paid_transaction_id = 16;
+  google.protobuf.Timestamp sent_at = 17;
+  google.protobuf.Timestamp created_at = 18;
+  repeated InvoiceItem items = 19;
+  bool is_overdue = 20;
+}
+
+message ListInvoicesRequest {
+  uint64 company_id = 1;
+  InvoiceStatus status = 2;   // unspecified = all
+  uint64 project_id = 3;      // 0 = all
+  bool only_overdue = 4;
+  uint32 page = 5;
+  uint32 page_size = 6;
+}
+
+message ListInvoicesResponse {
+  repeated Invoice items = 1;
+  uint32 total = 2;
+}
+
+message MarkInvoicePaidRequest {
+  uint64 company_id = 1;
+  uint64 id = 2;
+  uint64 transaction_id = 3;  // optional: link to a bank transaction
+  string paid_date = 4;       // YYYY-MM-DD, used when no transaction
+}
+
+// ==================== Banking ====================
+
+enum FieldKind {
+  FIELD_KIND_TEXT = 0;
+  FIELD_KIND_SECRET = 1;
+  FIELD_KIND_MULTILINE = 2;
+  FIELD_KIND_SELECT = 3;
+  FIELD_KIND_BOOL = 4;
+}
+
+message ConfigField {
+  string key = 1;
+  string label = 2;
+  string hint = 3;
+  FieldKind kind = 4;
+  repeated string options = 5;
+  bool required = 6;
+  string default_value = 7;
+}
+
+message BankProvider {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  repeated ConfigField config_fields = 4;
+  bool needs_redirect = 5;
+  bool has_institutions = 6;
+}
+
+message ListBankProvidersResponse {
+  repeated BankProvider items = 1;
+}
+
+message ListInstitutionsRequest {
+  uint64 company_id = 1;
+  string provider = 2;
+  string country = 3;
+  map<string, string> config = 4;
+}
+
+message Institution {
+  string id = 1;
+  string name = 2;
+  string bic = 3;
+  string logo_url = 4;
+  uint32 transaction_total_days = 5;
+}
+
+message ListInstitutionsResponse {
+  repeated Institution items = 1;
+}
+
+enum ConnectionStatus {
+  CONNECTION_STATUS_UNSPECIFIED = 0;
+  CONNECTION_STATUS_PENDING = 1;
+  CONNECTION_STATUS_ACTIVE = 2;
+  CONNECTION_STATUS_EXPIRED = 3;
+  CONNECTION_STATUS_ERROR = 4;
+}
+
+message BankConnection {
+  uint64 id = 1;
+  uint64 company_id = 2;
+  string provider = 3;
+  string provider_name = 4;
+  string name = 5;
+  ConnectionStatus status = 6;
+  string status_message = 7;
+  google.protobuf.Timestamp consent_expires_at = 8;
+  google.protobuf.Timestamp last_sync_at = 9;
+  google.protobuf.Timestamp created_at = 10;
+  uint32 account_count = 11;
+  map<string, string> config = 12;   // current settings; secret fields are returned empty
+  bool statements_only = 13;         // transactions arrive via UploadStatement, not the API
+}
+
+message CreateBankConnectionRequest {
+  uint64 company_id = 1;
+  string provider = 2;
+  string name = 3;
+  map<string, string> config = 4;
+}
+
+message CreateBankConnectionResponse {
+  BankConnection connection = 1;
+  string redirect_url = 2;  // non-empty when the user must authorise at the bank
+}
+
+// Empty values keep the stored setting, so secrets never need to be re-entered.
+message UpdateBankConnectionRequest {
+  uint64 company_id = 1;
+  uint64 id = 2;
+  string name = 3;
+  map<string, string> config = 4;
+}
+
+message CompleteBankConnectionRequest {
+  string reference = 1;                 // value from the ?ref= callback query
+  map<string, string> params = 2;       // any other callback params
+}
+
+message ListBankConnectionsResponse {
+  repeated BankConnection items = 1;
+}
+
+message BankAccount {
+  uint64 id = 1;
+  uint64 connection_id = 2;
+  uint64 company_id = 3;
+  string name = 4;
+  string iban = 5;
+  string currency = 6;
+  int64 balance_cents = 7;
+  google.protobuf.Timestamp balance_at = 8;
+  bool is_primary = 9;
+  string provider = 10;
+  string connection_name = 11;
+  ConnectionStatus connection_status = 12;
+  google.protobuf.Timestamp consent_expires_at = 13;
+  google.protobuf.Timestamp last_sync_at = 14;
+  uint32 unexplained_count = 15;
+  uint32 for_approval_count = 16;
+}
+
+message ListBankAccountsResponse {
+  repeated BankAccount items = 1;
+}
+
+message SyncNowResponse {
+  uint32 connections_synced = 1;
+  uint32 transactions_added = 2;
+  uint32 invoices_matched = 3;
+  repeated string errors = 4;
+}
+
+// A CSV statement downloaded from the bank; rows already imported are skipped.
+message UploadStatementRequest {
+  uint64 company_id = 1;
+  uint64 account_id = 2;
+  string filename = 3;
+  bytes data = 4;
+}
+
+message UploadStatementResponse {
+  uint32 imported = 1;
+  uint32 duplicates = 2;
+  uint32 skipped = 3;
+  uint32 invoices_matched = 4;
+  repeated string warnings = 5;
+}
+
+message BalanceHistoryRequest {
+  uint64 company_id = 1;
+  uint64 account_id = 2;  // 0 = all accounts
+  uint32 months = 3;
+}
+
+message BalancePoint {
+  string month = 1;       // YYYY-MM
+  int64 balance_cents = 2;
+}
+
+message BalanceHistoryResponse {
+  repeated BalancePoint points = 1;
+  string currency = 2;
+}
+
+// ==================== Transactions ====================
+
+enum TransactionStatus {
+  TRANSACTION_STATUS_UNSPECIFIED = 0;
+  TRANSACTION_STATUS_UNEXPLAINED = 1;
+  TRANSACTION_STATUS_EXPLAINED = 2;
+  TRANSACTION_STATUS_APPROVED = 3;
+}
+
+message Transaction {
+  uint64 id = 1;
+  uint64 account_id = 2;
+  uint64 company_id = 3;
+  google.protobuf.Timestamp booked_at = 4;
+  string value_date = 5;
+  int64 amount_cents = 6;
+  string currency = 7;
+  string description = 8;
+  string counterparty_name = 9;
+  string counterparty_iban = 10;
+  string reference = 11;
+  uint64 category_id = 12;
+  string category_name = 13;
+  string note = 14;
+  TransactionStatus status = 15;
+  uint64 invoice_id = 16;
+  string invoice_number = 17;
+  uint32 attachment_count = 18;
+  int64 running_balance_cents = 19;
+  string account_name = 20;
+}
+
+message ListTransactionsRequest {
+  uint64 company_id = 1;
+  uint64 account_id = 2;          // 0 = all
+  TransactionStatus status = 3;   // unspecified = all
+  string month = 4;               // YYYY-MM, empty = all
+  string search = 5;
+  uint32 page = 6;
+  uint32 page_size = 7;
+}
+
+message ListTransactionsResponse {
+  repeated Transaction items = 1;
+  uint32 total = 2;
+  int64 balance_brought_forward_cents = 3;
+}
+
+message ExplainTransactionRequest {
+  uint64 company_id = 1;
+  uint64 id = 2;
+  uint64 category_id = 3;
+  string note = 4;
+  string description = 5;
+  bool approve = 6;
+}
+
+message ApproveTransactionsRequest {
+  uint64 company_id = 1;
+  repeated uint64 ids = 2;
+}
+
+message LinkTransactionRequest {
+  uint64 company_id = 1;
+  uint64 transaction_id = 2;
+  uint64 invoice_id = 3;   // 0 = unlink
+}
+
+message Attachment {
+  uint64 id = 1;
+  uint64 company_id = 2;
+  uint64 transaction_id = 3;
+  uint64 invoice_id = 4;
+  string filename = 5;
+  string mime = 6;
+  uint64 size_bytes = 7;
+  google.protobuf.Timestamp created_at = 8;
+}
+
+message UploadAttachmentRequest {
+  uint64 company_id = 1;
+  uint64 transaction_id = 2;
+  uint64 invoice_id = 3;
+  string filename = 4;
+  bytes data = 5;
+}
+
+message ListAttachmentsRequest {
+  uint64 company_id = 1;
+  uint64 transaction_id = 2;
+  uint64 invoice_id = 3;
+}
+
+message ListAttachmentsResponse {
+  repeated Attachment items = 1;
+}
+
+// ==================== Dashboard ====================
+
+message OverviewRequest {
+  uint64 company_id = 1;
+  uint32 months = 2;   // default 12
+}
+
+message CashflowPoint {
+  string month = 1;    // YYYY-MM
+  int64 in_cents = 2;
+  int64 out_cents = 3;
+}
+
+message InvoiceTimelinePoint {
+  string month = 1;
+  int64 paid_cents = 2;
+  int64 due_cents = 3;
+  int64 overdue_cents = 4;
+}
+
+message OverviewResponse {
+  string currency = 1;
+  repeated CashflowPoint cashflow = 2;
+  int64 incoming_cents = 3;
+  int64 outgoing_cents = 4;
+  repeated BalancePoint balance_history = 5;
+  int64 total_balance_cents = 6;
+  repeated InvoiceTimelinePoint invoice_timeline = 7;
+  int64 outstanding_cents = 8;
+  int64 income_cents = 9;
+  int64 expenses_cents = 10;
+  uint32 for_approval_count = 11;
+  uint32 unexplained_count = 12;
+  bool has_bank_accounts = 13;
+  bool has_expired_connections = 14;
+}

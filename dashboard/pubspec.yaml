@@ -1,0 +1,46 @@
+name: open_accounting_dashboard
+description: Open Accounting web dashboard
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.0
+  flutter: ^3.47.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Navigation & UI
+  go_router: ^17.5.0
+  top_snackbar_flutter: ^3.3.0
+  fl_chart: ^1.1.1
+
+  # gRPC & data
+  grpc: ^5.1.0
+  protobuf: ^6.0.0
+  fixnum: ^1.1.1
+
+  # Auth & storage
+  passkeys: ^2.17.4
+  localstorage: ^6.0.0
+  dart_jsonwebtoken: ^3.3.2
+
+  # Utilities
+  intl: ^0.20.2
+  file_picker: ^11.0.3
+  url_launcher: ^6.3.2
+  web: ^1.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true

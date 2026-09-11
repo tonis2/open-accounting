@@ -1,0 +1,22 @@
+# SITE_ADDRESS=https://your.domain enables automatic TLS; the default keeps local runs on plain HTTP.
+{$SITE_ADDRESS:http://localhost} {
+	encode gzip
+
+	# Browser gRPC-Web calls go to Envoy; handle blocks are exclusive and evaluated in order.
+	@grpcweb header Content-Type application/grpc-web*
+	handle @grpcweb {
+		reverse_proxy envoy:8081
+	}
+
+	handle /.well-known/* {
+		root * /srv
+		header Content-Type application/json
+		file_server
+	}
+
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}

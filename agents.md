@@ -1,0 +1,1 @@
+Keep code comments to minimum, small few lines only, easily readable for humans.

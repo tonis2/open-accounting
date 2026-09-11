@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Open Accounting — self-hosted invoicing and bank reconciliation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Open Accounting">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>Open Accounting</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    html, body { margin: 0; height: 100%; background: #F2F6FA; }
+    #loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #F2F6FA; transition: opacity .3s; }
+    #loader.fade-out { opacity: 0; pointer-events: none; }
+    .spinner { width: 40px; height: 40px; border: 3px solid #DDE3EA; border-top-color: #1F6FB5; border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="loader"><div class="spinner"></div></div>
+  <!-- WebAuthn bridge required by the passkeys package -->
+  <script src="bundle.js"></script>
+  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.addEventListener("flutter-first-frame", function () {
+      var loader = document.getElementById("loader");
+      if (!loader) return;
+      loader.classList.add("fade-out");
+      loader.addEventListener("transitionend", function () { loader.remove(); });
+    });
+  </script>
+</body>
+</html>
